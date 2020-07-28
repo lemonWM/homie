@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav>
-      <router-link :to="{name: 'user'}">user</router-link>
+      <router-link :to="{name: 'user-user'}">user</router-link>
     </nav>
     <Nuxt />
   </div>
