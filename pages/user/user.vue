@@ -1,7 +1,7 @@
 <template>
     <div>
        <div v-for="(user, index) in users">
-            <nuxt-link :to="{name: 'user-id', params: {id: user.name, user: user}}">{{user.name}}</nuxt-link>
+            <nuxt-link :to="{name: 'user-id', params: {id: user.name }}">{{user.name}}</nuxt-link>
        </div>
     </div>
 </template>

@@ -1,18 +1,12 @@
 <template>
     <div>
         <p>name</p>
-        <p>{{user.name}}</p>
+        <p>uzytkowanika</p>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'user',
-    props: ['user'],
-    watch: {
-        user(n){
-            console.log(n)
-        }
-    }
+    name: 'user',   
 }
 </script>
