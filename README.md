@@ -1,5 +1,10 @@
 # homie
 
+Nuxt.js app
+Vue.js
+
+Node.js & Express.js Server
+
 ## Build Setup
 
 ```bash
