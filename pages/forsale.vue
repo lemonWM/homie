@@ -2,7 +2,7 @@
     <div class="sale-wrapper">
         <headerMain />
 
-        <div>
+        <div class="dd">
             <p>dd</p>
         </div>
     </div>
@@ -25,5 +25,7 @@ export default {
 .sale-wrapper{
     background-color: #6a7a88; 
 }
-
+.dd{
+    height: 500px;
+}
 </style>
