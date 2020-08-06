@@ -55,7 +55,7 @@ span{
     width: 100%;
     height: 100vh;
     top: 0px;
-    background-color: #000000b3;
+    background-color: rgba(0, 0, 0, 0.77);
     z-index: -1;
 }
 </style>

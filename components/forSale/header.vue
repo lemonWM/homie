@@ -40,15 +40,15 @@
     height: 400px;
     width: 100%;
     top: 0px; 
-    z-index: 1;
-    background: rgba(219,219,219,0.28);
-    background: -moz-linear-gradient(top, rgba(219,219,219,0.28) 0%, rgba(159,168,175,0.28) 53%, rgba(106,122,136,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(219,219,219,0.28)), color-stop(53%, rgba(159,168,175,0.28)), color-stop(100%, rgba(106,122,136,1)));
-    background: -webkit-linear-gradient(top, rgba(219,219,219,0.28) 0%, rgba(159,168,175,0.28) 53%, rgba(106,122,136,1) 100%);
-    background: -o-linear-gradient(top, rgba(219,219,219,0.28) 0%, rgba(159,168,175,0.28) 53%, rgba(106,122,136,1) 100%);
-    background: -ms-linear-gradient(top, rgba(219,219,219,0.28) 0%, rgba(159,168,175,0.28) 53%, rgba(106,122,136,1) 100%);
-    background: linear-gradient(to bottom, rgba(219,219,219,0.28) 0%, rgba(159,168,175,0.28) 53%, rgba(106,122,136,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#6a7a88', GradientType=0 );
+    z-index: 1; 
+    background: rgba(255,255,255,0);
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(25%, rgba(206,208,211,0)), color-stop(100%, rgba(59,67,80,1)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#3b4350', GradientType=0 );
 }
 .title{
     color: #c2f9df;
@@ -62,7 +62,7 @@
     margin-top: 40px;
 }
 .input-sels{
-    background-color: #808d9c;
+    background-color: #505767;
     border: none;
     box-shadow: none;
     border-radius: 15px;

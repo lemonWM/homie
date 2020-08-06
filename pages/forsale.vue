@@ -23,7 +23,7 @@ export default {
 <style scoped>
 
 .sale-wrapper{
-    background-color: #6a7a88; 
+    background-color: #3b4350; 
 }
 .dd{
     height: 500px;

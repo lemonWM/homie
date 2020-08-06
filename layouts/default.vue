@@ -24,11 +24,16 @@
   height: 40px;
   background-color: inherit;
   z-index: 9;
-  position: absolute;
+  position: fixed;
   top: 0px;
   width: 100%;
   justify-content: center;
   max-width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+  -webkit-box-shadow: 0px 7px 32px -8px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 7px 32px -8px rgba(0,0,0,0.75);
+  box-shadow: 0px 7px 32px -8px rgba(0,0,0,0.75);
 }
 .main-nav{
   justify-content: center;
