@@ -74,9 +74,9 @@
 }
 .search-btn{
     position: absolute;
-    top: -2px;
+    top: 2px;
     right: 6px;
-    font-size: 25px;
+    font-size: 20px;
     padding: 10px;
     color: #c2f9df;
 }
