@@ -2,8 +2,8 @@ import vue from 'vue';
 
 export default{
     
-    add(state, payload){
+    setSales(state, payload){
 
-        state.counter += payload.value
+        state.sales = payload.sales
     },
 }

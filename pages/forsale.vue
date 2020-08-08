@@ -2,20 +2,20 @@
     <div class="sale-wrapper">
         <headerMain />
 
-        <div class="dd">
-            <p>dd</p>
-        </div>
+        <mainContent/>
     </div>
 </template>
 
 <script>
 
 import headerMain from '../components/forSale/header'
+import mainContent from '../components/forSale/content'
 
 export default {
     name: 'for-sale',
     components: {
-        headerMain
+        headerMain,
+        mainContent
     }
 }
 </script>
