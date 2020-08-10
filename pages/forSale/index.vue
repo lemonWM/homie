@@ -1,15 +1,14 @@
 <template>
     <div class="sale-wrapper">
         <headerMain />
-
         <mainContent/>
     </div>
 </template>
 
 <script>
 
-import headerMain from '../components/forSale/header'
-import mainContent from '../components/forSale/content'
+import headerMain from '../../components/forSale/header'
+import mainContent from '../../components/forSale/content'
 
 export default {
     name: 'for-sale',

@@ -17,30 +17,7 @@ export default {
   },
   components:{
     homeHeader
-  },
-  created() {
-    this.getSales()
-  },
-  methods: {
-    
-    getSales(){
-
-      this.$axios.get('http://localhost:5000/sales')
-      .then(({data})=>{
-        
-        this.setSales(data)
-      })
-      .catch(({error})=>{
-        this.error = error
-      })
-    },
-    setSales(data){
-
-      this.$store.commit('setSales', {
-        sales: data
-      })
-    }
-  },
+  }
 }
 </script>
 

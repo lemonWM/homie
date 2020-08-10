@@ -2,7 +2,7 @@
     <div class="sales-wrapper row">
         <div class="single-wrapper columns small-4" v-for="(single, index) in sales" :key="single._id">
             <div class="single-sale-element ">
-                <article @click='dd(single._id)' class="element-sale">
+                <article @click='goToSingle(single._id)' class="element-sale">
                     <div class="img-element">
                         <figure>
                             <img :src="single.photos[0]" alt="" class="img-single">
@@ -12,7 +12,7 @@
                         <h3 class="price">${{single.price}}</h3>
                     </div>
                     <div>
-                        <p class="address">{{single.address}}</p>
+                        <p class="address">{{single.localization}} {{single.address}}</p>
                     </div>
                     <div>
                         <p class="details">{{single.schedulePlace.bedrooms}} bedrooms / {{single.schedulePlace.bathrooms}} bathrooms / {{single.totalArea}} &sup2</p>
@@ -68,9 +68,9 @@ export default {
                 sales: data
             })
         },
-        dd(id){
-            console.log(id)
-            // go to single
+        goToSingle(id){
+            
+            this.$router.push(`/forSale/${id}`)
         }
     },
 }
