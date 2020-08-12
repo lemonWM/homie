@@ -17,6 +17,7 @@
 
 import searchCity from '../forSale/single/modeuleSearchAPI'
 
+
 export default {
     name: 'header-single',
     components: {searchCity}

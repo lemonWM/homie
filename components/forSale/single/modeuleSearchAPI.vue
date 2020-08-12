@@ -13,7 +13,7 @@
 
 <script>
 
-import VueGoogleAutocomplete from 'vue-google-autocomplete';
+import VueGoogleAutocomplete from '../../../node_modules/vue-google-autocomplete';
 
 export default {
     name: 'search-google-api',

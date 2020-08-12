@@ -1,11 +1,15 @@
 <template>
-
     <div class="sales-wrapper">
         <div v-if="getLocalization.length">
-            <p>Results match for '{{getLocalization}}'</p>
+            <div >
+                <h3>Results match for '{{getLocalization}}'</h3>
+            </div>
+            <div class="module-map">
+                <mapModule />   
+            </div>
         </div>
-        <div class="row">
-            <div class="single-wrapper columns small-4" v-for="(single, index) in sales" :key="single._id">
+        <div class="row item-wrapper">
+            <div class="single-wrapper columns small-3" v-for="(single, index) in sales" :key="single._id">
                 <div class="single-sale-element ">
                     <article @click='goToSingle(single._id)' class="element-sale">
                         <div class="img-element">
@@ -32,11 +36,11 @@
             </div>
         </div>
     </div>
-
-
 </template>
 
 <script>
+
+import mapModule from '../forSale/single/moduleMapGoogle'
 
 export default {
     name: 'main-content',
@@ -84,7 +88,8 @@ export default {
             
             this.$router.push(`/forSale/${id}`)
         }
-    }
+    },
+    components: {mapModule}
 }
 </script>
 
@@ -92,6 +97,9 @@ export default {
 
 .sales-wrapper{
     padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .element-sale{
     cursor: pointer;
