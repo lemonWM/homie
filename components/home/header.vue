@@ -18,7 +18,7 @@ export default {
     methods: {
         goSels(){
 
-            this.$router.push({name: 'forsale'})
+            this.$router.push({name: 'forSale'})
         }
     },
 }

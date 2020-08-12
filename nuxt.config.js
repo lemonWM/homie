@@ -22,6 +22,11 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
 
     ],
+    script: [
+      {
+        src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDSpLefX1gn7woT-vc6wRnFLmrVeQ1H8fM&libraries=places"
+      }
+    ],
     link: [
       {
         rel: 'stylesheet',
@@ -84,7 +89,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
-    '@nuxt/content',
+    '@nuxt/content'
   ],
   /*
   ** Axios module configuration

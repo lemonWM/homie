@@ -6,4 +6,8 @@ export default{
 
         state.sales = payload.sales
     },
+    setLocalization(state, payload){
+
+        state.localization = payload.localization
+    }
 }

@@ -1,19 +1,19 @@
 <template>
     <div class="sale-wrapper">
-        <headerMain />
+        <headMain/>
         <mainContent/>
     </div>
 </template>
 
 <script>
 
-import headerMain from '../../components/forSale/header'
+import headMain from '../../components/forSale/header'
 import mainContent from '../../components/forSale/content'
 
 export default {
     name: 'for-sale',
     components: {
-        headerMain,
+        headMain,
         mainContent
     }
 }

@@ -4,16 +4,25 @@
         <div class="header-content">
             <h1 class="title">Search for best location</h1>
             <div class="input-search-wrapper">
-                <input type="text" placeholder="Enter city, ex. 'Los Angeles'" class="input-sels">
-                <button class="search-btn">
-                    <i class="fa fa-search"></i>
-                </button>
-                
+                <div class="module-search">
+                    <searchCity/>
+                </div>
             </div>
         </div>
         <div class="dimmed"></div>
     </div>
 </template>
+
+<script>
+
+import searchCity from '../forSale/single/modeuleSearchAPI'
+
+export default {
+    name: 'header-single',
+    components: {searchCity}
+}
+</script>
+
 
 <style scoped>
 .sale{
@@ -60,24 +69,5 @@
 .input-search-wrapper{
     position: relative;
     margin-top: 40px;
-}
-.input-sels{
-    background-color: #505767;
-    border: none;
-    box-shadow: none;
-    border-radius: 15px;
-    padding: 10px 30px;
-    color: #bcced3;
-    height: auto;
-    width: 340px;
-    font-size: 22px;
-}
-.search-btn{
-    position: absolute;
-    top: 2px;
-    right: 6px;
-    font-size: 20px;
-    padding: 10px;
-    color: #c2f9df;
 }
 </style>
