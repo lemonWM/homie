@@ -1,9 +1,9 @@
 # homie
-
+Current in progress project..
 Nuxt.js app
 Vue.js
 
-Node.js Server
+Express.js Server
 
 MongoDB 
 
