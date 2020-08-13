@@ -3,7 +3,9 @@
 Nuxt.js app
 Vue.js
 
-Node.js & Express.js Server
+Node.js Server
+
+MongoDB 
 
 ## Build Setup
 
