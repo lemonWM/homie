@@ -2,7 +2,7 @@
     <div>
         <gmap-map
             :center="center"
-            :zoom="10"
+            :zoom="11"
             style="width:100%;  height: 300px;"
             >
             <gmap-marker
@@ -20,19 +20,7 @@ export default {
   name: "GoogleMap",
   data() {
     return {
-      markers: [{
-        position: {
-        lat: 34.052235,
-        lng: -118.243683,
-        name: 'dsdsd'
-        },
     }
-    ],
-      places: [],
-      currentPlace: { 
-        lat: 34.052235,
-        lng: -118.243683, }
-    };
   },
 
   computed: {
@@ -44,36 +32,28 @@ export default {
                 lng: this.$store.state.localization.longitude
             }
             return centerValue
+      },
+      markers(){
+
+            let items = this.$store.state.sales
+
+            let markers = []
+
+            items.forEach(function(item){
+
+                let localization = {
+                    position: {
+                        lat: item.geolocalization.lat,
+                        lng: item.geolocalization.lng,
+                        id: item.geolocalization.id
+                    }
+                }
+
+                markers.push(localization)
+            })
+
+            return markers
       }
-  },
-
-  methods: {
-    // receives a place object via the autocomplete component
- 
-//     addMarker() {
-//       if (this.currentPlace) {
-//         const marker = {
-//           lat: this.currentPlace.geometry.location.lat(),
-//           lng: this.currentPlace.geometry.location.lng()
-//         };
-//         this.markers.push({ position: marker });
-//         this.places.push(this.currentPlace);
-//         this.center = marker;
-//         this.currentPlace = null;
-//       }
-//     },
-        geolocate: function() {
-            navigator.geolocation.getCurrentPosition(position => {
-                this.center = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-                };
-            });
-        },
-        show(value){
-
-            console.log(value.name)
-        }
-    },
+  }
 };
 </script>
