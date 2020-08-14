@@ -1,6 +1,6 @@
 <template>
     <div class="sales-wrapper">
-        <div v-if="getLocalization.length">
+        <div v-if="getLocalization">
             <div >
                 <h3>Results match for '{{getLocalization}}'</h3>
             </div>
@@ -63,7 +63,7 @@ export default {
         },
         getLocalization(){
 
-            return this.$store.state.localization
+            return this.$store.state.localization.locality
         }
     },
     methods: {

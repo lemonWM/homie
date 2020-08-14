@@ -40,10 +40,10 @@ export default {
     },
     watch: {
         address(newLocalization) {
-            console.log(newLocalization.locality)
+            //console.log(newLocalization)
             
             this.$store.commit('setLocalization', {
-                localization: newLocalization.locality
+                localization: newLocalization
             })
         }
     },

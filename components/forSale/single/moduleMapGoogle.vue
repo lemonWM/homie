@@ -2,7 +2,7 @@
     <div>
         <gmap-map
             :center="center"
-            :zoom="4"
+            :zoom="9"
             style="width:100%;  height: 300px;"
             >
             <gmap-marker
@@ -20,11 +20,6 @@ export default {
   name: "GoogleMap",
   data() {
     return {
-
-      center: { 
-            lat: 34.052235,
-            lng: -118.243683,
-        },
       markers: [{
         position: {
         lat: 34.052235,
@@ -40,8 +35,16 @@ export default {
     };
   },
 
-  mounted() {
-    //this.geolocate();
+  computed: {
+      
+      center(){
+
+            let centerValue = {
+                lat: this.$store.state.localization.latitude,
+                lng: this.$store.state.localization.longitude
+            }
+            return centerValue
+      }
   },
 
   methods: {
@@ -59,18 +62,6 @@ export default {
 //         this.currentPlace = null;
 //       }
 //     },
-        geolocate: function() {
-            navigator.geolocation.getCurrentPosition(position => {
-                this.center = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-                };
-            });
-        },
-        show(value){
-
-            console.log(value.name)
-        }
     }
 };
 </script>
