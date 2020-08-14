@@ -2,7 +2,7 @@
     <div>
         <gmap-map
             :center="center"
-            :zoom="9"
+            :zoom="10"
             style="width:100%;  height: 300px;"
             >
             <gmap-marker
@@ -62,6 +62,18 @@ export default {
 //         this.currentPlace = null;
 //       }
 //     },
-    }
+        geolocate: function() {
+            navigator.geolocation.getCurrentPosition(position => {
+                this.center = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+                };
+            });
+        },
+        show(value){
+
+            console.log(value.name)
+        }
+    },
 };
 </script>
