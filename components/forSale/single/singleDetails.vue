@@ -1,18 +1,23 @@
 <template>
     <div>
-        <figure v-for="(img, index) in single.photos">
 
-            <img :src="img" alt="">
+        <imgSlider  :single='single'/>
 
-        </figure>
-        <pre>{{single}}</pre>
+        <gMaps :marker='single.geolocalization'/>
     </div>
 </template>
 
 <script>
 
+import imgSlider from './single_imgSlider'
+import gMaps from './singleGmaps'
+
 export default {
     name: 'single-details',
     props: ['single'],
+    components: {
+        imgSlider,
+        gMaps
+    }
 }
 </script>
