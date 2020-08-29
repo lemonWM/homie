@@ -4,12 +4,14 @@
             :center="center"
             :zoom="11"
             style="width:100%;  height: 300px;"
+            class="dds"
             >
             <gmap-marker
                 :key="index"
                 v-for="(m, index) in markers"
                 :position="m.position"
                 @click="show(m.position)"
+                :id="dddddddd"
             ></gmap-marker>
         </gmap-map>
 
@@ -24,7 +26,7 @@
                     <p>{{preview.price}}</p>            
                 </div>
                 <button class="secondary button hollow" @click="singleDetails">VISIT PLACE</button>
-                <button @click="visible =!visible">
+                <button @click="visible =!visible; emitID('')">
                     <i class="fas fa-times"></i>
                 </button>
             </article>
@@ -35,11 +37,17 @@
 <script>
 export default {
     name: "GoogleMap",
+    props: {
+        rotatedPin: {
+            type: Object
+        },
+        isActive: true
+    },
     data() {
         return {
             visible: false,
             preview: {},
-            error: null
+            error: null,
         }
     },
 
@@ -72,7 +80,8 @@ export default {
             })
 
             return markers
-        } // creating markers from all sels element in base
+        }, // creating markers from all sels element in base
+       
     },
     methods: {
       
@@ -84,11 +93,14 @@ export default {
                     this.preview = data
 
                     this.visible = true
+
+                    this.emitID(data._id) // emit for add active class to pin element
                 })
                 .catch(({ error })=> {
 
                     this.error = error
                 })
+
         }, // get single sels for preview on g-maps
         hideShort(){
 
@@ -99,8 +111,12 @@ export default {
             let id = this.preview._id
 
             this.$router.push(`/forSale/${id}`)
+        },
+        emitID(id){
+
+            this.$emit('pointered', id)
         }
-    },
+    }
 };
 </script>
 
@@ -124,6 +140,8 @@ export default {
 .img-preview-icon{
     width: 100px;
 }
-
+.ddsssss{
+    display: none;
+}
 
 </style>

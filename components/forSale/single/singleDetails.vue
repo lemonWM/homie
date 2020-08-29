@@ -5,7 +5,7 @@
             <img :src="img" alt="">
 
         </figure>
-        <p>ddsdsd</p>
+        <pre>{{single}}</pre>
     </div>
 </template>
 

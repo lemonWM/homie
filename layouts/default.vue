@@ -1,12 +1,13 @@
 <template>
   <div>
     <nav class="navigation row">
-      <div class="main-nav  row">
+      <div class="main-nav row">
         <nuxt-link :to="{name: 'index'}" class="nav-link nav-home">HOMIE</nuxt-link>
         <nuxt-link :to="{name: 'forSale'}" class="nav-link">BUY</nuxt-link>
         <nuxt-link :to="{name: 'forRent'}" class="nav-link">RENT</nuxt-link>
-        <div class="login-nav ">
+        <div class="login-nav row">
           <nuxt-link :to="{name: 'login'}" class="nav-link">Login</nuxt-link>
+          <nuxt-link :to="{name: 'register'}" class="nav-link">Register</nuxt-link>
         </div>
       </div>
     </nav>

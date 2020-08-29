@@ -5,12 +5,17 @@
                 <h3>Results match for '{{getLocalization}}'</h3>
             </div>
             <div class="module-map">
-                <mapModule />   
+                <mapModule @pointered='setClass' :rotatedPin='rotatedPin'/>   
             </div>
         </div>
         <div class="row item-wrapper">
-            <div class="single-wrapper columns small-3" v-for="(single, index) in sales" :key="single._id">
-                <div class="single-sale-element ">
+            <div class="single-wrapper columns small-3" 
+                v-for="(single, index) in sales" 
+                :key="single._id"
+                :class="{'active': (single._id === activeID)}"
+                @mouseover="rotetePin(single.geolocalization)"
+                >
+                <div class="single-sale-element">
                     <article @click='goToSingle(single._id)' class="element-sale">
                         <div class="img-element">
                             <figure>
@@ -46,7 +51,8 @@ export default {
     name: 'main-content',
     data() {
         return {
-            
+            activeID: '',
+            rotatedPin: {}
         }
     },
     created() {
@@ -70,7 +76,7 @@ export default {
         getLocalization(){
 
             return this.$store.state.localization.locality
-        }
+        },
     },
     methods: {
         getSales(){
@@ -93,6 +99,15 @@ export default {
         goToSingle(id){
             
             this.$router.push(`/forSale/${id}`)
+        },
+        setClass(value){
+
+            this.activeID = value
+
+        },// add class active to item selected on google maps pin click
+        rotetePin(value){
+  
+            this.rotatedPin = value
         }
     },
     components: {mapModule}
@@ -150,5 +165,10 @@ export default {
 .add-to-observe-icon{
     color: #c2f9df;
     font-size: 18px;
+}
+.active{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(193,247,221,1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(193,247,221,1);
+    box-shadow: 0px 0px 5px 0px rgba(193,247,221,1);
 }
 </style>
