@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div v-if="marker">
         <gmap-map
-            :center="center"
+            :center="marker"
             :zoom="12"
             style="width:100%;  height: 300px;"
             >
             <gmap-marker
-                :key="marker"
+                :key="marker._id"
                 :position="marker"
             ></gmap-marker>
         </gmap-map>
@@ -16,16 +16,6 @@
 <script>
 export default {
     name:'single-details-g_map',
-    props: ['marker'],
-    computed: {
-        center(){
-
-            let centerValue = {
-                lat: this.marker.lat,
-                lng: this.marker.lng
-            }
-            return centerValue
-        },
-    },
+    props: ['marker']
 }
 </script>

@@ -15,6 +15,7 @@ import gMaps from './singleGmaps'
 export default {
     name: 'single-details',
     props: ['single'],
+
     components: {
         imgSlider,
         gMaps

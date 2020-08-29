@@ -11,7 +11,6 @@
                 v-for="(m, index) in markers"
                 :position="m.position"
                 @click="show(m.position)"
-                :id="dddddddd"
             ></gmap-marker>
         </gmap-map>
 
