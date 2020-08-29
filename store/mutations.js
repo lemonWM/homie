@@ -9,5 +9,9 @@ export default{
     setLocalization(state, payload){
 
         state.localization = payload.localization
+    },
+    searchPlace(state, payload){
+        
+        state.searchPlace = payload.searchPlace
     }
 }

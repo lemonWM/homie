@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="auto-complete">
         <vue-google-autocomplete
             id="map"
             ref="address"
@@ -8,6 +8,8 @@
             v-on:placechanged="getToData"
             types="(cities)"
             country="us" />
+
+            <button @click="clearSearch"><i class="far fa-times-circle"></i></button>
     </div>
 </template>
 
@@ -36,14 +38,23 @@ export default {
         */
         getToData: function (addressData, placeResultData, id) {
             this.address = addressData;
-        }
+        },
+        clearSearch(){
+            this.$store.commit('searchPlace', {
+                searchPlace: ''
+            })
+        } // reset sort place by localization
     },
     watch: {
         address(newLocalization) {
-            //console.log(newLocalization)
-            
+
+            let namePlace = newLocalization.locality
+
             this.$store.commit('setLocalization', {
                 localization: newLocalization
+            })
+            this.$store.commit('searchPlace', {
+                searchPlace: namePlace
             })
         }
     },

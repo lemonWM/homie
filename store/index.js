@@ -13,7 +13,8 @@ const createStore = () => {
       rents:[],
       user:'',
       localization: {},
-      salesItemLocalizations: []
+      salesItemLocalizations: [],
+      searchPlace: ''
 
     }),
     getters,

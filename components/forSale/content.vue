@@ -59,7 +59,13 @@ export default {
         
         sales(){
 
-            return this.$store.state.sales
+            if(this.$store.state.searchPlace === ''){
+
+                return this.$store.state.sales
+            } else {
+
+                return this.$store.getters.getSelectedPlace(this.$store.state.searchPlace) 
+            }  
         },
         getLocalization(){
 
