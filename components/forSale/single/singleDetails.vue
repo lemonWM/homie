@@ -5,6 +5,7 @@
             <img :src="img" alt="">
 
         </figure>
+        <p>ddsdsd</p>
     </div>
 </template>
 

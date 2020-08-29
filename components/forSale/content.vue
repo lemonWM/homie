@@ -40,7 +40,7 @@
 
 <script>
 
-import mapModule from '../forSale/single/moduleMapGoogle'
+import mapModule from '../gMapsModul/moduleMapGoogle'
 
 export default {
     name: 'main-content',

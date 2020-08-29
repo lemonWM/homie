@@ -1,5 +1,5 @@
 <template>
-    <div class="g-maps">
+    <div class="g-maps" @click="hideShort">
         <gmap-map
             :center="center"
             :zoom="11"
@@ -15,14 +15,15 @@
 
         <div class="prev-sing-g-maps" v-if="visible">
             <article>
+                <figure>
+                    <img :src="preview.photos[0]" alt="" class="img-preview-icon">
+                </figure>
                 <div class="preview-details">
                     <p>{{preview.address}}</p>
                     <p>{{preview.localization}}</p>
                     <p>{{preview.price}}</p>            
                 </div>
-                <figure>
-                    <img :src="preview.photos[0]" alt="" class="img-preview-icon">
-                </figure>
+                <button class="secondary button hollow" @click="singleDetails">VISIT PLACE</button>
                 <button @click="visible =!visible">
                     <i class="fas fa-times"></i>
                 </button>
@@ -88,7 +89,17 @@ export default {
 
                     this.error = error
                 })
-        } // get single sels for preview on g-maps
+        }, // get single sels for preview on g-maps
+        hideShort(){
+
+            this.visible = false
+        },
+        singleDetails(){
+
+            let id = this.preview._id
+
+            this.$router.push(`/forSale/${id}`)
+        }
     },
 };
 </script>
@@ -103,7 +114,7 @@ export default {
     top: 20px;
     right: 90px;
     background: #505767;
-    height: 260px;
+    
     border-radius: 20px;
     padding: 15px;
 }

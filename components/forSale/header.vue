@@ -15,7 +15,7 @@
 
 <script>
 
-import searchCity from '../forSale/single/modeuleSearchAPI'
+import searchCity from '../gMapsModul/modeuleSearchAPI'
 
 
 export default {
