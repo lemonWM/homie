@@ -7,9 +7,11 @@
             placeholder="Enter city, ex. 'Los Angeles'"
             v-on:placechanged="getToData"
             types="(cities)"
-            country="us" />
-
-            <button @click="clearSearch"><i class="far fa-times-circle"></i></button>
+            country="us" 
+        />
+        <button @click="clearSearch">
+            <i class="far fa-times-circle"></i>
+        </button>
     </div>
 </template>
 

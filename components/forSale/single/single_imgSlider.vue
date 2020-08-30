@@ -2,18 +2,19 @@
     <div v-if="images">
         <div class="slider-img">
             <div class="slider-wrapper">
-                <button @click="prev" class="button hollow" :disabled='id === 0'>X</button>
+                <button @click="change(-1)" class="button hollow" :disabled='id === 0'>X</button>
 
                 <figure >
                     <img :src="images[id]" alt="">
                 </figure>
 
-                <button @click="next" class="button hollow" :disabled='id === images.length-1'>X</button>
-            </div>
-        
+                <button @click="change(1)" class="button hollow" :disabled='id === images.length-1'>X</button>
+            </div>      
             <div v-for="(img, index) in images" class="row" :key="img">
                 <div v-if="index === id">
-                    <i class="fas fa-circle"></i>
+                    <button>
+                        <i class="fas fa-circle"></i>
+                    </button>
                 </div>
                 <div v-else>
                     <button @click="selectID(index)">
@@ -43,13 +44,9 @@ export default {
     },
     methods: {
         
-        prev(){
+        change(value){
 
-            this.id -= 1
-        },
-        next(){
-
-            this.id +=1
+            this.id += value
         },
         selectID(index){
 
