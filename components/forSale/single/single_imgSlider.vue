@@ -1,13 +1,13 @@
 <template>
     <div v-if="images">
-        <div class="slider-img" @click="preview =! preview">
+        <div class="slider-img">
             <div class="slider-wrapper row">
                 <button @click="change(-1)" class="button hollow slider-btn-left" :disabled='id === 0'>
                     <i class="fas fa-chevron-circle-left arrow"></i>
                 </button>
 
                 <figure >
-                    <img :src="images[id]" alt="" class="img-element">
+                    <img :src="images[id]" alt="" class="img-element"  @click="preview =! preview">
                 </figure>
 
                 <button @click="change(1)" class="button hollow slider-btn-right" :disabled='id === images.length-1'>
@@ -29,8 +29,8 @@
                 </div>
             </section>      
         </div>
-        <div v-if="preview">
-            <imgSliderWidth :images='images'/>
+        <div v-if="preview" class="img-full-screen">
+            <imgSliderWidth :images='images' class="img-fs-preview"/>
         </div>
     </div>
 </template>
@@ -121,5 +121,19 @@ export default {
 
 .pagination a:hover, .pagination button:hover {
     background: #fff0;
+}
+.img-full-screen{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000e3;
+    z-index: 99999;
+    padding: 20px;
 }
 </style>

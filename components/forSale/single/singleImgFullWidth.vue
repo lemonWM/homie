@@ -1,7 +1,13 @@
 <template>
     <div>
-        <div v-for="img in images">
-            <img :src="img" alt="">
+        <div>
+            <button @click="change(-1)" class="button hollow slider-btn-left" :disabled='id === 0'>
+                <i class="fas fa-chevron-circle-left arrow"></i>
+            </button>
+            <img :src="images[id]" alt="">
+            <button @click="change(1)" class="button hollow slider-btn-right" :disabled='id === images.length-1'>
+                <i class="fas fa-chevron-circle-right arrow"></i>   
+            </button>
         </div>
     </div>
 
@@ -13,8 +19,14 @@ export default {
     props: ['images'],
     data() {
         return {
-            
+            id: 0
         }
+    },
+    methods: {
+        change(value){
+
+            this.id += value
+        },
     },
 }
 </script>
