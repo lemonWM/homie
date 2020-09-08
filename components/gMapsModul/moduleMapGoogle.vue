@@ -40,16 +40,18 @@ export default {
         rotatedPin: {
             type: Object
         },
-        isActive: true
+        isActive: true,
     },
     data() {
         return {
             visible: false,
             preview: {},
             error: null,
+            mark(value){
+                console.log(value)
+            }
         }
     },
-
     computed: {
       
         center(){
@@ -60,7 +62,7 @@ export default {
             }
             return centerValue
         },
-        markers(){
+        markers(value){
 
             let items = this.$store.state.sales
 
@@ -72,7 +74,7 @@ export default {
                     position: {
                         lat: item.geolocalization.lat,
                         lng: item.geolocalization.lng,
-                        id: item.geolocalization.id
+                        id: item.geolocalization.id,
                     }
                 }
                 markers.push(localization)
@@ -115,7 +117,12 @@ export default {
 
             this.$emit('pointered', id)
         }
-    }
+    },
+    watch: {
+        rotatedPin(newVal){
+            console.log(newVal.id)
+        }
+    },
 };
 </script>
 

@@ -5,6 +5,7 @@
         <nuxt-link :to="{name: 'index'}" class="nav-link nav-home">HOMIE</nuxt-link>
         <nuxt-link :to="{name: 'forSale'}" class="nav-link">BUY</nuxt-link>
         <nuxt-link :to="{name: 'forRent'}" class="nav-link">RENT</nuxt-link>
+        <nuxt-link :to="{name: 'add-new'}" class="nav-link">ADD NEW</nuxt-link>
         <div class="login-nav row">
           <nuxt-link :to="{name: 'login'}" class="nav-link">Login</nuxt-link>
           <nuxt-link :to="{name: 'register'}" class="nav-link">Register</nuxt-link>

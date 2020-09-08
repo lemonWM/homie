@@ -16,7 +16,7 @@
                 @mouseover="rotetePin(single.geolocalization)"
                 >
                 <div class="single-sale-element">
-                    <article @click='goToSingle(single._id)' class="element-sale">
+                    <article @click='goToSingle(single._id) ' class="element-sale">
                         <div class="img-element">
                             <figure>
                                 <img :src="single.photos[0]" alt="" class="img-single">
