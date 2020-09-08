@@ -30,7 +30,7 @@
             </section>      
         </div>
         <div v-if="preview" class="img-full-screen">
-            <imgSliderWidth :images='images' class="img-fs-preview"/>
+            <imgSliderWidth :images='images' class="img-fs-preview" @close='closePreview'/>
         </div>
     </div>
 </template>
@@ -64,6 +64,10 @@ export default {
         selectID(index){
 
             this.id = index
+        },
+        closePreview(value){
+
+            this.preview = value
         }
     },
     components: {

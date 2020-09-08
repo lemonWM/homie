@@ -4,7 +4,7 @@
             <button @click="change(-1)" class="button hollow slider-btn-left" :disabled='id === 0'>
                 <i class="fas fa-chevron-circle-left arrow"></i>
             </button>
-            <img :src="images[id]" alt="">
+            <img :src="images[id]" alt="" @click="closePreview">
             <button @click="change(1)" class="button hollow slider-btn-right" :disabled='id === images.length-1'>
                 <i class="fas fa-chevron-circle-right arrow"></i>   
             </button>
@@ -27,6 +27,10 @@ export default {
 
             this.id += value
         },
+        closePreview(){
+
+            this.$emit('close', false)
+        }
     },
 }
 </script>
