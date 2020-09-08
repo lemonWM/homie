@@ -33,4 +33,13 @@ export default {
 
 <style scoped>
 
+.single-wrapper{
+    background-color: #3b4350;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 100px;
+    min-height: 100vh;
+}
 </style>

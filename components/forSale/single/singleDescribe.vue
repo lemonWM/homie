@@ -1,6 +1,6 @@
 <template>
     <div v-if="single">
-        <p>{{single}}</p>
+        <p>{{single.localization}}</p>
     </div>
 </template>
 
