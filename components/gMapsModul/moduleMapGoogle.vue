@@ -4,14 +4,14 @@
             :center="center"
             :zoom="11"
             style="width:100%;  height: 300px;"
-            class="dds"
             >
             <gmap-marker
                 :key="index"
                 v-for="(m, index) in markers"
                 :position="m.position"
                 @click="show(m.position)"
-            ></gmap-marker>
+            >
+            </gmap-marker>
         </gmap-map>
 
         <div class="prev-sing-g-maps" v-if="visible">
@@ -46,10 +46,7 @@ export default {
         return {
             visible: false,
             preview: {},
-            error: null,
-            mark(value){
-                console.log(value)
-            }
+            error: null
         }
     },
     computed: {
@@ -87,6 +84,8 @@ export default {
     methods: {
       
         show(value){
+
+            console.log(value)
           
             this.$axios.get(`http://localhost:5000/single-sale/${value.id}`)
                 .then(({data})=>{
@@ -120,7 +119,7 @@ export default {
     },
     watch: {
         rotatedPin(newVal){
-            console.log(newVal.id)
+            //console.log(newVal.id)
         }
     },
 };
@@ -145,9 +144,6 @@ export default {
 }
 .img-preview-icon{
     width: 100px;
-}
-.ddsssss{
-    display: none;
 }
 
 </style>

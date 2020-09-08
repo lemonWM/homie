@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="single-wrapper">
         <div>
             <imgSlider  :single='single'/>
             <textDetails :single='single'/>
@@ -30,3 +30,7 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+</style>

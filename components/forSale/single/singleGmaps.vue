@@ -3,7 +3,8 @@
         <gmap-map
             :center="marker"
             :zoom="12"
-            style="width:100%;  height: 300px;"
+            style="width:300px;  height: 300px;"
+            class="g_map"
             >
             <gmap-marker
                 :key="marker._id"
