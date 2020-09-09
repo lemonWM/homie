@@ -136,7 +136,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000000e3;
+    background-color: rgba(0, 0, 0, 0.95);
     z-index: 99999;
     padding: 20px;
 }
