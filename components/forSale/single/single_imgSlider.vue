@@ -97,6 +97,8 @@ export default {
 }
 .slider-wrapper{
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 .slider-btn-left{
     position: absolute;

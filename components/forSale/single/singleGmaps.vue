@@ -23,7 +23,7 @@ export default {
 <style>
 .g_map{
     width: 300px;
-    height: 500px;
+    height: 700px;
 }
 .vue-map{
     overflow: hidden;
