@@ -11,14 +11,27 @@
                     </div>
                     <div class="calendar">
                         <p>Select a tour date</p>
-                        <date-picker v-model="time2" type="datetime"></date-picker>
+                        <date-picker v-model="date" type="datetime"></date-picker>
                     </div>
                 </div>
                 <div class="contact row">
-                    <button class="button">Contact option</button>
+                    <button class="button" @click="showContact">Contact option</button>
                     <button>
                         <i class="far fa-heart"></i>
                     </button>
+                </div>
+                <div class="contact-details" v-if="contact">
+                    <div class="phone">
+                        <button class="button">
+                            <a :href="`tel:${single.offer_owner.phone}`">{{single.offer_owner.phone}}</a>
+                        </button>
+                        
+                    </div>
+                    <div class="email">
+                        <button class="button">
+                            <a :href="`mailto:${single.offer_owner.email}`">{{single.offer_owner.email}}</a>
+                        </button>
+                    </div>
                 </div>
             </div>
        </div>
@@ -35,9 +48,20 @@ export default {
     props: ['single'],
     data() {
         return {
-            time1: null,
-            time2: null,
-            time3: null
+            date: null,
+            contact: false
+        }
+    },
+    methods: {
+        showContact(){
+
+            this.contact = true
+        }
+    },
+    watch: {
+        
+        date(val){
+            console.log(val)
         }
     },
     components: {DatePicker}
