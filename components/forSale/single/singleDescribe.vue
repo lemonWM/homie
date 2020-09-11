@@ -48,6 +48,13 @@ export default {
             this.show = value
         }
     },
+    created() {
+        
+        setInterval(() => {
+
+            this.show <=3 ? this.show +=1 : this.show = 1
+        }, 7000); 
+    },
 }
 </script>
 
