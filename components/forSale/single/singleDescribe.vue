@@ -67,6 +67,7 @@ export default {
 }
 .text-wrapper{
     max-width: 600px;
+    min-height: 150px;
     color: #86959c;
     margin-top: 20px;   
 }

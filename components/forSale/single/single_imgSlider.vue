@@ -126,14 +126,14 @@ export default {
 }
 
 .pagination a:hover, .pagination button:hover {
-    background: #fff0;
-}
+    background: #fff0;}
+
 .img-full-screen{
     position: absolute;
     left: 0px;
     top: 0px;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     z-index: 9;
     display: flex;
     justify-content: center;
@@ -141,5 +141,9 @@ export default {
     background-color: rgba(0, 0, 0, 0.95);
     z-index: 99999;
     padding: 20px;
+    overflow: hidden;
+    overflow-x: hidden; 
+    overflow-y: auto;
 }
+
 </style>
