@@ -11,7 +11,13 @@
                     </div>
                     <div class="calendar">
                         <p>Select a tour date</p>
-                        <date-picker v-model="date" type="datetime"></date-picker>
+                        <div class="">
+                            <date-picker v-model="date" type="datetime"></date-picker>
+                            <div v-if="date">
+                                <button class="button">Send proposition</button>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="contact row">
@@ -21,17 +27,22 @@
                     </button>
                 </div>
                 <div class="contact-details" v-if="contact">
-                    <div class="phone">
-                        <button class="button">
-                            <a :href="`tel:${single.offer_owner.phone}`">{{single.offer_owner.phone}}</a>
-                        </button>
-                        
+                    <div class="elements">
+                        <div class="phone">
+                            <button class="button">
+                                <a :href="`tel:${single.offer_owner.phone}`">{{single.offer_owner.phone}}</a>
+                            </button>
+                            
+                        </div>
+                        <div class="email">
+                            <button class="button">
+                                <a :href="`mailto:${single.offer_owner.email}`">{{single.offer_owner.email}}</a>
+                            </button>
+                        </div>
                     </div>
-                    <div class="email">
-                        <button class="button">
-                            <a :href="`mailto:${single.offer_owner.email}`">{{single.offer_owner.email}}</a>
-                        </button>
-                    </div>
+                    <button @click="contact =!contact">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
             </div>
        </div>
@@ -55,7 +66,7 @@ export default {
     methods: {
         showContact(){
 
-            this.contact = true
+            this.contact =! this.contact
         }
     },
     watch: {
