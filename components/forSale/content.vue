@@ -8,7 +8,7 @@
                 <mapModule @pointered='setClass' :rotatedPin='rotatedPin'/>   
             </div>
         </div>
-        <div class="row item-wrapper">
+        <div class="item-wrapper">
             <div class="single-wrapper columns small-3" 
                 v-for="(single, index) in sales" 
                 :key="single._id"
@@ -121,7 +121,6 @@ export default {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
 }
 .element-sale{
     cursor: pointer;
@@ -133,7 +132,12 @@ export default {
     border-radius: 30px;
 }
 .item-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    padding: 50px 0px;
 }
 .single-sale-element{
     padding-top: 15px;
