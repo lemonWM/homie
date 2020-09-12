@@ -25,21 +25,25 @@
                 </div>
                 <div class="contact-bottom">
                     <button class="button" @click="showContact">Contact option</button>
-                    <button>
+                    <button class="button">
                         Add to watch list
                         <i class="far fa-heart"></i>
                     </button>
                 </div>
                 <div class="contact-details" v-if="contact">
-                    <div class="elements">
+                    <div class="elements row">
                         <div class="phone">
                             <button class="button">
-                                <a :href="`tel:${single.offer_owner.phone}`">{{single.offer_owner.phone}}</a>
+                                <a :href="`tel:${single.offer_owner.phone}`">
+                                    <i class="fas fa-phone-alt"></i>
+                                {{single.offer_owner.phone}}</a>
                             </button>
                         </div>
                         <div class="email">
                             <button class="button">
-                                <a :href="`mailto:${single.offer_owner.email}`">{{single.offer_owner.email}}</a>
+                                <a :href="`mailto:${single.offer_owner.email}`">
+                                    <i class="fas fa-envelope-open"></i>
+                                {{single.offer_owner.email}}</a>
                             </button>
                         </div>
                     </div>
@@ -157,11 +161,23 @@ export default {
     align-items: baseline;
     padding: 0px 20px;
 }
+.contact-bottom button{
+    background-color: #505767;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 18px;
+}
 .close-preview-contact{
     position: absolute; 
     top: 5px;
     right: 25px;
     font-size: 30px;
     color: #acacacbf;
+}
+.phone button, .email button{
+    margin: 15px;
+    width: 250px;
+    background-color: #86959c;
+    border-radius: 10px;
 }
 </style>
