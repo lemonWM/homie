@@ -121,6 +121,7 @@ export default {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 .element-sale{
     cursor: pointer;
@@ -131,7 +132,9 @@ export default {
     border-radius: 10px;
     border-radius: 30px;
 }
-
+.item-wrapper{
+    justify-content: center;
+}
 .single-sale-element{
     padding-top: 15px;
     padding-bottom: 10px;

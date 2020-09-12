@@ -23,6 +23,7 @@ export default {
 
 .sale-wrapper{
     background-color: #3b4350; 
+    min-height: 100vh;
 }
 .dd{
     height: 500px;
