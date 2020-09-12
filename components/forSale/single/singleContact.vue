@@ -2,7 +2,7 @@
     <div v-if="single.offer_owner">
        <div class="single-contact-wrapper">
             <h3 class="title-contact">Contact with an offer owner</h3>
-            <div class="wrapper">
+            <div class="wrapper-contact">
                 <div class="contact-top">
                     <div class="side-img row">
                         <div>
@@ -23,9 +23,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact row">
+                <div class="contact-bottom">
                     <button class="button" @click="showContact">Contact option</button>
                     <button>
+                        Add to watch list
                         <i class="far fa-heart"></i>
                     </button>
                 </div>
@@ -42,7 +43,7 @@
                             </button>
                         </div>
                     </div>
-                    <button @click="contact =!contact">
+                    <button @click="contact =!contact" class="close-preview-contact">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
@@ -102,7 +103,9 @@ export default {
     border-radius: 20px;
     margin-top: 30px;
 }
-
+.wrapper-contact{
+    position: relative;
+}
 .contact-img{
     width: 72px;
     height: 72px;
@@ -132,5 +135,33 @@ export default {
     color: #86959c;
     font-size: 16px;
     top: 38%;
+}
+.contact-details{
+    position: absolute;
+    top: 0px;
+    background: #353535e6;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+}
+.contact-bottom{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: c;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0px 20px;
+}
+.close-preview-contact{
+    position: absolute; 
+    top: 5px;
+    right: 25px;
+    font-size: 30px;
+    color: #acacacbf;
 }
 </style>

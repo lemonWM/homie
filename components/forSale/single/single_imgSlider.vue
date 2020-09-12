@@ -70,13 +70,6 @@ export default {
             this.preview = value
         }
     },
-    created() {
-        
-        setInterval(() => {
-
-            this.id < this.images.length-1 ? this.id +=1 : this.id = 0
-        }, 5000); 
-    },
     components: {
 
         imgSliderWidth
