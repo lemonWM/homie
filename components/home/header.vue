@@ -5,7 +5,7 @@
                 <h1>We're <span>Homie</span>, We sels home for humans</h1>
             </div>
             <div>
-                <button type="button" class="hollow button" @click="goSels">Find home</button>
+                <button type="button" class="hollow  home-btn" @click="goSels">Find home</button>
             </div>
         </div>
         <div class="shadow"></div>
@@ -57,5 +57,13 @@ span{
     top: 0px;
     background-color: rgba(0, 0, 0, 0.77);
     z-index: -1;
+}
+.home-btn{
+    margin: 30px 0px;
+    padding: 14px 45px;
+    border: 1px solid #af9668;
+    color: #af9668;
+    border-radius: 8px;
+    font-size: 18px;
 }
 </style>

@@ -55,13 +55,22 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css'
+      },
+      {
+        rel: "stylesheet",
+        href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
       }
     ]
+  },
+  pageTransition: {
+    name: 'fade',
+    mode: 'out-in'
   },
   /*
   ** Global CSS
   */
   css: [
+    '@/assets/style/style.css'
   ],
   /*
   ** Plugins to load before mounting the App
