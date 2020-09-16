@@ -11,7 +11,7 @@ const createStore = () => {
     state: () => ({
       sales: [],
       rents:[],
-      user:'',
+      user:{}, // logged user
       localization: {},
       salesItemLocalizations: [],
       searchPlace: ''

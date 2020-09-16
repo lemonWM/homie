@@ -13,5 +13,10 @@ export default{
     searchPlace(state, payload){
         
         state.searchPlace = payload.searchPlace
+    },
+    //loggin user
+    loginUser(state, payload){
+
+        state.user = payload.user
     }
 }

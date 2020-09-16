@@ -60,13 +60,20 @@ export default {
             })
             .then(({ data })=> {
 
-                console.log(data)
+                let user = data.findedUser
+
+                this.setLogged(user)
             })
             .catch(({ err })=>{
 
-                console.log(err)
+                this.error = err
             })
+        },
+        setLogged(user){
 
+            this.$store.commit('loginUser',{
+                user: user
+            })
         }
     },
     validations: {
