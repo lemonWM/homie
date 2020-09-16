@@ -63,6 +63,8 @@ export default {
                 let user = data.findedUser
 
                 this.setLogged(user)
+
+                this.$router.push({name: 'index'})
             })
             .catch(({ err })=>{
 
