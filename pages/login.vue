@@ -1,5 +1,17 @@
 <template>
     <div>
-        <p>Login</p>
+        <loginPanel />
     </div>
 </template>
+
+<script>
+
+import loginPanel from '../components/login&register/loginUser'
+
+export default {
+    name: 'login',
+    components: {
+        loginPanel
+    }
+}
+</script>

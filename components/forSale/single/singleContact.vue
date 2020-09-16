@@ -76,12 +76,6 @@ export default {
             this.contact =! this.contact
         }
     },
-    watch: {
-        
-        date(val){
-            console.log(val)
-        }
-    },
     components: {DatePicker}
 }
 </script>
