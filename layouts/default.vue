@@ -10,8 +10,10 @@
           <nuxt-link :to="{name: 'login'}" class="nav-link">Login</nuxt-link>
           <nuxt-link :to="{name: 'register'}" class="nav-link">Register</nuxt-link>
         </div>
-        <div class="login-nav">
-          <button>{{logged.user}}</button>
+        <div class="login-nav" v-else>
+          <button class="hollow user-panel-btn" @click="gotoUserPanel(logged)">
+            <img :src="logged.logoUrl" alt="" class="logo-user-nav">
+          {{logged.user}}</button>
         </div>
       </div>
     </nav>
@@ -38,6 +40,15 @@ export default {
 
           return this.$store.state.user
         }
+    }
+  },
+  methods: {
+    
+    gotoUserPanel(userLogged){
+
+      let user = userLogged.user
+    
+      this.$router.push(`/user/${user}`)
     }
   },
 }

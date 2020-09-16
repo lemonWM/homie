@@ -15,6 +15,16 @@
     min-height: 100vh;
 }
 
+.button.hollow:focus, .button.hollow:hover {
+  border: none;
+  color: inherit;
+}
+a:hover, a:focus {
+  color: white;
+  text-decoration: none;
+  border: none;
+}
+
 /* nav */
 
 .row{
@@ -54,4 +64,18 @@ a{
 }
 .main-wrapper{
   padding-top: 40px;
+}
+.logo-user-nav{
+  max-height: 30px;
+  margin-right: 5px;
+}
+.login-nav button{
+  padding: 0;
+  padding-right: 30px;
+  height: 40px;
+  margin: 0;
+  min-width: 100px;
+  border: none;
+  color: #af9668;
+  font-size: 18px;
 }

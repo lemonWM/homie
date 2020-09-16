@@ -1,9 +1,39 @@
 <template>
-    <div>use</div>
+    <div>
+       <mainContent  :user='user'/>
+    </div>
 </template>
 
 <script>
+
+import mainContent from '../../components/user/content'
+
 export default {
-    name: 'user'
+    name: 'user',
+    data() {
+        return {
+            user: {},
+            error: null
+        }
+    },
+    components: {
+        mainContent
+    },
+    created() {
+
+        const reg = new RegExp("/user/", "i")
+
+        let userLogin = this.$route.path.replace(reg,'')
+        
+        this.$axios.get(`http://localhost:5000/user/${userLogin}`)
+            .then(({data})=>{
+                
+                this.user = data
+            })
+            .catch(({ error })=> {
+
+                this.error = error
+            })
+    },
 }
 </script>
