@@ -54,6 +54,19 @@ export default {
         
         login(){
 
+            this.$axios.post('http://localhost:5000/login',{
+                user: this.user,
+                password: this.password
+            })
+            .then(({ data })=> {
+
+                console.log(data)
+            })
+            .catch(({ err })=>{
+
+                console.log(err)
+            })
+
         }
     },
     validations: {
