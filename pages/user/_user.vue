@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main-user-wrapper">
        <mainContent  :user='user'/>
     </div>
 </template>

@@ -79,3 +79,11 @@ a{
   color: #af9668;
   font-size: 18px;
 }
+
+
+/* user details page */
+
+.main-user-wrapper{
+  min-height: 100vh;
+  background-color: #3b4350;
+}
