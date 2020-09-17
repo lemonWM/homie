@@ -39,7 +39,9 @@
                         </div>
                     </article>
                     <div class="add-to-observe">
-                        <button>
+                        <button :disabled='!loggedUser' 
+                                @click="addtoObserve(single._id)"
+                                >
                             <i class="far fa-heart add-to-observe-icon"></i>
                         </button>
                     </div>  
@@ -85,6 +87,16 @@ export default {
 
             return this.$store.state.localization.locality
         },
+        loggedUser(){
+
+            if( Object.entries(this.$store.state.user).length === 0 ){
+
+                return false
+            } else {
+
+                return true
+            }
+        }
     },
     methods: {
         getSales(){
@@ -120,6 +132,10 @@ export default {
         showDetails(index){
 
             this.showItem = index
+        },
+        addtoObserve(value){
+
+            console.log(value)
         }
     },
     components: {mapModule}
