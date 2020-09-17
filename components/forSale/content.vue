@@ -14,23 +14,29 @@
                 :key="single._id"
                 :class="{'active': (single._id === activeID)}"
                 @mouseover="rotetePin(single.geolocalization)"
+                @mouseleave="showDetails('')"
                 >
                 <div class="single-sale-element">
                     <article @click='goToSingle(single._id) ' class="element-sale">
-                        <div class="img-element">
+                        <div class="img-element" @mouseover="showDetails(index)">
                             <figure>
                                 <img :src="single.photos[0]" alt="" class="img-single">
                             </figure>               
                         </div>
-                        <div>
-                            <h3 class="price">${{single.price}}</h3>
+                        <div class="hiden" 
+                            v-bind:class="{'show': showItem === index}"
+                            
+                            >
+                            <div>
+                                <h3 class="price">${{single.price}}</h3>
+                            </div>
+                            <div>
+                                <p class="address">{{single.localization}} {{single.address}}</p>
+                            </div>
+                            <div>
+                                <p class="details">{{single.schedulePlace.bedrooms}} bedrooms / {{single.schedulePlace.bathrooms}} bathrooms / {{single.totalArea}} &sup2</p>
+                            </div> 
                         </div>
-                        <div>
-                            <p class="address">{{single.localization}} {{single.address}}</p>
-                        </div>
-                        <div>
-                            <p class="details">{{single.schedulePlace.bedrooms}} bedrooms / {{single.schedulePlace.bathrooms}} bathrooms / {{single.totalArea}} &sup2</p>
-                        </div>          
                     </article>
                     <div class="add-to-observe">
                         <button>
@@ -52,9 +58,11 @@ export default {
     data() {
         return {
             activeID: '',
-            rotatedPin: {}
+            rotatedPin: {},
+            showItem: ''
         }
     },
+
     created() {
 
         if(!this.$store.state.sales.length){
@@ -108,6 +116,10 @@ export default {
         rotetePin(value){
   
             this.rotatedPin = value
+        },
+        showDetails(index){
+
+            this.showItem = index
         }
     },
     components: {mapModule}
@@ -115,12 +127,18 @@ export default {
 </script>
 
 <style scoped>
+.hiden{
+    display: none;
+}
+.show{
+    display: block !important;
+}
 
 .sales-wrapper{
     padding-top: 30px;
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column;   
 }
 .element-sale{
     cursor: pointer;
@@ -130,6 +148,7 @@ export default {
     margin: 20px;
     border-radius: 10px;
     border-radius: 30px;
+    height: 100%;
 }
 .item-wrapper{
     width: 100%;
