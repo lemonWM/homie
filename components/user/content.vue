@@ -28,7 +28,7 @@ export default {
     props: ['user'],
     data() {
         return {
-            mobile: true
+            mobile: false
         }
     },
     computed: {
