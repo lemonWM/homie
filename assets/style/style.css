@@ -87,3 +87,13 @@ a{
   min-height: 100vh;
   background-color: #3b4350;
 }
+.main-user{
+  display: flex;
+  flex-direction: row;
+}
+.nav_user_panel{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
