@@ -16,7 +16,6 @@ const createStore = () => {
       localization: {},
       salesItemLocalizations: [],
       searchPlace: ''
-
     }),
     getters,
     mutations,
