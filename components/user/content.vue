@@ -29,8 +29,6 @@ export default {
         
         showChildDetails(value){
 
-            let userName = this.user.user
-
             this.$router.push(`/user/${this.getUser}/${value}`)
         }
     },
