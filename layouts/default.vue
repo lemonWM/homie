@@ -2,10 +2,9 @@
   <div>
     <nav class="navigation row">
       <div class="main-nav row">
-        <nuxt-link :to="{name: 'index'}" class="nav-link nav-home">HOMIE</nuxt-link>
-        <nuxt-link :to="{name: 'forSale'}" class="nav-link">BUY</nuxt-link>
-        <nuxt-link :to="{name: 'forRent'}" class="nav-link">RENT</nuxt-link>
-        <nuxt-link :to="{name: 'add-new'}" class="nav-link">ADD NEW</nuxt-link>
+        <nuxt-link :to="{name: 'index'}" class="nav-link nav-home">Homie</nuxt-link>
+        <nuxt-link :to="{name: 'forSale'}" class="nav-link">Buy & Rents</nuxt-link>
+        <nuxt-link :to="{name: 'add-new'}" class="nav-link">Add offer</nuxt-link>
         <div class="login-nav row" v-if="!logged">
           <nuxt-link :to="{name: 'login'}" class="nav-link">Login</nuxt-link>
           <nuxt-link :to="{name: 'register'}" class="nav-link">Register</nuxt-link>

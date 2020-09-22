@@ -1,11 +1,17 @@
 <template>
     <div>
-        add new
+        <mainContent />
     </div>
 </template>
 
 <script>
+
+import mainContent from '../../components/addOffer/mainOffer'
+
 export default {
-    name: 'add-new'
+    name: 'add-new',
+    components: {
+        mainContent
+    }
 }
 </script>

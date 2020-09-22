@@ -8,6 +8,6 @@ export default {
 
             return sale.localization == localization
         })
-    }
+    }, //filter return selected place by localization name - for sales
    
 }
