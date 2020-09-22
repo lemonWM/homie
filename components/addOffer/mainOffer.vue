@@ -1,6 +1,6 @@
 <template>
     <div class="offer-wrapper">
-        <h2>Create new offert on <span>Homie</span></h2>
+        <h2 class="main-title">Create new offert on <span>Homie</span></h2>
         <div class="offer-generator">
             <saleGenerator />
             <rentGenerator />
