@@ -15,18 +15,6 @@ import rentGenerator from './rentOfferGenerator'
 
 export default {
     name: 'create-new-offer',
-    computed: {
-        logged(){
-
-            if( Object.entries(this.$store.state.user).length === 0){
-
-                return false
-            } else {
-
-                return true
-            }
-        }
-    },
     components: {
         rentGenerator,
         saleGenerator
