@@ -1,11 +1,10 @@
 <template>
-    <div class="main-user-wrapper">
-       <mainContent  :user='user'/>
-    </div>
+<div class="main-user-wrapper">
+    <mainContent :user='user' />
+</div>
 </template>
 
 <script>
-
 import mainContent from '../../components/user/content'
 
 export default {
@@ -23,14 +22,18 @@ export default {
 
         const reg = new RegExp("/user/", "i")
 
-        let userLogin = this.$route.path.replace(reg,'')
-        
-        this.$axios.get(`http://localhost:5000/user/${userLogin}`)
-            .then(({data})=>{
-                
+        let userLogin = this.$route.path.replace(reg, '')
+
+        this.$axios.get(`${this.$axios.defaults.baseURL}/${userLogin}`)
+            .then(({
+                data
+            }) => {
+
                 this.user = data
             })
-            .catch(({ error })=> {
+            .catch(({
+                error
+            }) => {
 
                 this.error = error
             })

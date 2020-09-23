@@ -104,7 +104,14 @@ export default {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  
+  axios: {
+    baseURL: 'https://homie-backend.herokuapp.com',
+  },
+  /* localhost: 'http://localhost:3000'
+  /* prod: 'https://homie-backend.herokuapp.com'
+
+
   /*
   ** Content module configuration
   ** See https://content.nuxtjs.org/configuration
