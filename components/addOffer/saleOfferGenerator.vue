@@ -13,7 +13,7 @@ export default {
     name: 'sale-generator',
     methods: {
         generate(){
-            this.$router.push({name: 'add-new-sele_offer'})
+            this.$router.push({name: 'add-new-sale_offer'})
         }
     },
 }
