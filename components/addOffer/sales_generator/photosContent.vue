@@ -15,6 +15,7 @@
             >
              <i class="fa fa-cloud-upload-alt"></i>
         </button>
+        <div class="img-preloader"></div>
     </div>
 </template>
 
@@ -24,7 +25,7 @@ export default {
     data() {
         return {
             imageData: [],
-            logoUrl:''
+            uploadedURL: []
         }
     },
     methods: {
@@ -46,7 +47,8 @@ export default {
             )
             .then(({ data }) => {
                 console.log(data)
-                let logoUrl = data.url
+                
+                this.uploadedURL = data.url
             })
             .catch(({ err }) => {
                 console.log(err)
