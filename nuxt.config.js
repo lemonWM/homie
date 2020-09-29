@@ -59,6 +59,18 @@ export default {
       {
         rel: "stylesheet",
         href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      },
+      {
+        rel: "stylesheet",
+        href: "https://unpkg.com/spectre.css/dist/spectre.min.css"
+      },
+      {
+        rel: "stylesheet",
+        href: "https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+      },
+      {
+        rel: "stylesheet",
+        href: "https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
       }
     ]
   },

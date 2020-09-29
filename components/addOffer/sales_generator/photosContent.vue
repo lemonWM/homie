@@ -4,6 +4,7 @@
         <input type="file" 
             accept="image/png, image/jpeg, image/bmp"
             ref="file"
+            @click="resetImg"
             @change="handleFileUpload()"
             class="input-sels"
             id="upload"
@@ -12,10 +13,23 @@
             >
         <button class="" 
             @click="uploadImg" 
+            :disabled='!imageData.length'
             >
              <i class="fa fa-cloud-upload-alt"></i>
         </button>
-        <div class="img-preloader"></div>
+
+        <div class="uploaded-img-wrapper" v-if="uploaded">
+            <div v-for="(img, index) in uploadedURL">
+                <img :src="img" alt="" class="img-uploaded">
+            </div>
+        </div>
+
+        <div class="img-preloader" v-if="onUpload">
+            <div>
+                <p class="loader-title">Wait few second for upload</p>
+                <div class="loading loading-lg"></div>   
+            </div>
+        </div>
     </div>
 </template>
 
@@ -25,12 +39,16 @@ export default {
     data() {
         return {
             imageData: [],
-            uploadedURL: []
+            uploadedURL: [],
+            onUpload: false,
+            uploaded: false
         }
     },
     methods: {
         
         uploadImg(){
+
+            this.onUpload = true
             
             let formData = new FormData()
 
@@ -49,9 +67,12 @@ export default {
                 console.log(data)
                 
                 this.uploadedURL = data.url
+
+                this.onUpload =false
             })
             .catch(({ err }) => {
                 console.log(err)
+                this.onUpload =false
             })
         },
         handleFileUpload(){
@@ -61,6 +82,19 @@ export default {
                 this.imageData.push(this.$refs.file.files[i])
             }
         }, 
+        resetImg(){
+            
+            this.imageData = []
+        }
+    },
+    watch: {
+        
+        uploadedURL(newVal){
+
+            if(newVal){
+                this.uploaded = true
+            }
+        }
     },
 }
 </script>
