@@ -90,15 +90,11 @@ export default {
         getSales() {
 
             this.$axios.get(this.$axios.defaults.baseURL + '/sales')
-                .then(({
-                    data
-                }) => {
+                .then(({ data }) => {
 
                     this.setSales(data)
                 })
-                .catch(({
-                    error
-                }) => {
+                .catch(({ error }) => {
                     this.error = error
                 })
         },

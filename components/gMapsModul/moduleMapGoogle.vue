@@ -1,36 +1,27 @@
 <template>
-    <div class="g-maps" @click="hideShort">
-        <gmap-map
-            :center="center"
-            :zoom="11"
-            style="width:100%;  height: 300px;"
-            >
-            <gmap-marker
-                :key="index"
-                v-for="(m, index) in markers"
-                :position="m.position"
-                @click="show(m.position)"
-            >
-            </gmap-marker>
-        </gmap-map>
+<div class="g-maps" @click="hideShort">
+    <gmap-map :center="center" :zoom="11" style="width:100%;  height: 300px;">
+        <gmap-marker :key="index" v-for="(m, index) in markers" :position="m.position" @click="show(m.position)">
+        </gmap-marker>
+    </gmap-map>
 
-        <div class="prev-sing-g-maps" v-if="visible">
-            <article>
-                <figure>
-                    <img :src="preview.photos[0]" alt="" class="img-preview-icon">
-                </figure>
-                <div class="preview-details">
-                    <p>{{preview.address}}</p>
-                    <p>{{preview.localization}}</p>
-                    <p>{{preview.price}}</p>            
-                </div>
-                <button class="secondary button hollow" @click="singleDetails">VISIT PLACE</button>
-                <button @click="visible =!visible; emitID('')">
-                    <i class="fas fa-times"></i>
-                </button>
-            </article>
-        </div>
+    <div class="prev-sing-g-maps" v-if="visible">
+        <article>
+            <figure>
+                <img :src="preview.photos[0]" alt="" class="img-preview-icon">
+            </figure>
+            <div class="preview-details">
+                <p>{{preview.address}}</p>
+                <p>{{preview.localization}}</p>
+                <p>{{preview.price}}</p>
+            </div>
+            <button class="secondary button hollow" @click="singleDetails">VISIT PLACE</button>
+            <button @click="visible =!visible; emitID('')">
+                <i class="fas fa-times"></i>
+            </button>
+        </article>
     </div>
+</div>
 </template>
 
 <script>
@@ -50,8 +41,8 @@ export default {
         }
     },
     computed: {
-      
-        center(){
+
+        center() {
 
             let centerValue = {
                 lat: this.$store.state.localization.latitude,
@@ -59,13 +50,13 @@ export default {
             }
             return centerValue
         },
-        markers(value){
+        markers(value) {
 
             let items = this.$store.state.sales
 
             let markers = []
 
-            items.forEach(function(item){
+            items.forEach(function (item) {
 
                 let localization = {
                     position: {
@@ -79,46 +70,43 @@ export default {
 
             return markers
         }, // creating markers from all sels element in base
-       
+
     },
     methods: {
-      
-        show(value){
+
+        show(value) {
 
             console.log(value)
-          
-            this.$axios.get(`http://localhost:5000/single-sale/${value.id}`)
-                .then(({data})=>{
-                    
+
+            this.$axios.get(this.$axios.defaults.baseURL + `/single-sale/${value.id}`)
+                .then(({ data }) => {
+
                     this.preview = data
 
                     this.visible = true
 
                     this.emitID(data._id) // emit for add active class to pin element
                 })
-                .catch(({ error })=> {
-
-                    this.error = error
-                })
+                .catch(({ error }) => { this.error = error})
 
         }, // get single sels for preview on g-maps
-        hideShort(){
+        hideShort() {
 
             this.visible = false
         },
-        singleDetails(){
+        singleDetails() {
 
             let id = this.preview._id
 
             this.$router.push(`/forSale/${id}`)
         },
-        emitID(id){
+        emitID(id) {
 
             this.$emit('pointered', id)
         }
     },
     watch: {
-        rotatedPin(newVal){
+        rotatedPin(newVal) {
             //console.log(newVal.id)
         }
     },
@@ -126,24 +114,25 @@ export default {
 </script>
 
 <style>
-
-.g-maps{
+.g-maps {
     position: relative;
 }
-.prev-sing-g-maps{
+
+.prev-sing-g-maps {
     position: absolute;
     top: 20px;
     right: 90px;
     background: #505767;
-    
+
     border-radius: 20px;
     padding: 15px;
 }
-.visible{
+
+.visible {
     display: block;
 }
-.img-preview-icon{
+
+.img-preview-icon {
     width: 100px;
 }
-
 </style>

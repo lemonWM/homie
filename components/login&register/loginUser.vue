@@ -1,44 +1,48 @@
 <template>
-    <div class="">  
-        <div class="title">
-            <h2>Sign into your account</h2>
-        </div> 
-        <form class="form">
-            <div class="grid-container">
-                <div class="column">
-                    <div class="medium-3 cell">
-                        <label>
-                        <i class="fa fa-envelope"></i>
-                        <input type="text" placeholder="LOGIN"  v-model.lazy="user" @input="$v.user.$touch()">
-                            <p class="form-input-hint" v-if="!$v.user.required">Login required</p>
-                        </label>
-                    </div>
-                    <div class="medium-3 cell">
-                        <label>
-                        <i class="fas fa-key"></i>
-                        <input type="password" placeholder="PASSWORD"  v-model="password" @blur="$v.password.$touch()">
-                            <p class="form-input-hint" v-if="!$v.password.minLength">Required min. 5 signs</p>
-                        </label>
-                    </div>
-                    <button type="button" class="button"  :disabled='$v.$invalid' @click="login">SIGN IN</button>
-                </div>
-            </div>
-        </form>
-        <div>
-            <p>If you don't have an account, no problem. 
-                <router-link :to="{name: 'register'}"> Create an account now.</router-link>
-            </p>
-        </div>
-        <div class="error" v-if="error">
-            <p class="form-input-hint">{{error}}</p>
-        </div>
+<div class="">
+    <div class="title">
+        <h2>Sign into your account</h2>
     </div>
+    <form class="form">
+        <div class="grid-container">
+            <div class="column">
+                <div class="medium-3 cell">
+                    <label>
+                        <i class="fa fa-envelope"></i>
+                        <input type="text" placeholder="LOGIN" v-model.lazy="user" @input="$v.user.$touch()">
+                        <p class="form-input-hint" v-if="!$v.user.required">Login required</p>
+                    </label>
+                </div>
+                <div class="medium-3 cell">
+                    <label>
+                        <i class="fas fa-key"></i>
+                        <input type="password" placeholder="PASSWORD" v-model="password" @blur="$v.password.$touch()">
+                        <p class="form-input-hint" v-if="!$v.password.minLength">Required min. 5 signs</p>
+                    </label>
+                </div>
+                <button type="button" class="button" :disabled='$v.$invalid' @click="login">SIGN IN</button>
+            </div>
+        </div>
+    </form>
+    <div>
+        <p>If you don't have an account, no problem.
+            <router-link :to="{name: 'register'}"> Create an account now.</router-link>
+        </p>
+    </div>
+    <div class="error" v-if="error">
+        <p class="form-input-hint">{{error}}</p>
+    </div>
+</div>
 </template>
 
 <script>
-
-import {validationMixin} from 'vuelidate';
-import {required, minLength} from 'vuelidate/lib/validators';
+import {
+    validationMixin
+} from 'vuelidate';
+import {
+    required,
+    minLength
+} from 'vuelidate/lib/validators';
 
 export default {
     name: 'user-login',
@@ -51,29 +55,26 @@ export default {
         }
     },
     methods: {
-        
-        login(){
 
-            this.$axios.post('http://localhost:5000/login',{
-                user: this.user,
-                password: this.password
-            })
-            .then(({ data })=> {
+        login() {
 
-                let user = data.findedUser
+            this.$axios.post(this.$axios.defaults.baseURL + '/login', {
+                    user: this.user,
+                    password: this.password
+                })
+                .then(({ data }) => {
 
-                this.setLogged(user)
+                    let user = data.findedUser
 
-                this.$router.push({name: 'index'})
-            })
-            .catch(({ err })=>{
+                    this.setLogged(user)
 
-                this.error = err
-            })
+                    this.$router.push({ name: 'index' })
+                })
+                .catch(({err}) => { this.error = err })
         },
-        setLogged(user){
+        setLogged(user) {
 
-            this.$store.commit('loginUser',{
+            this.$store.commit('loginUser', {
                 user: user
             })
         }
