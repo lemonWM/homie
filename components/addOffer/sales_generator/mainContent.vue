@@ -19,9 +19,19 @@
                     <i class="fas fa-chevron-up" v-else></i>
                 </button>
             </div>
-            <detailsContent />
+            <detailsContent v-if="openDetails"/>
         </div>
 
+        <div class="module">
+            <div class="row">
+                <h2>Photos uploader</h2>
+                <button class="hollow" @click="openPhotos =! openPhotos">
+                    <i class="fas fa-chevron-down" v-if="openPhotos"></i>
+                    <i class="fas fa-chevron-up" v-else></i>
+                </button>
+            </div>
+            <photosContent v-if="openPhotos"/>
+        </div>
     </div>
 </template>
 
@@ -30,19 +40,22 @@
 import VueGoogleAutocomplete from '../../../node_modules/vue-google-autocomplete'
 import addressContent from './addressContent'
 import detailsContent from './detailsContent'
+import photosContent from './photosContent'
 
 export default {
     name: 'new-sale-generator',
     data() {
         return {
-            openAddress: true,
-            openDetails: true
+            openAddress: false,
+            openDetails: false,
+            openPhotos: false
         }
     },
     components: { 
         VueGoogleAutocomplete,
         addressContent,
-        detailsContent
-     }
+        detailsContent,
+        photosContent
+    }
 }
 </script>

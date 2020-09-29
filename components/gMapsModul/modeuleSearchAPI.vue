@@ -64,17 +64,3 @@ export default {
 }
 </script>
 
-<style>
-
-.input-sels{
-    background-color: #505767;
-    border: none;
-    box-shadow: none;
-    border-radius: 15px;
-    padding: 10px 30px;
-    color: #bcced3;
-    height: auto;
-    width: 340px;
-    font-size: 22px;
-}
-</style>
