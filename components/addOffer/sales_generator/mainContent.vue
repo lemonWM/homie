@@ -19,6 +19,7 @@
                     <i class="fas fa-chevron-up" v-else></i>
                 </button>
             </div>
+            <detailsContent />
         </div>
 
     </div>
@@ -28,6 +29,7 @@
 
 import VueGoogleAutocomplete from '../../../node_modules/vue-google-autocomplete'
 import addressContent from './addressContent'
+import detailsContent from './detailsContent'
 
 export default {
     name: 'new-sale-generator',
@@ -39,7 +41,8 @@ export default {
     },
     components: { 
         VueGoogleAutocomplete,
-        addressContent
+        addressContent,
+        detailsContent
      }
 }
 </script>

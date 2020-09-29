@@ -253,3 +253,8 @@ sales
   align-items: center;
   padding-top: 100px;
 }
+
+.col-wrap{
+  display: flex;
+  flex-direction: column;
+}

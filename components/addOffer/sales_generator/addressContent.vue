@@ -18,12 +18,13 @@
         </div>
         <div>
             <label for="streetNumber">Numer on street</label>
-            <input type="text" id="street" placeholder="Write numer on street" class="input-sels">
+            <input type="number" id="street" placeholder="Write numer on street" class="input-sels">
         </div>
         <div>
             <label for="zipcode">Type zipcode</label>
             <input type="number" id="zipcode" placeholder="Write zipcode" class="input-sels">
         </div>
+        <button class=" hollow">Confirm all</button>
     </div>
 </template>
 
@@ -32,7 +33,7 @@
 import VueGoogleAutocomplete from '../../../node_modules/vue-google-autocomplete'
 
 export default {
-    name: 'new-sale-generator',
+    name: 'address',
     data() {
         return {
             addresName:''
@@ -52,7 +53,7 @@ export default {
         getToData: function (addressData, placeResultData, id) {
 
             console.log(addressData)
-            
+            // ustawic dla store new sels
         },
     },
     watch: {
