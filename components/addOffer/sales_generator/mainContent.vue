@@ -8,7 +8,7 @@
                     <i class="fas fa-chevron-up" v-else></i>
                 </button>
             </div>
-            <addressContent v-if="openAddress"/>
+            <adresContent v-if="openAddress"/>
         </div>
 
         <div class="module">
@@ -38,7 +38,7 @@
 <script>
 
 import VueGoogleAutocomplete from '../../../node_modules/vue-google-autocomplete'
-import addressContent from './addressContent'
+import adresContent from './adresContent'
 import detailsContent from './detailsContent'
 import photosContent from './photosContent'
 
@@ -53,7 +53,7 @@ export default {
     },
     components: { 
         VueGoogleAutocomplete,
-        addressContent,
+        adresContent,
         detailsContent,
         photosContent
     }

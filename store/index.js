@@ -16,7 +16,27 @@ const createStore = () => {
       localization: {},
       salesItemLocalizations: [],
       searchPlace: '',
-      newSale: []
+      newSale: {
+        localization: '',
+        address:'',
+        price: null,
+        schedulePlace: {
+          bedrooms: null,
+          bathrooms: null,
+          kitchen: null,
+          garage: null
+        },
+        totalArea: '',
+        description: '',
+        photos: [],
+        offer_owner: {
+          first_name: '',
+          last_name: '',
+          email: '',
+          phone: '',
+          photo: ''
+        }
+      }
     }),
     getters,
     mutations,

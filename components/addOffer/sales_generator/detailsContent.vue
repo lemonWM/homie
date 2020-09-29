@@ -34,6 +34,6 @@
 
 <script>
 export default {
-    name: 'details'
+    name: 'details-content'
 }
 </script>

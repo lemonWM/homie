@@ -1,12 +1,16 @@
 <template>
     <div class="item-new">
+        <label for="upload">Upload images</label>
         <input type="file" 
             accept="image/png, image/jpeg, image/bmp"
             ref="file"
             @change="handleFileUpload()"
             class="input-sels"
+            id="upload"
+            multiple="multiple"
+            name='uploadedImages'
             >
-        <button class="btn btn-primary" 
+        <button class="" 
             @click="uploadImg" 
             >
              <i class="fa fa-cloud-upload-alt"></i>
@@ -16,10 +20,10 @@
 
 <script>
 export default {
-    name: 'photos',
+    name: 'photos-content',
     data() {
         return {
-            imageData: '',
+            imageData: [],
             logoUrl:''
         }
     },
@@ -29,7 +33,10 @@ export default {
             
             let formData = new FormData()
 
-            formData.append('file', this.imageData)
+            for(let i = 0; i < this.imageData.length; i++){
+
+                formData.append('file', this.imageData[i])
+            }
 
             this.$axios.post(this.$axios.defaults.baseURL+'/upload_img', 
                 formData,
@@ -38,7 +45,7 @@ export default {
                 }
             )
             .then(({ data }) => {
-                
+                console.log(data)
                 let logoUrl = data.url
             })
             .catch(({ err }) => {
@@ -47,9 +54,10 @@ export default {
         },
         handleFileUpload(){
 
-            this.imageData = this.$refs.file.files[0]
-        
-            console.log(this.imageData)
+            for(let i =0; i < this.$refs.file.files.length; i++){
+
+                this.imageData.push(this.$refs.file.files[i])
+            }
         }, 
     },
 }

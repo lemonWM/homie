@@ -33,7 +33,7 @@
 import VueGoogleAutocomplete from '../../../node_modules/vue-google-autocomplete'
 
 export default {
-    name: 'address',
+    name: 'address-content',
     data() {
         return {
             addresName:''
