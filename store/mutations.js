@@ -23,6 +23,16 @@ export default{
 
         state.newSale.localization = payload.localization
         state.newSale.address = payload.address
-    } // set address in create new offer adresContent
+    }, // set address in create new offer adresContent
+    
+    setDetailsNewSale(state, payload){
 
+        state.newSale.price = payload.price
+        state.newSale.schedulePlace.bedrooms = payload.bedrooms
+        state.newSale.schedulePlace.bathrooms = payload.bathrooms
+        state.newSale.schedulePlace.kitchen = payload.kitchen
+        state.newSale.schedulePlace.garage = payload.garage
+        state.newSale.totalArea = payload.totalArea
+        state.newSale.description = payload.description
+    }, // set details in create new offer detailsContent
 }

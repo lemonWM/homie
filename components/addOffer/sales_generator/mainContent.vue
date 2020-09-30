@@ -8,7 +8,7 @@
                     <i class="fas fa-chevron-up" v-else></i>
                 </button>
             </div>
-            <adresContent v-if="openAddress"/>
+            <adresContent v-show="openAddress"/>
         </div>
 
         <div class="module">
@@ -19,7 +19,7 @@
                     <i class="fas fa-chevron-up" v-else></i>
                 </button>
             </div>
-            <detailsContent v-if="openDetails"/>
+            <detailsContent v-show="openDetails"/>
         </div>
 
         <div class="module">
@@ -30,7 +30,7 @@
                     <i class="fas fa-chevron-up" v-else></i>
                 </button>
             </div>
-            <photosContent v-if="openPhotos"/>
+            <photosContent v-show="openPhotos"/>
         </div>
 
         <div class="show-preview">
