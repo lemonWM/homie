@@ -1,6 +1,6 @@
 # homie
 
-project in progress, soon in live ;)
+project in progress ;)
 
 Application to publish home sells and rents offers.
 Based on Nuxt.js & Vue.js SSR App
@@ -22,6 +22,11 @@ Backend side main features:
 - Express.js
 - bcrypt hashing password
 - JSON Web Token authorization
+
+Live at: in progress, on free heroku server - wait few second on first run
+
+https://homie-nuxt.herokuapp.com
+
 
 
 ## Build Setup
