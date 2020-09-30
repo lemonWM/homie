@@ -32,6 +32,11 @@
             </div>
             <photosContent v-if="openPhotos"/>
         </div>
+
+        <div class="show-preview">
+            <button class="hollow">Discard</button>
+            <button class="hollow accept-change">Accept</button>
+        </div>
     </div>
 </template>
 
@@ -46,7 +51,7 @@ export default {
     name: 'new-sale-generator',
     data() {
         return {
-            openAddress: false,
+            openAddress: true,
             openDetails: false,
             openPhotos: false
         }

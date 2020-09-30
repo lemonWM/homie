@@ -18,5 +18,11 @@ export default{
     loginUser(state, payload){
 
         state.user = payload.user
-    }
+    },
+    setAddressNewSale(state, payload){
+
+        state.newSale.localization = payload.localization
+        state.newSale.address = payload.address
+    } // set address in create new offer adresContent
+
 }
