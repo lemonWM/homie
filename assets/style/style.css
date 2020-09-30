@@ -259,7 +259,9 @@ span {
 
 sales
 */
-
+.module{
+  margin: 20px 0px;
+}
 .main-generator{
   min-height: 100vh;
   background-color: #3b4350;
@@ -272,17 +274,19 @@ sales
   display: flex;
   flex-direction: column;
 }
-
+.photo-module{
+  position: relative;
+}
 .img-preloader{
   position: absolute;
   top: 0px;
-  width: 100%;
   height: 100%;
-  left: 0px;
+  width: 100%;
   display: flex;
   justify-content: center;
   background: rgba(0, 0, 0, 0.9);
   align-items: center;
+  border-radius: 10px;
 }
 .loader-title{
   color: white;
@@ -307,7 +311,7 @@ sales
 .img-uploaded{
   width: 300px;
   height: 180px;
-  margin: 10px;
+  margin-right: 20px;
 }
 .preview-details{
   display: flex;
@@ -320,4 +324,24 @@ sales
   padding: 20px;
   border-radius: 20px;
   margin-top: 30px;
+}
+.details-photo-preview{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+.show-preview-buttons{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+.discard-change, .accept-change{
+  margin: 0px 25px;
+}
+.discard-change{
+  border-color: black;
+  color: black;
 }

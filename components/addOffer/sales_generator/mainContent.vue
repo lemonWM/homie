@@ -2,7 +2,7 @@
     <div class="item-new">
         <div class="module">
             <div class="row">
-                <h2>Address information</h2>
+                <h2>Location</h2>
                 <button class="hollow" @click="openAddress =! openAddress">
                     <i class="fas fa-chevron-down" v-if="openAddress"></i>
                     <i class="fas fa-chevron-up" v-else></i>
@@ -22,7 +22,7 @@
             <detailsContent v-show="openDetails"/>
         </div>
 
-        <div class="module">
+        <div class="module photo-module">
             <div class="row">
                 <h2>Photos uploader</h2>
                 <button class="hollow" @click="openPhotos =! openPhotos">
@@ -33,9 +33,9 @@
             <photosContent v-show="openPhotos"/>
         </div>
 
-        <div class="show-preview">
-            <button class="hollow">Discard</button>
-            <button class="hollow accept-change">Accept</button>
+        <div class="show-preview-buttons">
+            <button class="hollow discard-change home-btn">Discard</button>
+            <button class="hollow accept-change home-btn">Accept</button>
         </div>
     </div>
 </template>

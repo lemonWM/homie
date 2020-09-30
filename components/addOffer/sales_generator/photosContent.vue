@@ -1,32 +1,38 @@
 <template>
-    <div class="item-new">
-        <label for="upload">Upload images</label>
-        <input type="file" 
-            accept="image/png, image/jpeg, image/bmp"
-            ref="file"
-            @click="resetImg"
-            @change="handleFileUpload()"
-            class="input-sels"
-            id="upload"
-            multiple="multiple"
-            name='uploadedImages'
-            >
-        <button class="" 
-            @click="uploadImg" 
-            :disabled='!imageData.length'
-            >
-             <i class="fa fa-cloud-upload-alt"></i>
-        </button>
-
-        <div class="uploaded-img-wrapper" v-if="uploaded">
-            <div v-for="(img, index) in uploadedURL">
-                <img :src="img" alt="" class="img-uploaded">
-            </div>
+    <div class="item-new ">
+        <div v-if="!uploaded">
+            <label for="upload">Upload images</label>
+            <input type="file" 
+                accept="image/png, image/jpeg, image/bmp"
+                ref="file"
+                @click="resetImg"
+                @change="handleFileUpload()"
+                class="input-sels"
+                id="upload"
+                multiple="multiple"
+                name='uploadedImages'
+                >
+            <button class="" 
+                @click="uploadImg" 
+                :disabled='!imageData.length'
+                >
+                <i class="fa fa-cloud-upload-alt"></i>
+            </button>
         </div>
 
-        <div class="img-preloader" v-if="onUpload">
+        <div class="uploaded-img-wrapper preview-details " v-if="uploaded">
+            <div class="details-photo-preview">
+                <div v-for="(img, index) in uploadedURL">
+                    <img :src="img" alt="" class="img-uploaded">
+                </div>
+            </div>
+
+            <button class="hollow button-generate" @click="uploaded =! uploaded">Edit photos</button>
+        </div>
+
+        <div class="img-preloader " v-if="onUpload">
             <div>
-                <p class="loader-title">Wait few second for upload</p>
+                <p class="loader-title">Wait for upload..</p>
                 <div class="loading loading-lg"></div>   
             </div>
         </div>
@@ -64,11 +70,12 @@ export default {
                 }
             )
             .then(({ data }) => {
-                console.log(data)
                 
                 this.uploadedURL = data.url
 
                 this.onUpload =false
+
+                this.imageData = []
             })
             .catch(({ err }) => {
                 console.log(err)
