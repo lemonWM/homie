@@ -34,8 +34,8 @@
         </div>
 
         <div class="show-preview-buttons">
-            <button class="hollow discard-change home-btn">Discard</button>
-            <button class="hollow accept-change home-btn">Accept</button>
+            <button class="hollow discard-change home-btn" @click="discard">Discard</button>
+            <button class="hollow accept-change home-btn" @click="">Accept</button>
         </div>
     </div>
 </template>
@@ -54,6 +54,11 @@ export default {
             openAddress: true,
             openDetails: false,
             openPhotos: false
+        }
+    },
+    methods: {
+        discard(){
+            this.$router.push({name: "add-new"})
         }
     },
     components: { 

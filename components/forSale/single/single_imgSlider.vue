@@ -137,13 +137,13 @@ export default {
     z-index: 9;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: rgba(0, 0, 0, 0.95);
     z-index: 99999;
     padding: 20px;
     overflow: hidden;
     overflow-x: hidden; 
     overflow-y: auto;
+    padding-top: 70px;
 }
 
 </style>
