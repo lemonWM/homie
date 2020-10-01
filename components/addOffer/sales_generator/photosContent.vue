@@ -73,12 +73,14 @@ export default {
                 
                 this.uploadedURL = data.url
 
-                this.onUpload =false
+                this.onUpload = false
 
                 this.imageData = []
+
+                this.setImgStore(this.uploadedURL) // commit uploaded img url
             })
             .catch(({ err }) => {
-                console.log(err)
+                
                 this.onUpload =false
             })
         },
@@ -92,6 +94,12 @@ export default {
         resetImg(){
             
             this.imageData = []
+        },
+        setImgStore(photos){
+
+            this.$store.commit('setImgNewSale',{
+                photos: photos
+            })
         }
     },
     watch: {

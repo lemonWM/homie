@@ -35,7 +35,7 @@
 
         <div class="show-preview-buttons">
             <button class="hollow discard-change home-btn" @click="discard">Discard</button>
-            <button class="hollow accept-change home-btn" @click="">Accept</button>
+            <button class="hollow accept-change home-btn" @click="createNew">Accept</button>
         </div>
     </div>
 </template>
@@ -56,9 +56,19 @@ export default {
             openPhotos: false
         }
     },
+    computed: {
+        newOffer(){
+
+            return this.$store.state.newSale
+        }
+    },
     methods: {
         discard(){
             this.$router.push({name: "add-new"})
+        },
+        createNew(){
+
+            console.log(this.newOffer)
         }
     },
     components: { 

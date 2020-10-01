@@ -35,4 +35,9 @@ export default{
         state.newSale.totalArea = payload.totalArea
         state.newSale.description = payload.description
     }, // set details in create new offer detailsContent
+
+    setImgNewSale(state, payload){
+        
+        state.newSale.photos = payload.photos
+    } // set img url in create new offer photosDetails
 }
