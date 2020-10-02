@@ -53,10 +53,25 @@ export default {
         return {
             openAddress: true,
             openDetails: false,
-            openPhotos: false
+            openPhotos: false,
+            logged: false
         }
     },
+    created() {
+        
+            setTimeout(function(){
+
+// sprawdzenie logowania i pozniej alert
+
+            }, 2000)
+    },
     computed: {
+        
+        isLogged(){
+
+            if(this.$store.state.)
+
+        },
         newOffer(){
 
             return this.$store.state.newSale
