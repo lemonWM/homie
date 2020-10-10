@@ -53,6 +53,21 @@
         </div>
     </div>
 
+
+    <div class="is-logged-panel sending-panel" v-if="sendingNew">
+        <div class="preview-details">
+            <p>Creating in progress</p>
+            <progress class="progress" :value="progressValue" max="100"></progress>
+            <div v-if="reciveObject">
+                <p>show your offer</p>
+                <button class="accept-change home-btn">
+                    <img :src="registered.photos[0]" alt="">
+                    {{registered.localization}} {{registered.address}}
+                </button>
+            </div>
+        </div>
+    </div>
+
 </div>
 </template>
 
@@ -70,6 +85,10 @@ export default {
             openDetails: false,
             openPhotos: false,
             logged: true,
+            sendingNew: true,
+            progressValue: 20,
+            reciveObject: false,
+            registered: {}
         }
     },
     created() {
@@ -93,12 +112,13 @@ export default {
         },
         createNew() {
 
+            this.sendingNew = true
+
+            this.progressValue = 30
+
             let offer = this.$store.state.newSale
 
-            console.log(offer)
-
             this.saveNew(offer)
-
         },
         isLogged() {
 
@@ -130,10 +150,19 @@ export default {
         },
         saveNew(newOffer){
 
+            this.progressValue = 50
+
             this.$axios.post(`${this.$axios.defaults.baseURL}/new-offer-add`, newOffer)
 
             .then(({ data }) =>{
-                console.log(data)
+
+                this.progressValue = 100
+
+                this.registered = data
+
+                this.reciveObject = true
+
+                console.log(this.registered)
             })
             .catch(({ err })=>{
                 console.log(err)

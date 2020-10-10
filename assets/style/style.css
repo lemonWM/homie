@@ -363,3 +363,16 @@ sales
   bottom: 0px;
   left: 0px;
 }
+
+.sending-panel img{
+  width: 50px;
+}
+
+.progress {
+  background: white !important;
+  height: 5px;
+}
+.progress::-moz-progress-bar{
+  background: #af9668 !important;
+  height: 5px;
+}
