@@ -35,7 +35,7 @@
 
     <div class="show-preview-buttons">
         <button class="hollow discard-change home-btn" @click="discard">Discard</button>
-        <button class="hollow accept-change home-btn" @click="createNew">Accept</button>
+        <button class="hollow accept-change home-btn" @click="createNew" :disabled='!isUser'>Accept</button>
     </div>
 
     <div class="is-logged-panel " v-if="!logged">
@@ -69,7 +69,7 @@ export default {
             openAddress: true,
             openDetails: false,
             openPhotos: false,
-            logged: true
+            logged: true,
         }
     },
     created() {
@@ -80,9 +80,9 @@ export default {
     },
     computed: {
 
-        newOffer() {
+        isUser() {
 
-            return this.$store.state.newSale
+            return Object.entries(this.$store.state.user).length !== 0
         }
     },
     methods: {
@@ -93,13 +93,31 @@ export default {
         },
         createNew() {
 
-            console.log(this.newOffer) //update send to base - new offer
+            let offer = this.$store.state.newSale
+
+            console.log(offer)
+
+            this.saveNew(offer)
+
         },
         isLogged() {
 
             if (Object.entries(this.$store.state.user).length !== 0) {
 
                 this.logged = true
+
+                this.$store.commit('setOfferOwnerNewSale', {
+                    _id: this.$store.state.user._id,
+                    first_name: this.$store.state.user.first_name,
+                    last_name: this.$store.state.user.last_name,
+                    email: this.$store.state.user.email,
+                    phone: this.$store.state.user.phone,
+                    photo: this.$store.state.user.logoUrl,
+                })
+                this.$store.commit('setSaleTypeNewSale', {
+                    type: 'sale'
+                })
+
             } else {
                 this.logged = false
             }
@@ -108,6 +126,17 @@ export default {
 
             this.$router.push({
                 name: path
+            })
+        },
+        saveNew(newOffer){
+
+            this.$axios.post(`${this.$axios.defaults.baseURL}/new-offer-add`, newOffer)
+
+            .then(({ data }) =>{
+                console.log(data)
+            })
+            .catch(({ err })=>{
+                console.log(err)
             })
         }
     },

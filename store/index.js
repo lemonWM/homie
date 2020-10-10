@@ -27,13 +27,20 @@ const createStore = () => {
         totalArea: '',
         description: '',
         photos: [],
+        geolocalization:{
+          lat: null,
+          lng: null,
+          id: ''
+        },
         offer_owner: {
+          _id:'',
           first_name: '',
           last_name: '',
           email: '',
           phone: '',
           photo: ''
-        }
+        },
+        type: ''
       }
     }),
     getters,

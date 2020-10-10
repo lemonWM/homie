@@ -39,5 +39,19 @@ export default{
     setImgNewSale(state, payload){
         
         state.newSale.photos = payload.photos
-    } // set img url in create new offer photosDetails
+    }, // set img url in create new offer photosDetails
+
+    setOfferOwnerNewSale(state, payload){
+        state.newSale.offer_owner._id = payload._id
+        state.newSale.offer_owner.first_name = payload.first_name 
+        state.newSale.offer_owner.last_name = payload.last_name
+        state.newSale.offer_owner.email = payload.email
+        state.newSale.offer_owner.phone = payload.phone
+        state.newSale.offer_owner.photo = payload.photo
+    }, // set offer -owner from logged user new offer mainContent
+
+    setSaleTypeNewSale(state, payload){
+        
+        state.newSale.type = payload.type
+    } // set type of transaction - sale/rent new offer mainContent
 }
