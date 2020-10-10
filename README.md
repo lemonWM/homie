@@ -1,6 +1,6 @@
 # homie
 
-project in progress ;)
+project in progress .. 
 
 Application to publish home sells and rents offers.
 Based on Nuxt.js & Vue.js SSR App
