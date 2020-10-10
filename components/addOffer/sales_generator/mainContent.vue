@@ -38,13 +38,18 @@
         <button class="hollow accept-change home-btn" @click="createNew">Accept</button>
     </div>
 
-    <div class="is-logged-panel preview-details" v-if="logged">
-        <div>
-            <h3>To continue on creator</h3>
-        </div>
-        <div>
-            <button class="hollow accept-change home-btn" @click="redirectTo('register')">Register</button>
-            <button class="hollow discard-change home-btn" @click="redirectTo('login')">Login</button>
+    <div class="is-logged-panel " v-if="!logged">
+        <div class="preview-details">
+            <div>
+                <h3>To continue on creator</h3>
+                <button class="hollow" @click="logged =!logged">
+                    <i class="far fa-times-circle"></i>
+                </button>
+            </div>
+            <div>
+                <button class="hollow accept-change home-btn" @click="redirectTo('register')">Register</button>
+                <button class="hollow discard-change home-btn" @click="redirectTo('login')">Login</button>
+            </div>
         </div>
     </div>
 
@@ -93,7 +98,6 @@ export default {
         isLogged() {
 
             if (Object.entries(this.$store.state.user).length !== 0) {
-                console.log(this.$store.state.user.first_name)
 
                 this.logged = true
             } else {
