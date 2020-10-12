@@ -61,7 +61,7 @@ a:hover, a:focus, a, .nav-link {
   color:#af9668 !important;
 }
 .main-wrapper{
-  padding-top: 40px;
+ 
 }
 .logo-user-nav{
   max-height: 30px;
@@ -169,7 +169,6 @@ span {
 .offer-wrapper{
   min-height: 100vh;
   background-color: #3b4350;
-  margin-top: -40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -376,3 +375,24 @@ sales
   background: #af9668 !important;
   height: 5px;
 }
+
+
+/* gmap on single details */
+
+.g_map{
+  width: 300px;
+  height: 700px;
+}
+.vue-map{
+  overflow: hidden;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+}
+.map-wrapper-single{
+  overflow: hidden;
+  border-radius: 20px;
+}
+

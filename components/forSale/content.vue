@@ -5,11 +5,15 @@
             <h3>Results match for '{{getLocalization}}'</h3>
         </div>
         <div class="module-map">
-            <mapModule @pointered='setClass' :rotatedPin='rotatedPin' />
+            <mapModule @pointered='setClass'/>
         </div>
     </div>
     <div class="item-wrapper">
-        <div class="single-wrapper columns small-3" v-for="(single, index) in sales" :key="single._id" :class="{'active': (single._id === activeID)}" @mouseover="rotetePin(single.geolocalization)" @mouseleave="showDetails('')">
+        <div class="single-wrapper columns small-3" 
+            v-for="(single, index) in sales" 
+            :key="single._id" :class="{'active': (single._id === activeID)}" 
+            @mouseleave="showDetails('')">
+
             <div class="single-sale-element">
                 <article @click='goToSingle(single._id) ' class="element-sale">
                     <div class="img-element" @mouseover="showDetails(index)">
@@ -17,7 +21,7 @@
                             <img :src="single.photos[0]" alt="" class="img-single">
                         </figure>
                     </div>
-                    <div class="hiden" v-bind:class="{'show': showItem === index}">
+                    <div class="content-single-sale-element" v-bind:class="{'show': showItem === index}">
                         <div>
                             <h3 class="price">${{single.price}}</h3>
                         </div>
@@ -48,7 +52,6 @@ export default {
     data() {
         return {
             activeID: '',
-            rotatedPin: {},
             showItem: ''
         }
     },
@@ -113,10 +116,6 @@ export default {
             this.activeID = value
 
         }, // add class active to item selected on google maps pin click
-        rotetePin(value) {
-
-            this.rotatedPin = value
-        },
         showDetails(index) {
 
             this.showItem = index
@@ -175,7 +174,9 @@ export default {
     position: relative;
 
 }
-
+.content-single-sale-element{
+    min-height: 140px;
+}
 .img-single {
     border-radius: 20px;
 }

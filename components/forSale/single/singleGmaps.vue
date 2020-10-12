@@ -3,7 +3,7 @@
         <gmap-map
             :center="marker"
             :zoom="12"
-            class="g_map"
+            class="g_map map-wrapper-single"
             >
             <gmap-marker
                 :key="marker._id"
@@ -20,13 +20,9 @@ export default {
 }
 </script>
 
-<style>
-.g_map{
-    width: 300px;
-    height: 700px;
-}
+<style scoped>
 .vue-map{
-    overflow: hidden;
-border-radius: 20px;
+  overflow: hidden;
+  border-radius: 20px !important;
 }
 </style>

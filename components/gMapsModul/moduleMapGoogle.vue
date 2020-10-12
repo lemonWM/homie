@@ -1,6 +1,6 @@
 <template>
 <div class="g-maps" @click="hideShort">
-    <gmap-map :center="center" :zoom="11" style="width:100%;  height: 300px;">
+    <gmap-map :center="center" :zoom="9" style="width:100%;  height: 300px;">
         <gmap-marker :key="index" v-for="(m, index) in markers" :position="m.position" @click="show(m.position)">
         </gmap-marker>
     </gmap-map>
@@ -28,9 +28,6 @@
 export default {
     name: "GoogleMap",
     props: {
-        rotatedPin: {
-            type: Object
-        },
         isActive: true,
     },
     data() {
@@ -104,12 +101,7 @@ export default {
 
             this.$emit('pointered', id)
         }
-    },
-    watch: {
-        rotatedPin(newVal) {
-            //console.log(newVal.id)
-        }
-    },
+    }
 };
 </script>
 
@@ -117,7 +109,6 @@ export default {
 .g-maps {
     position: relative;
 }
-
 .prev-sing-g-maps {
     position: absolute;
     top: 20px;
@@ -127,7 +118,6 @@ export default {
     border-radius: 20px;
     padding: 15px;
 }
-
 .visible {
     display: block;
 }
