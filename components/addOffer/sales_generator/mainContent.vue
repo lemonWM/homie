@@ -53,14 +53,13 @@
         </div>
     </div>
 
-
     <div class="is-logged-panel sending-panel" v-if="sendingNew">
         <div class="preview-details">
             <p>Creating in progress</p>
             <progress class="progress" :value="progressValue" max="100"></progress>
             <div v-if="reciveObject">
                 <p>show your offer</p>
-                <button class="accept-change home-btn">
+                <button class="accept-change home-btn" @click="newOfferDetails">
                     <img :src="registered.photos[0]" alt="">
                     {{registered.localization}} {{registered.address}}
                 </button>
@@ -79,13 +78,14 @@ import photosContent from './photosContent'
 
 export default {
     name: 'new-sale-generator',
+    props: ['offerType'],
     data() {
         return {
             openAddress: true,
             openDetails: false,
             openPhotos: false,
             logged: true,
-            sendingNew: true,
+            sendingNew: false,
             progressValue: 20,
             reciveObject: false,
             registered: {}
@@ -135,7 +135,7 @@ export default {
                     photo: this.$store.state.user.logoUrl,
                 })
                 this.$store.commit('setSaleTypeNewSale', {
-                    type: 'sale'
+                    type: this.offerType
                 })
 
             } else {
@@ -167,6 +167,12 @@ export default {
             .catch(({ err })=>{
                 console.log(err)
             })
+        },
+        newOfferDetails(){
+
+            let id = this.registered._id
+
+            this.$router.push(`/forSale/${id}`)
         }
     },
     components: {
