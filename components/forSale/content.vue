@@ -76,6 +76,8 @@ export default {
         },
         getLocalization() {
 
+            console.log()
+
             return this.$store.state.localization.locality
         },
         loggedUser() {
