@@ -2,23 +2,23 @@
 <div class="sales-wrapper">
     <div v-if="getLocalization">
         <div>
-            <h3>Results match for '{{getLocalization}}'</h3>
+            <h3 class="title-result">Results match for {{getLocalization}}</h3>
         </div>
         <div class="module-map">
             <mapModule @pointered='setClass'/>
         </div>
     </div>
     <div class="item-wrapper">
-        <div class="single-wrapper columns small-3" 
+        <div class="single-wrapper columns small-3 " 
             v-for="(single, index) in sales" 
             :key="single._id" :class="{'active': (single._id === activeID)}" 
             @mouseleave="showDetails('')">
 
-            <div class="single-sale-element">
+            <div class="single-sale-element ">
                 <article @click='goToSingle(single._id) ' class="element-sale">
-                    <div class="img-element" @mouseover="showDetails(index)">
+                    <div class="img-element " @mouseover="showDetails(index)">
                         <figure>
-                            <img :src="single.photos[0]" alt="" class="img-single">
+                            <img :src="single.photos[0]" alt="" class="img-single boxes">
                         </figure>
                     </div>
                     <div class="content-single-sale-element" v-bind:class="{'show': showItem === index}">
@@ -37,6 +37,11 @@
                     <button :disabled='!loggedUser' @click="addtoObserve(single._id)">
                         <i class="far fa-heart add-to-observe-icon"></i>
                     </button>
+                </div>
+                <div class="badge-element">
+                    <div class="">
+                        <div class="ribbon"><span>{{single.type}}</span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -148,6 +153,11 @@ export default {
     justify-content: center;
     flex-direction: column;
 }
+.title-result{
+    text-align: center;
+    margin-bottom: 40px;
+    color: #af9668 !important;
+}
 
 .element-sale {
     cursor: pointer;
@@ -159,6 +169,8 @@ export default {
     border-radius: 10px;
     border-radius: 30px;
     height: 100%;
+    max-width: 350px !important;
+    width: auto;    
 }
 
 .item-wrapper {
@@ -202,7 +214,7 @@ export default {
 .add-to-observe {
     position: absolute;
     top: 26px;
-    right: 10px;
+    left: 10px;
     background-color: #505767;
     padding: 10px 15px;
     border-radius: 15px;
@@ -217,5 +229,54 @@ export default {
     -webkit-box-shadow: 0px 0px 5px 0px rgba(193, 247, 221, 1);
     -moz-box-shadow: 0px 0px 5px 0px rgba(193, 247, 221, 1);
     box-shadow: 0px 0px 5px 0px rgba(193, 247, 221, 1);
+}
+
+
+
+.boxes {
+  position: relative;
+}
+.ribbon {
+  position: absolute;
+  right: -24px; 
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px; height: 75px;
+  text-align: right;
+}
+.ribbon span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #262626;
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px; right: -21px;
+}
+.ribbon span::before {
+  content: "";
+  position: absolute; left: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid #262626;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #262626;
+}
+.ribbon span::after {
+  content: "";
+  position: absolute; right: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #262626;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #262626;
 }
 </style>

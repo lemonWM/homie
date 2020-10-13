@@ -118,7 +118,7 @@ export default {
 }
 .pagination{
     position: absolute;
-    bottom: 0px;
+    bottom: 20px;
     width: 100%;
     display: flex;
     justify-content: center;

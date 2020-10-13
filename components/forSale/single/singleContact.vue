@@ -4,7 +4,7 @@
             <h3 class="title-contact">Contact with an offer owner</h3>
             <div class="wrapper-contact">
                 <div class="contact-top">
-                    <div class="side-img row">
+                    <div class="side-img row" @click="goToUserDetails">
                         <div>
                             <img :src="single.offer_owner.photo" alt="user" class="contact-img">
                         </div>
@@ -74,6 +74,10 @@ export default {
         showContact(){
 
             this.contact =! this.contact
+        },
+        goToUserDetails(){
+
+            this.$router.push(`/user/${this.single.offer_owner.first_name}`)
         }
     },
     components: {DatePicker}
@@ -109,6 +113,9 @@ export default {
     height: 72px;
     border-radius: 100px;
 }
+.side-img {
+    cursor: pointer;
+}
 
 .name p{
     margin: 0;
@@ -117,6 +124,11 @@ export default {
     margin-left: 15px;
     margin-bottom: 5px;
 }
+
+.calendar{
+    border: none;
+}
+
 .calendar p{
     font-size: 20px;
     color: #c2f9df;
