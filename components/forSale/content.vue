@@ -11,7 +11,8 @@
     <div class="item-wrapper">
         <div class="single-wrapper columns small-3 " 
             v-for="(single, index) in sales" 
-            :key="single._id" :class="{'active': (single._id === activeID)}" 
+            :key="single._id" 
+            :class="{'active': (single._id === activeID)}" 
             @mouseleave="showDetails('')">
 
             <div class="single-sale-element ">

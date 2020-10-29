@@ -11,7 +11,9 @@ export default {
     name: 'home',
     data() {
         return {
-            error: false
+            error: false,
+            basic: {},
+            leader: {}
         }
     },
     created() {
