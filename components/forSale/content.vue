@@ -153,7 +153,11 @@ export default {
         },
         add_to_observe(value){
 
-            console.log(value)
+            let to_observe = this.$store.getters.get_selected_offer(value)
+
+            console.log(to_observe)
+
+           // item added to user observe
         }
     },
     components: {
