@@ -35,7 +35,11 @@
                     </div>
                 </article>
                 <div class="add-to-observe">
-                    <button :disabled='!loggedUser' @click="addtoObserve(single._id)">
+                    <button 
+                        :disabled='!loggedUser' 
+                        @click="addtoObserve(single._id)" 
+                        @mouseover="generateTitle" 
+                        :title="buttonAddTitle">
                         <i class="far fa-heart add-to-observe-icon"></i>
                     </button>
                 </div>
@@ -58,7 +62,8 @@ export default {
     data() {
         return {
             activeID: '',
-            showItem: ''
+            showItem: '',
+            buttonAddTitle: ''
         }
     },
 
@@ -131,6 +136,16 @@ export default {
         addtoObserve(value) {
 
             console.log(value)
+        },
+        generateTitle(){
+
+            if(this.loggedUser){
+
+                this.buttonAddTitle = 'Add to observe'
+            } else {
+
+                this.buttonAddTitle = 'Login'
+            }
         }
     },
     components: {
