@@ -34,11 +34,14 @@
                         </div>
                     </div>
                 </article>
-                <div class="add-to-observe">
+                <div class="add-to-observe"
+                    @mouseover="enableObserve(index)"
+                    @mouseleave="enableObserve('')"
+                    v-bind:class="{ active_button: active_add === index }">
                     <button 
                         :disabled='!loggedUser' 
-                        @click="addtoObserve(single._id)" 
-                        @mouseover="generateTitle" 
+                        @click="add_to_observe(single._id)" 
+                        @mouseover="generateTitle"
                         :title="buttonAddTitle">
                         <i class="far fa-heart add-to-observe-icon"></i>
                     </button>
@@ -63,7 +66,8 @@ export default {
         return {
             activeID: '',
             showItem: '',
-            buttonAddTitle: ''
+            buttonAddTitle: '',
+            active_add: ''
         }
     },
 
@@ -86,8 +90,6 @@ export default {
             }
         },
         getLocalization() {
-
-            console.log()
 
             return this.$store.state.localization.locality
         },
@@ -133,12 +135,6 @@ export default {
 
             this.showItem = index
         },
-        addtoObserve(value) {
-
-            console.log(value)
-
-            // api to favourite
-        },
         generateTitle(){
 
             if(this.loggedUser){
@@ -148,6 +144,16 @@ export default {
 
                 this.buttonAddTitle = 'Login'
             }
+        },
+        enableObserve(value){
+            
+            if(this.loggedUser){
+                this.active_add = value
+            }
+        },
+        add_to_observe(value){
+
+            console.log(value)
         }
     },
     components: {
@@ -241,6 +247,12 @@ export default {
 .add-to-observe-icon {
     color: #c2f9df;
     font-size: 18px;
+}
+.active_button{
+    background: #c2f9df;
+}
+.active_button .add-to-observe-icon {
+    color: black;
 }
 
 .active {

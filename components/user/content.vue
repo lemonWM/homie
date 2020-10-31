@@ -31,14 +31,9 @@ export default {
             mobile: false
         }
     },
-    created() {
-        console.log(this.$store.state.user)
-    },
     computed: {
         
         getUser(){
-
-            console.log(this.$store.state.user)
 
             return this.user.user
         }
