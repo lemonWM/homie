@@ -43,9 +43,9 @@ export default {
   },
   methods: {
     
-    gotoUserPanel(userLogged){
+    gotoUserPanel(logged){
 
-      let user = userLogged.user
+      let user = logged.user
     
       this.$router.push(`/user/${user}`)
     }

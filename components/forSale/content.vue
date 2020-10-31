@@ -136,6 +136,8 @@ export default {
         addtoObserve(value) {
 
             console.log(value)
+
+            // api to favourite
         },
         generateTitle(){
 
