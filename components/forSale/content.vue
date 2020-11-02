@@ -160,9 +160,9 @@ export default {
    
             this.send_favourite(this.favourite_Single) 
         },
-        send_favourite(item){
+        send_favourite(item){ 
 
-            console.log(item)
+            // push to favourite array in user profile
 
             this.$axios.put(`${this.$axios.defaults.baseURL}/add-to-favourite`, item)
 
