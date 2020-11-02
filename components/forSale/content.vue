@@ -5,15 +5,11 @@
             <h3 class="title-result">Results match for {{getLocalization}}</h3>
         </div>
         <div class="module-map">
-            <mapModule @pointered='setClass'/>
+            <mapModule @pointered='setClass' />
         </div>
     </div>
     <div class="item-wrapper">
-        <div class="single-wrapper columns small-3 " 
-            v-for="(single, index) in sales" 
-            :key="single._id" 
-            :class="{'active': (single._id === activeID)}" 
-            @mouseleave="showDetails('')">
+        <div class="single-wrapper columns small-3 " v-for="(single, index) in sales" :key="single._id" :class="{'active': (single._id === activeID)}" @mouseleave="showDetails('')">
 
             <div class="single-sale-element ">
                 <article @click='goToSingle(single._id) ' class="element-sale">
@@ -34,15 +30,8 @@
                         </div>
                     </div>
                 </article>
-                <div class="add-to-observe"
-                    @mouseover="enableObserve(index)"
-                    @mouseleave="enableObserve('')"
-                    v-bind:class="{ active_button: active_add === index }">
-                    <button 
-                        :disabled='!loggedUser' 
-                        @click="add_to_observe(single._id)" 
-                        @mouseover="generateTitle"
-                        :title="buttonAddTitle">
+                <div class="add-to-observe" @mouseover="enableObserve(index)" @mouseleave="enableObserve('')" v-bind:class="{ active_button: active_add === index }">
+                    <button :disabled='!loggedUser' @click="add_to_observe(single._id)" @mouseover="generateTitle" :title="buttonAddTitle">
                         <i class="far fa-heart add-to-observe-icon"></i>
                     </button>
                 </div>
@@ -67,7 +56,8 @@ export default {
             activeID: '',
             showItem: '',
             buttonAddTitle: '',
-            active_add: ''
+            active_add: '',
+            favourite_Single: {}
         }
     },
 
@@ -108,11 +98,15 @@ export default {
         getSales() {
 
             this.$axios.get(this.$axios.defaults.baseURL + '/sales')
-                .then(({ data }) => {
+                .then(({
+                    data
+                }) => {
 
                     this.setSales(data)
                 })
-                .catch(({ error }) => {
+                .catch(({
+                    error
+                }) => {
                     this.error = error
                 })
         },
@@ -135,9 +129,9 @@ export default {
 
             this.showItem = index
         },
-        generateTitle(){
+        generateTitle() {
 
-            if(this.loggedUser){
+            if (this.loggedUser) {
 
                 this.buttonAddTitle = 'Add to observe'
             } else {
@@ -145,19 +139,41 @@ export default {
                 this.buttonAddTitle = 'Login'
             }
         },
-        enableObserve(value){
-            
-            if(this.loggedUser){
+        enableObserve(value) {
+
+            if (this.loggedUser) {
                 this.active_add = value
             }
         },
-        add_to_observe(value){
+        add_to_observe(value) {
 
             let to_observe = this.$store.getters.get_selected_offer(value)
 
-            console.log(to_observe)
+            this.favourite_Single = {
+                userID: this.$store.state.user._id, // finded user in base by logged user
+                _id: to_observe[0]._id, // id of single offer
+                icon: to_observe[0].photos[0],
+                localization: to_observe[0].localization,
+                address: to_observe[0].address,
+                owner: to_observe[0].offer_owner
+            } // created item on click favourite -> api to user favourite
 
-           // item added to user observe
+            
+            console.log(this.favourite_Single)
+            // item added to user observe
+   
+            this.send_favourite(this.favourite_Single) 
+        },
+        send_favourite(item){
+
+            this.$axios.put(`${this.$axios.defaults.baseURL}/add-to-favourite`, item)
+
+            .then(({ data }) =>{
+                console.log(data)
+            })
+            .catch(({ err })=> {
+                console.log(err)
+            })
         }
     },
     components: {
@@ -181,7 +197,8 @@ export default {
     justify-content: center;
     flex-direction: column;
 }
-.title-result{
+
+.title-result {
     text-align: center;
     margin-bottom: 40px;
     color: #af9668 !important;
@@ -198,7 +215,7 @@ export default {
     border-radius: 30px;
     height: 100%;
     max-width: 350px !important;
-    width: auto;    
+    width: auto;
 }
 
 .item-wrapper {
@@ -216,9 +233,11 @@ export default {
     position: relative;
 
 }
-.content-single-sale-element{
+
+.content-single-sale-element {
     min-height: 140px;
 }
+
 .img-single {
     border-radius: 20px;
 }
@@ -252,9 +271,11 @@ export default {
     color: #c2f9df;
     font-size: 18px;
 }
-.active_button{
+
+.active_button {
     background: #c2f9df;
 }
+
 .active_button .add-to-observe-icon {
     color: black;
 }
@@ -265,52 +286,60 @@ export default {
     box-shadow: 0px 0px 5px 0px rgba(193, 247, 221, 1);
 }
 
-
-
 .boxes {
-  position: relative;
+    position: relative;
 }
+
 .ribbon {
-  position: absolute;
-  right: -24px; 
-  top: -5px;
-  z-index: 1;
-  overflow: hidden;
-  width: 75px; height: 75px;
-  text-align: right;
+    position: absolute;
+    right: -24px;
+    top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+    text-align: right;
 }
+
 .ribbon span {
-  font-size: 12px;
-  font-weight: bold;
-  color: #FFF;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 20px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  width: 100px;
-  display: block;
-  background: #262626;
-  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 19px; right: -21px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 100px;
+    display: block;
+    background: #262626;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px;
+    right: -21px;
 }
+
 .ribbon span::before {
-  content: "";
-  position: absolute; left: 0px; top: 100%;
-  z-index: -1;
-  border-left: 3px solid #262626;
-  border-right: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #262626;
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid #262626;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #262626;
 }
+
 .ribbon span::after {
-  content: "";
-  position: absolute; right: 0px; top: 100%;
-  z-index: -1;
-  border-left: 3px solid transparent;
-  border-right: 3px solid #262626;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #262626;
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid transparent;
+    border-right: 3px solid #262626;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #262626;
 }
 </style>

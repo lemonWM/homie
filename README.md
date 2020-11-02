@@ -28,7 +28,6 @@ Live at: in progress, on free heroku server - wait few second on first run
 https://homie-nuxt.herokuapp.com
 
 
-
 ## Build Setup
 
 ```bash
