@@ -147,24 +147,22 @@ export default {
         },
         add_to_observe(value) {
 
-            let to_observe = this.$store.getters.get_selected_offer(value)
+            let to_observe = this.$store.getters.get_selected_offer(value) // getter return single offer prom array of all
 
             this.favourite_Single = {
-                userID: this.$store.state.user._id, // finded user in base by logged user
-                _id: to_observe[0]._id, // id of single offer
+                userID: this.$store.state.user._id,
+                _id: to_observe[0]._id,
                 icon: to_observe[0].photos[0],
                 localization: to_observe[0].localization,
                 address: to_observe[0].address,
                 owner: to_observe[0].offer_owner
             } // created item on click favourite -> api to user favourite
-
-            
-            console.log(this.favourite_Single)
-            // item added to user observe
    
             this.send_favourite(this.favourite_Single) 
         },
         send_favourite(item){
+
+            console.log(item)
 
             this.$axios.put(`${this.$axios.defaults.baseURL}/add-to-favourite`, item)
 
