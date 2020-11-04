@@ -44,7 +44,7 @@ export default {
 		this.$store.commit('setUserDetails', {
 			user: user
 		})
-    }
+    } // set user details
   },
 };
 </script>

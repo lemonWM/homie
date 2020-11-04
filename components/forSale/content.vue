@@ -58,6 +58,7 @@
 
 <script>
 import mapModule from '../gMapsModul/moduleMapGoogle'
+import observeVue from '../user/observe.vue'
 
 export default {
     name: 'main-content',
@@ -69,7 +70,8 @@ export default {
             active_add: '',
             item_observed: '',
             favourite_Single: {},
-            all_items_ID: [], // for matching with liked(items from base)
+          
+          
             test: [
                 "5f845a06ec29240e6c00834d", "5f846000ec2924f67200834d"
             ]
@@ -79,6 +81,11 @@ export default {
     created() {
 
         if (!this.$store.state.sales.length) {
+            
+            this.getSales()
+        } 
+        else if(Object.entries(this.$store.state.user).length) {
+            
             this.getSales()
         }
     },
@@ -107,9 +114,14 @@ export default {
 
                 return true
             }
+        },
+        userDetails(){
+
+            console.log(this.$store.state.user.favourite)
         }
     },
     methods: {
+
         getSales() {
 
             this.$axios.get(this.$axios.defaults.baseURL + '/sales')
@@ -188,21 +200,32 @@ export default {
         },
         select_all_ID(salesAll){
             
-            let arr = []
+            let all_items_ID = []
 
             salesAll.forEach((single) => {
                 
-                arr.push(single._id)
+                all_items_ID.push(single._id)
             });
-            this.all_items_ID = arr
+            
 
             //console.log(this.all_items_ID)
 
-            this.matched(this.all_items_ID)
-        },
+            this.matched(all_items_ID)
+        }, // all _id for sales
         matched(all_items){
 
-            const matchedItems = all_items.filter(element => this.test.includes(element));
+            let userFavourite = []
+
+            if(Object.entries(this.$store.state.user).length){
+
+                let arr = this.$store.state.user
+
+                arr.favourite.forEach(function(single){
+                    
+                    userFavourite.push(single._id)
+                })
+            }
+            let matchedItems = all_items.filter(element => userFavourite.includes(element));
 
             console.log(matchedItems)
         } // matched idex from all items and from selected item by user - if matched to item added class observed - visible liked item
