@@ -30,8 +30,14 @@
                         </div>
                     </div>
                 </article>
-                <div class="add-to-observe" @mouseover="enableObserve(index)" @mouseleave="enableObserve('')" v-bind:class="{ active_button: active_add === index }">
-                    <button :disabled='!loggedUser' @click="add_to_observe(single._id)" @mouseover="generateTitle" :title="buttonAddTitle">
+                <div class="add-to-observe" 
+                    @mouseover="enableObserve(index)" 
+                    @mouseleave="enableObserve('')" 
+                    v-bind:class="{ active_button: active_add === index, observed: item_observed === index }">
+                    <button :disabled='!loggedUser' 
+                            @click="add_to_observe(single._id)" 
+                            @mouseover="generateTitle" 
+                            :title="buttonAddTitle">
                         <i class="far fa-heart add-to-observe-icon"></i>
                     </button>
                 </div>
@@ -57,6 +63,7 @@ export default {
             showItem: '',
             buttonAddTitle: '',
             active_add: '',
+            item_observed: '',
             favourite_Single: {}
         }
     },
@@ -168,6 +175,8 @@ export default {
 
             .then(({ data }) =>{
                 console.log(data)
+
+                this.item_observed = this.active_add
             })
             .catch(({ err })=> {
                 console.log(err)
@@ -270,11 +279,11 @@ export default {
     font-size: 18px;
 }
 
-.active_button {
+.active_button, .observed {
     background: #c2f9df;
 }
 
-.active_button .add-to-observe-icon {
+.active_button .add-to-observe-icon, .observed .add-to-observe-icon {
     color: black;
 }
 
