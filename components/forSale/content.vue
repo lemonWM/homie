@@ -37,7 +37,7 @@
                 <div class="add-to-observe" 
                     @mouseover="enableObserve(index)" 
                     @mouseleave="enableObserve('')" 
-                    v-bind:class="{ active_button: active_add === index  }">
+                    v-bind:class="{ active_button: active_add === index, observed: items_favourite.indexOf(single._id) > -1 }">
                     <button :disabled='!loggedUser' 
                             @click="add_to_observe(single._id)" 
                             @mouseover="generateTitle" 
