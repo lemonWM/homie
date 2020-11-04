@@ -18,6 +18,10 @@ export default{
     loginUser(state, payload){
 
         state.user = payload.user
+    }, // basic info about user in login
+    setUserDetails(state, payload){
+
+        state.userDetails = payload.user
     },
     setAddressNewSale(state, payload){
 

@@ -9,7 +9,11 @@
         </div>
     </div>
     <div class="item-wrapper">
-        <div class="single-wrapper columns small-3 " v-for="(single, index) in sales" :key="single._id" :class="{'active': (single._id === activeID)}" @mouseleave="showDetails('')">
+        <div class="single-wrapper columns small-3 " 
+        
+            v-for="(single, index) in sales" :key="single._id" 
+            :class="{'active': (single._id === activeID)}" 
+            @mouseleave="showDetails('')">
 
             <div class="single-sale-element ">
                 <article @click='goToSingle(single._id) ' class="element-sale">
@@ -33,7 +37,7 @@
                 <div class="add-to-observe" 
                     @mouseover="enableObserve(index)" 
                     @mouseleave="enableObserve('')" 
-                    v-bind:class="{ active_button: active_add === index, observed: item_observed === index }">
+                    v-bind:class="{ active_button: active_add === index  }">
                     <button :disabled='!loggedUser' 
                             @click="add_to_observe(single._id)" 
                             @mouseover="generateTitle" 
@@ -64,7 +68,11 @@ export default {
             buttonAddTitle: '',
             active_add: '',
             item_observed: '',
-            favourite_Single: {}
+            favourite_Single: {},
+            all_items_ID: [], // for matching with liked(items from base)
+            test: [
+                "5f845a06ec29240e6c00834d", "5f846000ec2924f67200834d"
+            ]
         }
     },
 
@@ -105,15 +113,11 @@ export default {
         getSales() {
 
             this.$axios.get(this.$axios.defaults.baseURL + '/sales')
-                .then(({
-                    data
-                }) => {
-
+                .then(({ data }) => {
                     this.setSales(data)
+                    this.select_all_ID(data)  // selecting _id of all single    
                 })
-                .catch(({
-                    error
-                }) => {
+                .catch(({ error }) => {
                     this.error = error
                 })
         },
@@ -181,7 +185,27 @@ export default {
             .catch(({ err })=> {
                 console.log(err)
             })
-        }
+        },
+        select_all_ID(salesAll){
+            
+            let arr = []
+
+            salesAll.forEach((single) => {
+                
+                arr.push(single._id)
+            });
+            this.all_items_ID = arr
+
+            //console.log(this.all_items_ID)
+
+            this.matched(this.all_items_ID)
+        },
+        matched(all_items){
+
+            const matchedItems = all_items.filter(element => this.test.includes(element));
+
+            console.log(matchedItems)
+        } // matched idex from all items and from selected item by user - if matched to item added class observed - visible liked item
     },
     components: {
         mapModule

@@ -19,18 +19,32 @@ export default {
     mainContent,
   },
   created() {
-    const reg = new RegExp("/user/", "i");
 
-    let userLogin = this.$route.path.replace(reg, "");
+		const reg = new RegExp("/user/", "i");
 
-    this.$axios
-      .get(`${this.$axios.defaults.baseURL}/user/${userLogin}`)
-      .then(({ data }) => {
-        this.user = data;
-      })
-      .catch(({ error }) => {
-        this.error = error;
-      });
+		let userLogin = this.$route.path.replace(reg, "");
+
+		this.$axios.get(`${this.$axios.defaults.baseURL}/user/${userLogin}`)
+		
+		.then(({ data }) => {
+			
+			this.user = data;
+
+			this.set_User_Full(data)
+		})
+		.catch(({ error }) => {
+			
+			this.error = error;
+		});
+  },
+  methods: {
+    
+    set_User_Full(user){
+
+		this.$store.commit('setUserDetails', {
+			user: user
+		})
+    }
   },
 };
 </script>
