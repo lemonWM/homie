@@ -132,7 +132,7 @@ export default {
                     last_name: this.$store.state.user.last_name,
                     email: this.$store.state.user.email,
                     phone: this.$store.state.user.phone,
-                    photo: this.$store.state.user.logoUrl,
+                    photo: this.$store.state.user.logo,
                 })
                 this.$store.commit('setSaleTypeNewSale', {
                     type: this.offerType

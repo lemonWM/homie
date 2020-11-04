@@ -64,17 +64,14 @@ export default {
     name: 'main-content',
     data() {
         return {
+            allSels: [],
             activeID: '',
             showItem: '',
             buttonAddTitle: '',
             active_add: '',
             item_observed: '',
             favourite_Single: {},
-          
-          
-            test: [
-                "5f845a06ec29240e6c00834d", "5f846000ec2924f67200834d"
-            ]
+            items_favourite: []
         }
     },
 
@@ -126,6 +123,9 @@ export default {
 
             this.$axios.get(this.$axios.defaults.baseURL + '/sales')
                 .then(({ data }) => {
+
+                    this.allSels = data
+
                     this.setSales(data)
                     this.select_all_ID(data)  // selecting _id of all single    
                 })
@@ -193,6 +193,10 @@ export default {
                 console.log(data)
 
                 this.item_observed = this.active_add
+
+                this.update_User(data.value) 
+
+                this.select_all_ID(this.allSels) // chect array od id all items and favourited to match _id
             })
             .catch(({ err })=> {
                 console.log(err)
@@ -206,11 +210,8 @@ export default {
                 
                 all_items_ID.push(single._id)
             });
-            
-
-            //console.log(this.all_items_ID)
-
-            this.matched(all_items_ID)
+        
+            this.matched(all_items_ID) 
         }, // all _id for sales
         matched(all_items){
 
@@ -225,10 +226,16 @@ export default {
                     userFavourite.push(single._id)
                 })
             }
-            let matchedItems = all_items.filter(element => userFavourite.includes(element));
+            this.items_favourite = all_items.filter(element => userFavourite.includes(element));
+            // if _id from sels and favourite match 
+            console.log(this.items_favourite)
+        }, // matched idex from all items and from selected item by user - if matched to item added class observed - visible liked item
+        update_User(user){
 
-            console.log(matchedItems)
-        } // matched idex from all items and from selected item by user - if matched to item added class observed - visible liked item
+            this.$store.commit('loginUser',{
+                user: user
+            })
+        } // after send to favourite update user obj in store
     },
     components: {
         mapModule

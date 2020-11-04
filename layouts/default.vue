@@ -11,7 +11,7 @@
         </div>
         <div class="login-nav" v-else>
           <button class="hollow user-panel-btn" @click="gotoUserPanel(logged)">
-            <img :src="logged.logoUrl" alt="" class="logo-user-nav">
+            <img :src="logged.logo" alt="" class="logo-user-nav">
           {{logged.user}}</button>
         </div>
       </div>
