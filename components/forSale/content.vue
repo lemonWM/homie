@@ -37,7 +37,9 @@
                 <div class="add-to-observe" 
                     @mouseover="enableObserve(index)" 
                     @mouseleave="enableObserve('')" 
-                    v-bind:class="{ active_button: active_add === index, observed: items_favourite.indexOf(single._id) > -1 }">
+                    v-bind:class="{ active_button: active_add === index, 
+                                    observed: items_favourite.indexOf(single._id) > -1, 
+                                    temporary: temporaryClass === single._id}">
                     <button :disabled='!loggedUser' 
                             @click="add_to_observe(single._id)" 
                             @mouseover="generateTitle" 
@@ -69,13 +71,14 @@ export default {
             showItem: '',
             buttonAddTitle: '',
             active_add: '',
-            item_observed: '',
-            favourite_Single: {},
-            items_favourite: []
+            items_favourite: [],
+            temporaryClass: ''
         }
     },
 
     created() {
+
+        this.items_favourite = []
 
         if (!this.$store.state.sales.length) {
             
@@ -170,9 +173,13 @@ export default {
         },
         add_to_observe(value) {
 
+            this.temporaryClass = value
+
+            console.log(this.temporary)
+
             let to_observe = this.$store.getters.get_selected_offer(value) // getter return single offer prom array of all
 
-            this.favourite_Single = {
+            let favourite_Single = {
                 userID: this.$store.state.user._id,
                 _id: to_observe[0]._id,
                 icon: to_observe[0].photos[0],
@@ -181,7 +188,7 @@ export default {
                 owner: to_observe[0].offer_owner
             } // created item on click favourite -> api to user favourite
    
-            this.send_favourite(this.favourite_Single) 
+            this.send_favourite(favourite_Single) 
         },
         send_favourite(item){ 
 
@@ -190,9 +197,6 @@ export default {
             this.$axios.put(`${this.$axios.defaults.baseURL}/add-to-favourite`, item)
 
             .then(({ data }) =>{
-                console.log(data)
-
-                this.item_observed = this.active_add
 
                 this.update_User(data.value) 
 
@@ -226,9 +230,12 @@ export default {
                     userFavourite.push(single._id)
                 })
             }
+            
+            this.items_favourite = []
+
             this.items_favourite = all_items.filter(element => userFavourite.includes(element));
             // if _id from sels and favourite match 
-            console.log(this.items_favourite)
+            // console.log(this.items_favourite)
         }, // matched idex from all items and from selected item by user - if matched to item added class observed - visible liked item
         update_User(user){
 
@@ -333,11 +340,11 @@ export default {
     font-size: 18px;
 }
 
-.active_button, .observed {
+.active_button, .observed, .temporary {
     background: #c2f9df;
 }
 
-.active_button .add-to-observe-icon, .observed .add-to-observe-icon {
+.active_button .add-to-observe-icon, .observed .add-to-observe-icon, .temporary .add-to-observe-icon{
     color: black;
 }
 
