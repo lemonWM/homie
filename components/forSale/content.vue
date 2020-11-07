@@ -173,10 +173,6 @@ export default {
         },
         add_to_observe(value) {
 
-            this.temporaryClass = value
-
-            console.log(this.temporary)
-
             let to_observe = this.$store.getters.get_selected_offer(value) // getter return single offer prom array of all
 
             let favourite_Single = {
@@ -189,6 +185,8 @@ export default {
             } // created item on click favourite -> api to user favourite
    
             this.send_favourite(favourite_Single) 
+
+            this.temporaryClass = value
         },
         send_favourite(item){ 
 
