@@ -162,7 +162,7 @@ export default {
                 this.buttonAddTitle = 'Add to observe'
             } else {
 
-                this.buttonAddTitle = 'Login'
+                this.buttonAddTitle = 'Login first'
             }
         },
         enableObserve(value) {
@@ -282,6 +282,12 @@ export default {
     height: 100%;
     max-width: 350px !important;
     width: auto;
+    transition: all ease-in .2s;
+}
+.single-wrapper:hover{
+    -webkit-box-shadow: 0px -6px 11px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -6px 11px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px -6px 11px -9px rgba(0,0,0,0.75);
 }
 
 .item-wrapper {
@@ -291,6 +297,8 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     padding: 50px 0px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .single-sale-element {
