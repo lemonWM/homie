@@ -6,18 +6,21 @@
     @media screen and (max-width: 900px) {
       padding: 100px 15px;
     }
-    .content{
-        width: 100%;
-        width: -moz-available;         
-        width: -webkit-fill-available; 
-        width: stretch; 
+
+    .content {
+      width: 100%;
+      width: -moz-available;
+      width: -webkit-fill-available;
+      width: stretch;
     }
+
     .nav_user_panel {
 
       button {
         margin-bottom: 20px;
         min-width: 160px;
         display: flex;
+        color: inherit;
 
         i {
           width: 20px;
@@ -32,27 +35,54 @@
     padding-left: 45px;
 
     .user-information-wrapper {
-      
-      .user-header, .user-main{
+
+      .user-header,
+      .user-main {
         align-items: center;
         padding: 55px 0px;
         border-bottom: 1px solid #595959;
         padding-left: 30px;
 
-        img{
-            border-radius: 50px;
-            width: 100px;
-            margin-right: 20px;
+        .under-name {
+          margin-top: 30px;
+          font-size: 22px;
+        }
+
+        img {
+          border-radius: 50px;
+          width: 100px;
+          margin-right: 20px;
         }
       }
-      .user-main{
-          .contact-wrapper{
-              display: flex;
-              flex-direction: column;
+
+      .user-main {
+        .contact-wrapper {
+          display: flex;
+          flex-direction: column;
+        }
+
+        a {
+          color: inherit;
+          margin: 10px 0px;
+        }
+      }
+    }
+
+    .single-observed--user-panel {
+
+      .offer-logo {
+        width: 300px;
+      }
+
+      .details {
+
+        .owner-details {
+
+          .owner-logo {
+            height: 45px;
+            border-radius: 45px;
           }
-          a{
-              color: inherit;
-          }
+        }
       }
     }
   }
