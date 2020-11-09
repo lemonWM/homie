@@ -29,6 +29,10 @@ export default {
             mobile: false
         }
     },
+    created() {
+
+        this.$router.push(this.$route.path + '/dashboard')
+    },
     computed: {
         
         getUser(){

@@ -16,7 +16,9 @@
                     <div class="owner-details">
                         <p>Created by:</p>
                         <div class="">
-                            <img class="owner-logo" :src="single.owner.photo" alt="">
+                            <button @click="go_to_user(single.owner.first_name)">
+                                <img class="owner-logo" :src="single.owner.photo" alt="">
+                            </button>
                             <div >
                                 <p>{{single.owner.first_name}} {{single.owner.last_name}}</p>
                                 <a :href="`mailto:${single.owner.email}`">
@@ -43,6 +45,10 @@ export default {
         
         go_to_offer(id){
             console.log(id)
+        },
+        go_to_user(user){
+
+            this.$router.push(`/user/${user}`)
         }
     },
 }

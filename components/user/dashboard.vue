@@ -2,8 +2,8 @@
 	<div class="section-content dashboard">
 		<h3>User information</h3>
 		<div class="user-information-wrapper">
-			<div class="user-header">
-				<div class="row">
+			<div class="user-header" v-if="user">
+				<div class="row" >
 					<img :src="user.logo" alt="../../static/user-logo.png" />
 					<h2>{{ user.user }}</h2>
 				</div>
