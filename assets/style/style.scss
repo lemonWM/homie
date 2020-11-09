@@ -32,17 +32,27 @@
     padding-left: 45px;
 
     .user-information-wrapper {
-      padding: 25px 0px;
-      border-bottom: 1px solid #595959;
-
-      .user-header{
+      
+      .user-header, .user-main{
         align-items: center;
+        padding: 55px 0px;
+        border-bottom: 1px solid #595959;
+        padding-left: 30px;
 
         img{
             border-radius: 50px;
             width: 100px;
             margin-right: 20px;
         }
+      }
+      .user-main{
+          .contact-wrapper{
+              display: flex;
+              flex-direction: column;
+          }
+          a{
+              color: inherit;
+          }
       }
     }
   }
