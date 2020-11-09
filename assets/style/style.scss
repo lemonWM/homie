@@ -1,0 +1,23 @@
+.main-user-wrapper{
+
+    .main-user{
+        padding: 100px;
+
+        @media screen and (max-width: 900px) {
+            padding: 100px 15px;
+          }
+
+        .nav_user_panel{
+
+            button {
+                margin-bottom: 20px;
+                i{
+                    width: 20px;
+                    font-size: 30px;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+

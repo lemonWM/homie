@@ -47,9 +47,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.main-user{
-    padding: 100px;
-}
-</style>

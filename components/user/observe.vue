@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="section-content ">
 
         <div v-for="(observe, index) in user.favourite" :key="index">
             <div>{{observe}}</div>

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <pre>{{user}}</pre>
+    <div class="section-content dashboard">
+        
     </div>
 </template>
 
