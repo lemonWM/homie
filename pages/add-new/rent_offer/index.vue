@@ -1,7 +1,7 @@
 <template>
     <div class="main-generator">
         <div class="title">Create own rents offer</div>
-        <mainContent offerType='rent'/>
+        <mainContent offerType='rents'/>
     </div>
 </template>
 

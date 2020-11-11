@@ -66,7 +66,6 @@
             </div>
         </div>
     </div>
-
 </div>
 </template>
 
@@ -88,7 +87,8 @@ export default {
             sendingNew: false,
             progressValue: 20,
             reciveObject: false,
-            registered: {}
+            registered: {},
+            logged_user_id: ''
         }
     },
     created() {
@@ -102,6 +102,10 @@ export default {
         isUser() {
 
             return Object.entries(this.$store.state.user).length !== 0
+        },
+        user(){
+
+            this.logged_user_id = this.$store.state.user._id
         }
     },
     methods: {
@@ -162,17 +166,12 @@ export default {
 
                 this.reciveObject = true
 
-                let offer_to_user = {
-                    '_id': data._id,
-                    'address': data.address,
-                    'localization': data.localization,
-                    'photo': data.photos[0],
-                    'price': data.price,
-                    'totalArea': data.totalArea,
-                    'type': data.type
+                if(data){
+
+                    this.logged_user_id = this.$store.state.user._id
+
+                    this.add_offer_toUser(data)
                 }
-                // api to user 
-                
             })
             .catch(({ err })=>{
                 console.log(err)
@@ -183,7 +182,25 @@ export default {
             let id = this.registered._id
 
             this.$router.push(`/forSale/${id}`)
-        }
+        },
+        add_offer_toUser(data){
+
+            let offer_to_user = {
+                'user_id': this.logged_user_id,
+                '_id': data._id,
+                'address': data.address,
+                'localization': data.localization,
+                'photo': data.photos[0],
+                'price': data.price,
+                'totalArea': data.totalArea,
+                'type': data.type
+            }
+
+            console.log(offer_to_user)
+
+            this.$axios.put(`${this.$axios.defaults.baseURL}/user-add-created`, offer_to_user)
+
+        } // add to user sels or rents new created offer 
     },
     components: {
         VueGoogleAutocomplete,
