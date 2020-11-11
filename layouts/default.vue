@@ -16,7 +16,14 @@
         </div>
       </div>
     </nav>
+    
     <Nuxt class="main-wrapper"/> <!-- main content -->
+
+    <footer>
+      <div class="footer">
+        <span>homie by art {{date}}</span>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -25,8 +32,16 @@ export default {
   name: 'nav-main',
   data() {
     return {
-      loggedUser: false
+      loggedUser: false,
+      date: ''
     }
+  },
+  created() {
+    
+    let date = new Date()
+
+    this.date = date.getFullYear()
+
   },
   computed: {
     

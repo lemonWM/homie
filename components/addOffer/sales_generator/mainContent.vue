@@ -196,8 +196,6 @@ export default {
                 'type': data.type
             }
 
-            console.log(offer_to_user)
-
             this.$axios.put(`${this.$axios.defaults.baseURL}/user-add-created`, offer_to_user)
 
         } // add to user sels or rents new created offer 
