@@ -1,6 +1,9 @@
 <template>
     <div class="section-content observe">
-        <h3>Observed</h3>
+        <h3>Observed offers by {{user.user}}</h3>
+        <div v-if="!user.favourite.length">
+            <p>{{user.user}} not add to favourite offer yet</p>
+        </div>
         <div v-for="(single, index) in user.favourite" :key="index"
             class="single-observed--user-panel">
             <div class="row">
@@ -15,7 +18,7 @@
 
                     <div class="owner-details">
                         <p>Created by:</p>
-                        <div class="">
+                        <div class="owner-details--contact">
                             <button @click="go_to_user(single.owner.first_name)">
                                 <img class="owner-logo" :src="single.owner.photo" alt="">
                             </button>
@@ -30,10 +33,7 @@
                     </div>  
                 </div>
             </div>
-
-            <pre>{{single}}</pre>
         </div>
-        
     </div>
 </template>
 

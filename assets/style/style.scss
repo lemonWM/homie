@@ -1,89 +1,150 @@
 .main-user-wrapper {
 
-  .main-user {
-    padding: 100px;
+    .main-user {
+        padding: 100px;
 
-    @media screen and (max-width: 900px) {
-      padding: 100px 15px;
+        @media screen and (max-width: 900px) {
+            padding: 100px 15px;
+        }
+
+        .content {
+            width: 100%;
+            width: -moz-available;
+            width: -webkit-fill-available;
+            width: stretch;
+        }
+
+        .nav_user_panel {
+
+            button {
+                margin-bottom: 20px;
+                min-width: 160px;
+                display: flex;
+                color: inherit;
+
+                @media screen and (max-width: 900px) {
+                    min-width: auto;
+                }
+
+                i {
+                    width: 20px;
+                    font-size: 30px;
+                    margin-right: 20px;
+                }
+            }
+        }
     }
 
-    .content {
-      width: 100%;
-      width: -moz-available;
-      width: -webkit-fill-available;
-      width: stretch;
+    .section-content {
+        padding-left: 45px;
+
+        .user-information-wrapper {
+
+            .user-header,
+            .user-main {
+                align-items: center;
+                padding: 55px 0px;
+                border-bottom: 1px solid #595959;
+                padding-left: 30px;
+
+                .under-name {
+                    margin-top: 30px;
+                    font-size: 22px;
+                }
+
+                img {
+                    border-radius: 50px;
+                    width: 100px;
+                    margin-right: 20px;
+                }
+            }
+
+            .user-main {
+                .contact-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                a {
+                    color: inherit;
+                    margin: 10px 0px;
+                }
+            }
+        }
+
+        .single-observed--user-panel {
+            margin: 50px 0px;
+            padding-left: 10px;
+            border-left: 1px solid #af9668;
+            border-bottom: 1px solid transparent;
+            padding: 10px;
+            transition: all ease-in .3s;
+            -webkit-transition: all ease-in .3s;
+            -moz-transition: all ease-in .3s;
+            -ms-transition: all ease-in .3s;
+            -o-transition: all ease-in .3s;
+
+            .row {
+                position: relative;
+
+                @media screen and (max-width: 785px) {
+                    flex-direction: column;
+                }
+            }
+
+            .offer-logo {
+                width: 300px;
+                max-height: 220px;
+            }
+
+            .details {
+                padding-left: 30px;
+
+                @media screen and (max-width: 785px) {
+                    padding: 20px 0px;
+                }
+
+                p {
+                    margin-bottom: 0.4rem;
+                }
+
+                .owner-details {
+
+                    @media screen and (min-width: 870px) {
+                        position: absolute;
+                        bottom: 0px;
+                    }
+
+
+                    .owner-logo {
+                        height: 50px;
+                        border-radius: 50px;
+                        margin-right: 20px;
+                    }
+
+                    .owner-details--contact {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        a {
+                            color: #c2f9df;
+                            font-size: 15px;
+                        }
+
+                        p {
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .single-observed--user-panel:hover {
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, #af9668, #35350c);
+            border-image-slice: 100%;
+            border-image-slice: 1;
+        }
     }
-
-    .nav_user_panel {
-
-      button {
-        margin-bottom: 20px;
-        min-width: 160px;
-        display: flex;
-        color: inherit;
-
-        i {
-          width: 20px;
-          font-size: 30px;
-          margin-right: 20px;
-        }
-      }
-    }
-  }
-
-  .section-content {
-    padding-left: 45px;
-
-    .user-information-wrapper {
-
-      .user-header,
-      .user-main {
-        align-items: center;
-        padding: 55px 0px;
-        border-bottom: 1px solid #595959;
-        padding-left: 30px;
-
-        .under-name {
-          margin-top: 30px;
-          font-size: 22px;
-        }
-
-        img {
-          border-radius: 50px;
-          width: 100px;
-          margin-right: 20px;
-        }
-      }
-
-      .user-main {
-        .contact-wrapper {
-          display: flex;
-          flex-direction: column;
-        }
-
-        a {
-          color: inherit;
-          margin: 10px 0px;
-        }
-      }
-    }
-
-    .single-observed--user-panel {
-
-      .offer-logo {
-        width: 300px;
-      }
-
-      .details {
-
-        .owner-details {
-
-          .owner-logo {
-            height: 45px;
-            border-radius: 45px;
-          }
-        }
-      }
-    }
-  }
 }
