@@ -50,8 +50,6 @@ export default {
             })
 
             this.$refs['address'].autocompleteText = ""
-
-            console.log(this.$refs['address'])
         } // reset sort place by localization
     },
     watch: {
@@ -65,9 +63,6 @@ export default {
             this.$store.commit('searchPlace', {
                 searchPlace: namePlace
             })
-        },
-        placeholder_text(n){
-            console.log(n)
         }
     },
     components: { VueGoogleAutocomplete }

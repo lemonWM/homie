@@ -8,9 +8,9 @@
             <mapModule @pointered='setClass' />
         </div>
     </div>
-    <div class="item-wrapper">
+    <div class="item-wrapper"
+        v-if="sales.length > 0">
         <div class="single-wrapper columns small-3 " 
-        
             v-for="(single, index) in sales" :key="single._id" 
             :class="{'active': (single._id === activeID)}" 
             @mouseleave="showDetails('')">
@@ -54,6 +54,9 @@
                 </div>
             </div>
         </div>
+    </div>        
+    <div v-else class="error-find-item">
+        <h2>No result matched for {{this.$store.state.searchPlace}}</h2>
     </div>
 </div>
 </template>
@@ -72,7 +75,8 @@ export default {
             buttonAddTitle: '',
             active_add: '',
             items_favourite: [],
-            temporaryClass: ''
+            temporaryClass: '',
+            searched_items: true
         }
     },
 
@@ -96,8 +100,17 @@ export default {
             if (this.$store.state.searchPlace === '') {
 
                 return this.$store.state.sales
+            
             } else {
+                
+                let terms = this.$store.getters.getSelectedPlace(this.$store.state.searchPlace).length
+                
+                if(terms > 0){
 
+                    console.log('dsadasdasd')
+                    
+                    
+                }
                 return this.$store.getters.getSelectedPlace(this.$store.state.searchPlace)
             }
         },
