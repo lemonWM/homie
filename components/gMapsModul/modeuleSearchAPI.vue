@@ -4,7 +4,7 @@
             id="map"
             ref="address"
             classname="input-sels"
-            placeholder="Enter city, ex. 'Los Angeles'"
+            :placeholder="placeholder_text"
             v-on:placechanged="getToData"
             types="(cities)"
             country="us" 
@@ -23,7 +23,8 @@ export default {
     name: 'search-google-api',
     data() {
         return {
-            address: ''
+            address: '',
+            placeholder_text: "Enter city, ex. 'Los Angeles'"
         }
     },
     mounted() {
@@ -39,12 +40,18 @@ export default {
         * @param {String} id Input container ID
         */
         getToData: function (addressData, placeResultData, id) {
+            
             this.address = addressData;
         },
         clearSearch(){
+            
             this.$store.commit('searchPlace', {
                 searchPlace: ''
             })
+
+            this.$refs['address'].autocompleteText = ""
+
+            console.log(this.$refs['address'])
         } // reset sort place by localization
     },
     watch: {
@@ -58,6 +65,9 @@ export default {
             this.$store.commit('searchPlace', {
                 searchPlace: namePlace
             })
+        },
+        placeholder_text(n){
+            console.log(n)
         }
     },
     components: { VueGoogleAutocomplete }

@@ -103,7 +103,13 @@ export default {
         },
         getLocalization() {
 
-            return this.$store.state.localization.locality
+            if(this.$store.state.searchPlace){
+
+                return this.$store.state.localization.locality
+            } else {
+
+                return false
+            }
         },
         loggedUser() {
 
@@ -257,18 +263,7 @@ export default {
     display: block !important;
 }
 
-.sales-wrapper {
-    padding-top: 30px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
 
-.title-result {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #af9668 !important;
-}
 
 .element-sale {
     cursor: pointer;

@@ -151,6 +151,71 @@
 
 
 
+
+// main sells page style global 
+
+.auto-complete{
+    position: relative;
+
+    .input-sels{
+        background-color: #505767;
+        border: none;
+        box-shadow: none;
+        border-radius: 15px;
+        padding: 10px 45px 10px 30px;
+        color: #bcced3;
+        height: auto;
+        width: 340px;
+        font-size: 22px;
+      }
+      .input-sels:focus{
+        background-color: #505767;
+        border: none;
+        outline: none;
+      }
+
+    button{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        i::before{
+            font-size: 22px;
+            color: #bcced3;
+        }
+    }
+}
+
+// search input style
+
+.pac-container{
+    background-color: rgb(80, 87, 103) none repeat scroll 0% 0%;
+    border: none;
+    ::after{
+        display: none;
+    }
+}
+.pac-logo::after{
+    display: none;
+}
+
+
+.sales-wrapper {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .title-result {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #af9668 !important;
+        margin-top: 5px;
+    }
+}
+
+
+
 // footer global style
 
 .footer{
