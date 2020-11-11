@@ -44,7 +44,8 @@ export default {
     methods: {
         
         go_to_offer(id){
-            console.log(id)
+           
+            this.$router.push(`/forSale/${id}`)
         },
         go_to_user(user){
 

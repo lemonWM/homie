@@ -162,7 +162,17 @@ export default {
 
                 this.reciveObject = true
 
-                console.log(this.registered)
+                let offer_to_user = {
+                    '_id': data._id,
+                    'address': data.address,
+                    'localization': data.localization,
+                    'photo': data.photos[0],
+                    'price': data.price,
+                    'totalArea': data.totalArea,
+                    'type': data.type
+                }
+                // api to user 
+                
             })
             .catch(({ err })=>{
                 console.log(err)

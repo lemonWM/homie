@@ -171,8 +171,7 @@ span {
   background-color: #3b4350;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding-top: 100px;
 }
 .offer-wrapper .main-title{
   font-size: 42px;
