@@ -22,7 +22,7 @@
                             <button @click="go_to_user(single.owner.first_name)">
                                 <img class="owner-logo" :src="single.owner.photo" alt="">
                             </button>
-                            <div >
+                            <div>
                                 <p>{{single.owner.first_name}} {{single.owner.last_name}}</p>
                                 <a :href="`mailto:${single.owner.email}`">
                                     <i class="fas fa-envelope-open"></i>
@@ -44,7 +44,6 @@ export default {
     methods: {
         
         go_to_offer(id){
-           
             this.$router.push(`/forSale/${id}`)
         },
         go_to_user(user){

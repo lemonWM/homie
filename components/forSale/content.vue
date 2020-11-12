@@ -30,7 +30,7 @@
                             <p class="address">{{single.localization}} {{single.address}}</p>
                         </div>
                         <div>
-                            <p class="details">{{single.schedulePlace.bedrooms}} bedrooms / {{single.schedulePlace.bathrooms}} bathrooms / {{single.totalArea}} &sup2</p>
+                            <p class="details">{{single.schedulePlace.bedrooms}} bedrooms / {{single.schedulePlace.bathrooms}} bathrooms / {{single.totalArea}} ft.&sup2</p>
                         </div>
                     </div>
                 </article>
