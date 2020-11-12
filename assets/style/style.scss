@@ -52,8 +52,13 @@
                     font-size: 22px;
                 }
 
-                img {
+                .user-header--logo {
                     border-radius: 50px;
+                    width: 100px;
+                    margin-right: 20px;
+                }
+                .user-header--alternative{
+                    border-radius: 0px;
                     width: 100px;
                     margin-right: 20px;
                 }
@@ -149,7 +154,7 @@
     }
     .section-content--offers {
         margin-left: 5%;
-        
+
         .section-title{
             margin-top: 50px;
         }

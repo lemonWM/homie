@@ -4,7 +4,8 @@
 		<div class="user-information-wrapper">
 			<div class="user-header" v-if="user">
 				<div class="row" >
-					<img :src="user.logo" alt="../../static/user-logo.png" />
+					<img v-if="user.logo" :src="user.logo" class="user-header--logo">
+					<img  v-else src="../../static/user-logo.png" class="user-header--alternative">
 					<h2>{{ user.user }}</h2>
 				</div>
 				<div>

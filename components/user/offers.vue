@@ -11,7 +11,8 @@
                     <div class="row">
                         <div class="thumb-element">
                             <button @click="go_to_offer(single._id)">
-                                <img class="offer-logo" :src="single.photo" alt="logo">
+                                <img v-if="single.photo" class="offer-logo" :src="single.photo">
+                                <img v-else src="../../static/img_random.png">
                             </button>
                         </div>
                         <div class="details">
@@ -30,7 +31,8 @@
                     <div class="row">
                         <div class="thumb-element">
                             <button @click="go_to_offer(single._id)">
-                                <img class="offer-logo" :src="single.photo" alt="logo">
+                                <img v-if="single.photo" class="offer-logo" :src="single.photo">
+                                <img v-else src="../../static/img_random.png">
                             </button>
                         </div>
                         <div class="details">
@@ -55,9 +57,7 @@ export default {
         
         go_to_offer(id){
 
-        },
-        go_to_user(){
-
+             this.$router.push(`/forSale/${id}`)
         }
     },
 }

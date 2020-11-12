@@ -9,7 +9,8 @@
             <div class="row">
                 <div class="thumb-element">
                     <button @click="go_to_offer(single._id)">
-                        <img class="offer-logo" :src="single.icon" alt="logo">
+                        <img v-if="single.icon" class="offer-logo" :src="single.icon">
+                        <img v-else src="../../static/img_random.png">
                     </button>
                 </div>
                 <div class="details">
@@ -20,7 +21,9 @@
                         <p>Created by:</p>
                         <div class="owner-details--contact">
                             <button @click="go_to_user(single.owner.first_name)">
-                                <img class="owner-logo" :src="single.owner.photo" alt="">
+                                <img v-if="single.owner.photo" 
+                                    class="owner-logo" :src="single.owner.photo">
+                                <img v-else src="../../static/user-logo.png">
                             </button>
                             <div>
                                 <p>{{single.owner.first_name}} {{single.owner.last_name}}</p>

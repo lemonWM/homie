@@ -47,8 +47,6 @@ export default {
 
             this.toggle_class = value
 
-            console.log(this.toggle_class)
-
             this.$router.push(`/user/${this.getUser}/${value}`)
         }
     },
