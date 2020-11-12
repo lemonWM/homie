@@ -148,9 +148,14 @@
         }
     }
     .section-content--offers {
+        margin-left: 5%;
+        
+        .section-title{
+            margin-top: 50px;
+        }
 
         .single{
-            margin: 50px 0px;
+            margin: 30px 0px;
             padding-left: 10px;
             border-left: 1px solid #af9668;
             border-bottom: 1px solid transparent;
@@ -174,7 +179,35 @@
                 width: 300px;
                 max-height: 220px;
             }
+            .details {
+                padding-left: 30px;
 
+                h2{
+                    font-size: 45px;
+                    font-weight: 500;
+                }
+
+                h3{
+                    color: #c2f9df;
+                }
+                .item1{
+                    color: #b6cac1;
+                }
+                .item2{
+                    color: #848484;
+                }
+                .item3{
+                    color: #5e5e5e;
+                }
+
+                @media screen and (max-width: 785px) {
+                    padding: 20px 0px;
+                }
+
+                p {
+                    margin-bottom: 0.4rem;
+                }
+            }
         }
         .single:hover{
             border-bottom: 1px solid transparent;

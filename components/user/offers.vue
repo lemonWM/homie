@@ -6,13 +6,26 @@
         </div>   
         <div v-else>
             <div v-if="user.sales.length" class="content-offer--owner">
-                <h3>User sales offer</h3>
-                <div v-for="(sale, index) in user.sales"  :key="index" class="single">
-                    <p>{{sale}}</p>
+                <h3 class="section-title">User sales offer</h3>
+                <div v-for="(single, index) in user.sales"  :key="index" class="single">
+                    <div class="row">
+                        <div class="thumb-element">
+                            <button @click="go_to_offer(single._id)">
+                                <img class="offer-logo" :src="single.photo" alt="logo">
+                            </button>
+                        </div>
+                        <div class="details">
+                            <h3>{{single.localization}}</h3>
+                            <p class="item1">{{single.address}}</p>
+                            <p class="item2">Total cost: {{single.price}} $</p>
+                            <p class="item3">Area: {{single.totalArea}} ft.&sup2</p>
+                            <p class="item4">Offer type: {{single.type}}</p>
+                        </div>
+                    </div>
                 </div>  
             </div>
             <div v-if="user.rents.length" class="content-offer--owner">
-                <h3>User rents offer</h3>
+                <h3 class="section-title">User rents offer</h3>
                 <div v-for="(single, index) in user.rents"  :key="index" class="single">
                     <div class="row">
                         <div class="thumb-element">
@@ -22,9 +35,10 @@
                         </div>
                         <div class="details">
                             <h3>{{single.localization}}</h3>
-                            <p>{{single.address}}</p>
-                            <p>Total cost: {{single.price}} $</p>
-                            <p>Area: {{single.totalArea}} ft.&sup2</p>
+                            <p class="item1">{{single.address}}</p>
+                            <p class="item2">Total cost: {{single.price}} $</p>
+                            <p class="item3">Area: {{single.totalArea}} ft.&sup2</p>
+                            <p class="item4">Offer type: {{single.type}}</p>
                         </div>
                     </div>
                 </div>  
