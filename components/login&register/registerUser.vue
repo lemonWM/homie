@@ -13,13 +13,28 @@
                             <p class="form-input-hint" v-if="!$v.user.required">Login is required</p>
                         </label>
                     </div>
-                <div class="medium-3 cell">
-                    <label>
-                        <i class="fas fa-envelope"></i>
-                        <input type="text" placeholder="EMAIL" v-model.lazy="email" @input="$v.email.$touch()">
-                        <p class="form-input-hint" v-if="!$v.email.required">E-mail address required</p>
-                    </label>
-                </div>
+                    <div class="medium-3 cell">
+                        <label>
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="FIRST NAME" v-model.trim="firstName" >
+                            <p class="form-input-hint" v-if="!$v.firstName.required">First name is required</p>
+                        </label>
+                    </div>
+                    <div class="medium-3 cell">
+                        <label>
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="LAST NAME" v-model.trim="lastName" >
+                            <p class="form-input-hint" v-if="!$v.lastName.required">Last name is required</p>
+                        </label>
+                    </div>
+                    <div class="medium-3 cell">
+                        <label>
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" placeholder="EMAIL" v-model.lazy="email" @input="$v.email.$touch()">
+                            <p class="form-input-hint" v-if="!$v.email.required">E-mail address required</p>
+                            <p class="form-input-hint" v-if="!$v.email.email">Incorrect email form</p>
+                        </label>
+                    </div>
                     <div class="medium-3 cell">
                         <label>
                             <i class="fas fa-key"></i>
@@ -37,7 +52,7 @@
 <script>
 
 import { validationMixin } from 'vuelidate';
-import { required,  minLength } from 'vuelidate/lib/validators';
+import { required,  minLength, email} from 'vuelidate/lib/validators';
 
 export default {
     name: 'register-user-panel',
@@ -45,6 +60,8 @@ export default {
     data() {
         return {
             user: '',
+            firstName:'',
+            lastName:'',
             password: '',
             email:'',
             error: ''
@@ -65,6 +82,13 @@ export default {
             minLength: minLength(5)
         },
         email: {
+            required,
+            email
+        },
+        firstName:{
+            required
+        },
+        lastName:{
             required
         }
     }

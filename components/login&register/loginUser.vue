@@ -26,7 +26,7 @@
     </form>
     <div>
         <p>If you don't have an account, no problem.
-            <router-link :to="{name: 'register'}"> Create an account now.</router-link>
+            <router-link :to="{name: 'register'}"> Create now.</router-link>
         </p>
     </div>
     <div class="error" v-if="error">
