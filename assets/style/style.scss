@@ -769,44 +769,59 @@ sales
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 50px;
 
     .title{
       text-align: center;
+      margin-bottom: 30px;
     }
 
-    form {
-      margin-top: 50px;
-      margin-bottom: 50px;
+    .forms-wrapper{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
 
-      label {
-        position: relative;
+      form {
+        margin-top: 20px;
+        margin-bottom: 50px;
 
-        i {
-          position: absolute;
-          top: 15px;
-          left: 15px;
-          font-size: 20px;
-          color: #3c3b3b;
+        .cell{
+          width: 340px;
+        }
+  
+        label {
+          position: relative;
+  
+          i {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 20px;
+            color: #3c3b3b;
+          }
+        }
+  
+        input {
+          background-color: #505767;
+          border: none;
+          box-shadow: none;
+          border-radius: 15px;
+          padding: 10px 45px 10px 50px;
+          color: #bcced3;
+          height: auto;
+          width: 340px;
+          font-size: 22px;
+        }
+  
+        div > .column{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
       }
-
-      input {
-        background-color: #505767;
-        border: none;
-        box-shadow: none;
-        border-radius: 15px;
-        padding: 10px 45px 10px 50px;
-        color: #bcced3;
-        height: auto;
-        width: 340px;
-        font-size: 22px;
-      }
-
-      div > .column{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
     }
+
+
   }
 }
