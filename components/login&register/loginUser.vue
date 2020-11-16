@@ -1,5 +1,5 @@
 <template>
-<div class="">
+<div class="main-content">
     <div class="title">
         <h2>Sign into your account</h2>
     </div>
@@ -8,7 +8,7 @@
             <div class="column">
                 <div class="medium-3 cell">
                     <label>
-                        <i class="fa fa-envelope"></i>
+                        <i class="fas fa-user"></i>
                         <input type="text" placeholder="LOGIN" v-model.lazy="user" @input="$v.user.$touch()">
                         <p class="form-input-hint" v-if="!$v.user.required">Login required</p>
                     </label>
@@ -20,7 +20,7 @@
                         <p class="form-input-hint" v-if="!$v.password.minLength">Required min. 5 signs</p>
                     </label>
                 </div>
-                <button type="button" class="button" :disabled='$v.$invalid' @click="login">SIGN IN</button>
+                <button type="button" class="button-generate" :disabled='$v.$invalid' @click="login">SIGN IN</button>
             </div>
         </div>
     </form>
@@ -36,13 +36,8 @@
 </template>
 
 <script>
-import {
-    validationMixin
-} from 'vuelidate';
-import {
-    required,
-    minLength
-} from 'vuelidate/lib/validators';
+import { validationMixin } from 'vuelidate';
+import { required,  minLength } from 'vuelidate/lib/validators';
 
 export default {
     name: 'user-login',

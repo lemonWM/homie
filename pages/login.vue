@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="user-login-register">
         <loginPanel />
     </div>
 </template>
