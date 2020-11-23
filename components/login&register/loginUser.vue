@@ -3,27 +3,29 @@
     <div class="title">
         <h2>Sign into your account</h2>
     </div>
-    <form class="form">
-        <div class="grid-container">
-            <div class="column">
-                <div class="medium-3 cell">
-                    <label>
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="LOGIN" v-model.lazy="user" @input="$v.user.$touch()">
-                        <p class="form-input-hint" v-if="!$v.user.required">Login required</p>
-                    </label>
+    <div class="forms-wrapper">
+        <form class="form">
+            <div class="grid-container">
+                <div class="column">
+                    <div class="medium-3 cell">
+                        <label>
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="LOGIN" v-model.lazy="user" @input="$v.user.$touch()">
+                            <p class="form-input-hint" v-if="!$v.user.required">Login required</p>
+                        </label>
+                    </div>
+                    <div class="medium-3 cell">
+                        <label>
+                            <i class="fas fa-key"></i>
+                            <input type="password" placeholder="PASSWORD" v-model="password" @blur="$v.password.$touch()">
+                            <p class="form-input-hint" v-if="!$v.password.minLength">Required min. 5 signs</p>
+                        </label>
+                    </div>
+                    <button type="button" class="button-generate" :disabled='$v.$invalid' @click="login">SIGN IN</button>
                 </div>
-                <div class="medium-3 cell">
-                    <label>
-                        <i class="fas fa-key"></i>
-                        <input type="password" placeholder="PASSWORD" v-model="password" @blur="$v.password.$touch()">
-                        <p class="form-input-hint" v-if="!$v.password.minLength">Required min. 5 signs</p>
-                    </label>
-                </div>
-                <button type="button" class="button-generate" :disabled='$v.$invalid' @click="login">SIGN IN</button>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
     <div>
         <p>If you don't have an account, no problem.
             <router-link :to="{name: 'register'}"> Create now.</router-link>
