@@ -60,7 +60,7 @@
                         <div class="medium-3 cell">
                             <label>
                                 <i class="fas fa-portrait"></i>
-                                <input type="text" placeholder="UPLOAD LOGO" v-model.trim="firstName" >
+                                <input type="text" placeholder="UPLOAD LOGO" v-model.trim="logo" >
                                 <p class="form-input-hint" v-if="!$v.firstName.required">First name is required</p>
                             </label>
                         </div>   
@@ -92,13 +92,50 @@ export default {
             password: '',
             email:'',
             phone: '',
+            logo: '',
+            error: '',
+            registeredDate: '',
             error: ''
         }
+    },
+    created() {
+        
+        let d = new Date
+
+        this.registeredDate = d.getDay() + ' '+ d.getMonth() + ' '+ d.getFullYear()
     },
     methods: {
         
         register(){
 
+            let register_user = {
+                user: this.user,
+                first_name: this.firstName,
+                last_name: this.lastName,
+                password: this.password,
+                logo: this.logo,
+                email: this.email,
+                phone: this.phone,
+                sales: [],
+                rents: [],
+                favourite: [],
+                registered: this.registeredDate
+            }
+
+            this.registerUser(register_user)
+        },
+        registerUser(user){
+
+            this.$axios.post(this.$axios.defaults.baseURL + '/register-new-user', user)
+
+            .then(({ data })=>{
+
+                console.log(data)
+            })
+            .catch(({ data })=>{
+
+                this.error = data
+            })
         }
     },
     validations: {
