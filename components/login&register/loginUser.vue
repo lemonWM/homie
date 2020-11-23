@@ -19,6 +19,7 @@
                             <i class="fas fa-key"></i>
                             <input type="password" placeholder="PASSWORD" v-model="password" @blur="$v.password.$touch()">
                             <p class="form-input-hint" v-if="!$v.password.minLength">Required min. 5 signs</p>
+                            <p v-if="wrong_password">Incorrect password</p>
                         </label>
                     </div>
                     <button type="button" class="button-generate" :disabled='$v.$invalid' @click="login">SIGN IN</button>
@@ -48,7 +49,8 @@ export default {
         return {
             user: '',
             password: '',
-            error: ''
+            error: '',
+            wrong_password: ''
         }
     },
     methods: {
@@ -67,7 +69,11 @@ export default {
 
                     this.$router.push({ name: 'index' })
                 })
-                .catch(({err}) => { this.error = err })
+                .catch(({ err }) => { 
+                
+                    console.log(err)
+                    this.error = err 
+                })
         },
         setLogged(user) {
 
