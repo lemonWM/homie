@@ -15,7 +15,7 @@
             <img v-else src="../../homie/static/user-logo.png" class="logo-user-nav">
           </button>
 
-          <div class="login-nav__panel" v-if="!activePanel">
+          <div class="login-nav__panel" v-if="activePanel">
             <ul>
               <li>
                 <button @click="gotoUserPanel(logged)"><i class="fa fa-user"></i> {{logged.user}}</button>
@@ -104,6 +104,6 @@ export default {
           this.$router.push({name: 'login'})
       }
     }
-  },
+  }
 }
 </script>
