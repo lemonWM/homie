@@ -10,7 +10,7 @@
           <nuxt-link :to="{name: 'register'}" class="nav-link">Register</nuxt-link>
         </div>
         <div class="login-nav" v-else>
-          <button class="hollow user-panel-btn" @click="gotoUserPanel(logged)">
+          <button class="hollow user-panel-btn" @click="activePanel =! activePanel">
             <img v-if="logged.logo" :src="logged.logo" alt="" class="logo-user-nav">
             <img v-else src="../../homie/static/user-logo.png" class="logo-user-nav">
           </button>
@@ -18,7 +18,7 @@
           <div class="login-nav__panel" v-if="!activePanel">
             <ul>
               <li>
-                <button><i class="fa fa-user"></i> {{logged.user}}</button>
+                <button @click="gotoUserPanel(logged)"><i class="fa fa-user"></i> {{logged.user}}</button>
               </li>
               <li>
                 <button><i class="fa fa-star"></i> observe</button>
@@ -80,6 +80,8 @@ export default {
     gotoUserPanel(logged){
 
       let user = logged.user
+
+      this.activePanel =! this.activePanel
     
       this.$router.push(`/user/${user}`)
     }
