@@ -21,13 +21,10 @@
                 <button @click="gotoUserPanel(logged)"><i class="fa fa-user"></i> {{logged.user}}</button>
               </li>
               <li>
-                <button><i class="fa fa-star"></i> observe</button>
+                <button @click="gotoUserSettings(logged)"><i class="fas fa-cogs"></i>settings</button>
               </li>
               <li>
-                <button><i class="fas fa-cogs"></i> settings</button>
-              </li>
-              <li>
-                <button><i class="fa fa-power-off"></i> logout</button>
+                <button @click="logout"><i class="fa fa-power-off"></i> logout</button>
               </li>
             </ul>
           </div>
@@ -77,13 +74,35 @@ export default {
   },
   methods: {
     
-    gotoUserPanel(logged){
+    gotoUserPanel(logged, path){
 
       let user = logged.user
 
       this.activePanel =! this.activePanel
-    
+
       this.$router.push(`/user/${user}`)
+      
+    },
+    gotoUserSettings(logged){
+
+    },
+    logout(){
+
+        this.setLogged()
+    },
+    setLogged() {
+
+      let route = $nuxt.$route.path
+      let reg = /user/ig
+
+      this.$store.commit('loginUser', {
+        user: {}
+      })
+
+      if(route.match(reg)){
+          
+          this.$router.push({name: 'login'})
+      }
     }
   },
 }

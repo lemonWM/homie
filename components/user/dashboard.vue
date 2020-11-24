@@ -10,6 +10,7 @@
 				</div>
 				<div>
 					<h3 class="under-name">{{ user.first_name }} {{user.last_name}}</h3>
+					<h3 class="under-name">Registered: {{ user.registered }}</h3>
 				</div>
 			</div>
 			<div class="user-main">
