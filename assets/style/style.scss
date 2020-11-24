@@ -414,6 +414,28 @@ a,
   margin-right: 5px;
 }
 
+.login-nav{
+  
+
+  &__panel{
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    min-width: 200px;
+
+    >ul{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start;
+
+      li{
+        list-style: none;
+      }
+    }
+  }
+}
+
 .login-nav button {
   padding: 0;
   padding-right: 30px;

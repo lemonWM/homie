@@ -11,8 +11,26 @@
         </div>
         <div class="login-nav" v-else>
           <button class="hollow user-panel-btn" @click="gotoUserPanel(logged)">
-            <img :src="logged.logo" alt="" class="logo-user-nav">
-          {{logged.user}}</button>
+            <img v-if="logged.logo" :src="logged.logo" alt="" class="logo-user-nav">
+            <img v-else src="../../homie/static/user-logo.png" class="logo-user-nav">
+          </button>
+
+          <div class="login-nav__panel" v-if="!activePanel">
+            <ul>
+              <li>
+                <button><i class="fa fa-user"></i> {{logged.user}}</button>
+              </li>
+              <li>
+                <button><i class="fa fa-star"></i> observe</button>
+              </li>
+              <li>
+                <button><i class="fas fa-cogs"></i> settings</button>
+              </li>
+              <li>
+                <button><i class="fa fa-power-off"></i> logout</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -33,7 +51,8 @@ export default {
   data() {
     return {
       loggedUser: false,
-      date: ''
+      date: '',
+      activePanel: false
     }
   },
   created() {
