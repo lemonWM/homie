@@ -21,7 +21,7 @@
                 <button @click="gotoUserPanel(logged)"><i class="fa fa-user"></i> {{logged.user}}</button>
               </li>
               <li>
-                <button @click="gotoUserSettings(logged)"><i class="fas fa-cogs"></i>settings</button>
+                <button @click="gotoSettings"><i class="fas fa-cogs"></i>settings</button>
               </li>
               <li>
                 <button @click="logout"><i class="fa fa-power-off"></i> logout</button>
@@ -83,8 +83,11 @@ export default {
       this.$router.push(`/user/${user}`)
       
     },
-    gotoUserSettings(logged){
+    gotoSettings(){
 
+      this.activePanel =! this.activePanel
+
+      this.$router.push({name: 'settings'})
     },
     logout(){
 
@@ -94,12 +97,13 @@ export default {
 
       let route = $nuxt.$route.path
       let reg = /user/ig
+      let reg2 = /settings/ig
 
       this.$store.commit('loginUser', {
         user: {}
       })
 
-      if(route.match(reg)){
+      if(route.match(reg) || route.match(reg2)){
           
           this.$router.push({name: 'login'})
       }
