@@ -873,6 +873,7 @@ sales
 .main_settings{
   min-height: 100vh;
   background-color: #3b4350;
+  padding-top: 100px;
 
   input{
     background-color: #505767;
@@ -897,10 +898,11 @@ sales
   .single{
     max-width: max-content;
     position: relative;
+    min-width: 500px;
 
     .row{
       display: flex;
-      justify-content: center;
+      //justify-content: center;
       align-items: center;
 
       .logo-single{

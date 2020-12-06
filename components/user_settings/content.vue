@@ -29,21 +29,19 @@
                     <div class="user-header section-content--offers" style="margin-left:0px">
 
                         <h2>Added to observe</h2>
-
-                        <div v-for="favourite in user.favourite" :key="favourite._id" class="single" v-if="user.favourite.length">
-
+                        <div v-for="(favourite, index) in user.favourite" :key="favourite._id" class="single" v-if="user.favourite.length">
                             <div class="row">
                                 <img :src="favourite.icon" alt="" class="logo-single">
-                                <p>{{favourite.localization}}</p>
-                                <p>{{favourite.address}}</p>
-
+                                    <div>
+                                        <p>{{favourite.localization}}</p>
+                                        <p>{{favourite.address}}</p>
+                                    </div>
                                 <div class="remove-content">
-                                    <button class="button-generate">remove from observe</button>
+                                    <button class="button-generate" @click="remove_item(favourite._id, index)">remove from observe</button>
                                 </div>
                             </div>
-                        
                         </div>
-                        <div v-else>
+                        <div v-else-if="!user.favourite.length">
                             <p>You not add to observe any offer</p>
                         </div>
                     </div>
@@ -90,6 +88,23 @@ export default {
             this.user = this.$store.state.user
         } else {
             this.$router.push({name: 'login'})
+        }
+    },
+    methods: {
+        
+        remove_item(id, index){
+
+            let item = this.user.favourite[index]
+
+            if(item._id == id){
+                
+                this.user.favourite.splice(index, 1)
+            }
+        },
+        remove_observe(id){
+
+            // api for remove
+
         }
     },
 }
