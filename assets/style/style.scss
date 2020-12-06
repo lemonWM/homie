@@ -874,6 +874,26 @@ sales
   min-height: 100vh;
   background-color: #3b4350;
 
+  input{
+    background-color: #505767;
+    border: none;
+    box-shadow: none;
+    border-radius: 15px;
+    padding: 10px 45px 10px 30px;
+    color: #bcced3;
+    height: auto;
+    width: 340px;
+    font-size: 22px;
+
+    &:focus {
+      background-color: #3d4149
+    }
+  }
+  .user-header{
+    .button-generate{
+      margin-right: 65px;
+    }
+  }
   .single{
     max-width: max-content;
     position: relative;

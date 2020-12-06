@@ -10,11 +10,21 @@
                         <button class="button-generate">change logo</button>
                     </div>
                     <div class="user-header">
-                        <p><i class="fa fa fa-user"></i> {{user.first_name}} {{user.last_name}}</p>
-                        <p><i class="fas fa-mobile"></i>{{user.phone}}</p>
-                        <p><i class="fas fa-envelope"></i>{{user.email}}</p>
+                        <div v-if="!edit_mode">
+                            <p><i class="fa fa fa-user"></i> {{user.first_name}} {{user.last_name}}</p>
+                            <p><i class="fas fa-mobile"></i>{{user.phone}}</p>
+                            <p><i class="fas fa-envelope"></i>{{user.email}}</p>
 
-                        <button class="button-generate">edit information</button>
+                            <button @click="edit_mode =! edit_mode" class="button-generate">edit information</button>
+                        </div>
+                        <div v-else>
+                            <input type="text" :placeholder="user.last_name">
+                            <input type="text" :placeholder="user.phone">
+                            <input type="text" :placeholder="user.email">
+
+                            <button @click="edit_mode =! edit_mode" class="button-generate">Skip</button>
+                            <button @click="" class="button-generate">Save</button>
+                        </div>
                     </div>
                     <div class="user-header section-content--offers" style="margin-left:0px">
 
@@ -59,8 +69,6 @@
                         </div>
                     </div>
                 </div>
-            
-
             </div>
             <div class="activities"></div>
         </div>
@@ -72,12 +80,17 @@ export default {
     name: 'profile settings',
     data() {
         return {
-            user: {}    
+            user: {},
+            edit_mode: false    
         }
     },
     created() {
-        
-        this.user = this.$store.state.user
+
+        if(Object.entries(this.$store.state.user).length){
+            this.user = this.$store.state.user
+        } else {
+            this.$router.push({name: 'login'})
+        }
     },
 }
 </script>
