@@ -91,7 +91,9 @@ export default {
     },
     logout(){
 
-        this.setLogged()
+      this.setLogged()
+
+      this.activePanel =! this.activePanel
     },
     setLogged() {
 

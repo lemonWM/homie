@@ -1,10 +1,13 @@
 <template>
     <div>
-        settings
+        <mainSettings />
     </div>
 </template>
 
 <script>
+
+import mainSettings from '../components/user_settings/content'
+
 export default {
     name: 'settings',
     data() {
@@ -12,5 +15,8 @@ export default {
             
         }
     },
+    components: {
+        mainSettings
+    }
 }
 </script>
