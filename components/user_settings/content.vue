@@ -75,7 +75,7 @@
 
 <script>
 export default {
-    name: 'profile settings',
+    name: 'profile_settings',
     data() {
         return {
             user: {},
@@ -107,9 +107,10 @@ export default {
 
              console.log(offer_id)
 
-            this.$axios.delete(this.$axios.defaults.baseURL + '/remove-user-observed-offer',{
-                user: this.user._id,
-                _id: offer_id               
+            this.$axios.delete(`${this.$axios.defaults.baseURL}/remove-user-observed-offer`, { data:{
+                    user: this.user._id,
+                    _id: offer_id 
+                }
             })
             .then(({data})=> {
 
