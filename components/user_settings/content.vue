@@ -92,19 +92,33 @@ export default {
     },
     methods: {
         
-        remove_item(id, index){
+        remove_item(offer_id, index){
 
             let item = this.user.favourite[index]
 
-            if(item._id == id){
+            if(item._id == offer_id){
                 
                 this.user.favourite.splice(index, 1)
+
+                this.remove_observe(offer_id)
             }
         },
-        remove_observe(id){
+        remove_observe(offer_id){
 
-            // api for remove
+             console.log(offer_id)
 
+            this.$axios.delete(this.$axios.defaults.baseURL + '/remove-user-observed-offer',{
+                user: this.user._id,
+                _id: offer_id               
+            })
+            .then(({data})=> {
+
+                console.log(data)
+            })
+            .catch(({err})=>{
+
+                console.log(err)
+            })
         }
     },
 }
