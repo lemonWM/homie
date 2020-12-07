@@ -23,7 +23,7 @@
                             <input type="text" :placeholder="user.email">
 
                             <button @click="edit_mode =! edit_mode" class="button-generate">Skip</button>
-                            <button @click="" class="button-generate">Save</button>
+                            <button  class="button-generate">Save</button>
                         </div>
                     </div>
                     <div class="user-header section-content--offers" style="margin-left:0px">
