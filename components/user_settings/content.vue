@@ -79,13 +79,29 @@ export default {
     data() {
         return {
             user: {},
-            edit_mode: false    
+            edit_mode: false,
+            error: null    
         }
     },
     created() {
-
+		
         if(Object.entries(this.$store.state.user).length){
-            this.user = this.$store.state.user
+            
+            const user = this.$store.state.user.first_name
+
+            this.$axios.get(`${this.$axios.defaults.baseURL}/user/${user}`)
+            
+            .then(({ data }) => {
+                
+                this.user = data;
+
+                this.set_User_Full(data)
+            })
+            .catch(({ error }) => {
+                
+                this.error = error;
+            });
+
         } else {
             this.$router.push({name: 'login'})
         }
@@ -105,8 +121,6 @@ export default {
         },
         remove_observe(offer_id){
 
-             console.log(offer_id)
-
             this.$axios.delete(`${this.$axios.defaults.baseURL}/remove-user-observed-offer`, { data:{
                     user: this.user._id,
                     _id: offer_id 
@@ -114,13 +128,18 @@ export default {
             })
             .then(({data})=> {
 
-                console.log(data)
-            })
+             })
             .catch(({err})=>{
 
                 console.log(err)
             })
-        }
+        },
+        set_User_Full(user){
+
+            this.$store.commit('setUserDetails', {
+                user: user
+            })
+        }        
     },
 }
 </script>

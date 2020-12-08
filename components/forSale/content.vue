@@ -104,13 +104,7 @@ export default {
             } else {
                 
                 let terms = this.$store.getters.getSelectedPlace(this.$store.state.searchPlace).length
-                
-                if(terms > 0){
 
-                    console.log('dsadasdasd')
-                    
-                    
-                }
                 return this.$store.getters.getSelectedPlace(this.$store.state.searchPlace)
             }
         },
@@ -133,10 +127,6 @@ export default {
 
                 return true
             }
-        },
-        userDetails(){
-
-            console.log(this.$store.state.user.favourite)
         }
     },
     methods: {
@@ -214,6 +204,8 @@ export default {
             this.$axios.put(`${this.$axios.defaults.baseURL}/add-to-favourite`, item)
 
             .then(({ data }) =>{
+
+                console.log(data)
 
                 this.update_User(data.value) 
 

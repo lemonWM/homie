@@ -83,10 +83,10 @@ export default {
   */
   css: [
     '@/assets/style/style.css',
-    
+    '@/assets/style/style.scss',
   ],
   /*
-'@/assets/style/style.scss',
+
 
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
@@ -121,11 +121,12 @@ export default {
   */
   
   axios: {
-    baseURL: 'https://homie-backend.herokuapp.com',
+    baseURL: 'http://localhost:5000',
   },
   /* localhost: 'http://localhost:5000'
   /* prod: 'https://homie-backend.herokuapp.com'
-/* turn off sass loader & 
+
+  /* turn off sass loader & 
 
   /*
   ** Content module configuration
