@@ -414,10 +414,10 @@ a,
   margin-right: 5px;
 }
 
-.login-nav{
-  
+.login-nav {
 
-  &__panel{
+
+  &__panel {
     position: absolute;
     top: 50px;
     right: 0px;
@@ -425,28 +425,28 @@ a,
     // background: rgb(106,122,136);
     // background: linear-gradient(8deg, rgba(106,122,136,0) 30%, rgba(0,0,0,0.875770376509979) 70%); 
 
-    background: rgb(255,255,255);
-    background: linear-gradient(14deg, rgba(255,255,255,0) 43%, rgba(0,0,0,1) 100%); 
+    background: rgb(255, 255, 255);
+    background: linear-gradient(14deg, rgba(255, 255, 255, 0) 43%, rgba(0, 0, 0, 1) 100%);
 
-    >ul{
+    >ul {
       display: flex;
       flex-direction: column;
       width: 100%;
       align-items: flex-start;
 
-      li{
+      li {
         list-style: none;
 
-        button{
+        button {
           color: #9d9d9d;
           display: flex;
           align-items: center;
 
-          &:hover{
+          &:hover {
             color: white;
           }
 
-          i{
+          i {
             margin-right: 10px;
             width: 25px;
           }
@@ -708,19 +708,7 @@ sales
   margin-right: 20px;
 }
 
-.preview-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin: 0;
-  margin-top: 0px;
-  background-color: #505767;
-  padding: 20px;
-  border-radius: 20px;
-  margin-top: 30px;
-  height: max-content;
-}
+
 
 .details-photo-preview {
   display: flex;
@@ -813,12 +801,12 @@ sales
     align-items: center;
     padding-bottom: 50px;
 
-    .title{
+    .title {
       text-align: center;
       margin-bottom: 30px;
     }
 
-    .forms-wrapper{
+    .forms-wrapper {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -828,13 +816,13 @@ sales
         margin-top: 20px;
         margin-bottom: 50px;
 
-        .cell{
+        .cell {
           width: 340px;
         }
-  
+
         label {
           position: relative;
-  
+
           i {
             position: absolute;
             top: 15px;
@@ -843,7 +831,7 @@ sales
             color: #3c3b3b;
           }
         }
-  
+
         input {
           background-color: #505767;
           border: none;
@@ -855,8 +843,8 @@ sales
           width: 340px;
           font-size: 22px;
         }
-  
-        div > .column{
+
+        div>.column {
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -870,12 +858,12 @@ sales
 
 // USER SETTINGS
 
-.main_settings{
+.main_settings {
   min-height: 100vh;
   background-color: #3b4350;
   padding-top: 100px;
 
-  input{
+  input {
     background-color: #505767;
     border: none;
     box-shadow: none;
@@ -890,33 +878,38 @@ sales
       background-color: #3d4149
     }
   }
-  .user-header{
-    .button-generate{
+
+  .user-header {
+    .button-generate {
       margin-right: 65px;
     }
   }
-  .single{
+
+  .single {
     max-width: max-content;
     position: relative;
     min-width: 500px;
 
-    .row{
+    .row {
       display: flex;
       //justify-content: center;
       align-items: center;
 
-      .logo-single{
+      .logo-single {
         width: 150px;
       }
-      p{
-        margin:  0px 10px;
+
+      p {
+        margin: 0px 10px;
       }
     }
-    &:hover .remove-content{
+
+    &:hover .remove-content {
       display: flex;
 
     }
-    .remove-content{
+
+    .remove-content {
       display: none;
       position: absolute;
       top: 0px;
@@ -927,9 +920,71 @@ sales
       justify-content: center;
       align-items: center;
 
-      .button-generate{
+      .button-generate {
         margin-top: 0px;
       }
     }
   }
+}
+
+
+/* google maps */
+
+.g-maps {
+  position: relative;
+}
+
+.prev-sing-g-maps {
+  position: absolute;
+  top: 20px;
+  right: 90px;
+  background: #505767;
+  border-radius: 20px;
+  padding: 15px;
+
+  .top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    figure{
+      margin: 0px 15px 0px 0px;
+    }
+  }
+  .bottom{
+    display: flex;
+    justify-content: space-between;
+
+    .button-generate{
+      padding: 8px 20px;
+    }
+  }
+  .preview-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0;
+    background-color: #505767;
+    padding: 0px;
+    border-radius: 20px;
+    margin-top: 0px;
+    height: max-content;
+
+    p {
+      font-size: 15px;
+      margin: 0;
+          margin-bottom: 0px;
+      margin-bottom: 7px;
+    }
+  }
+}
+
+.visible {
+  display: block;
+}
+
+.img-preview-icon {
+  width: 100px;
 }

@@ -7,18 +7,19 @@
 
     <div class="prev-sing-g-maps" v-if="visible">
         <article>
-            <figure>
-                <img :src="preview.photos[0]" alt="" class="img-preview-icon">
-            </figure>
-            <div class="preview-details">
-                <p>{{preview.address}}</p>
-                <p>{{preview.localization}}</p>
-                <p>{{preview.price}}</p>
+            <div class="top">
+                <figure>
+                    <img :src="preview.photos[0]" alt="" class="img-preview-icon">
+                </figure>
+                <div class="preview-details">
+                    <p>City: {{preview.localization}}</p>
+                    <p>Address: {{preview.address}}</p>
+                </div>
             </div>
-            <button class="secondary button hollow" @click="singleDetails">VISIT PLACE</button>
-            <button @click="visible =!visible; emitID('')">
-                <i class="fas fa-times"></i>
-            </button>
+            <div class="bottom">
+                <button class="button-generate" @click="singleDetails">VISIT</button>
+                <button @click="visible =!visible; emitID('')" class="button-generate">CLOSE</button>
+            </div>
         </article>
     </div>
 </div>
@@ -104,25 +105,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.g-maps {
-    position: relative;
-}
-.prev-sing-g-maps {
-    position: absolute;
-    top: 20px;
-    right: 90px;
-    background: #505767;
-
-    border-radius: 20px;
-    padding: 15px;
-}
-.visible {
-    display: block;
-}
-
-.img-preview-icon {
-    width: 100px;
-}
-</style>
