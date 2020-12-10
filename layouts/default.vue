@@ -39,11 +39,11 @@
           </button>
         </div>
         <div class="bottom-panel" v-if="open_menu">
-          <nuxt-link :to="{name: 'forSale'}" class="nav-link">Buy & Rents</nuxt-link>
-          <nuxt-link :to="{name: 'add-new'}" class="nav-link">Add offer</nuxt-link>
+          <nuxt-link :to="{name: 'forSale'}" class="nav-link" @click.native="open_menu =! open_menu">Buy & Rents</nuxt-link>
+          <nuxt-link :to="{name: 'add-new'}" class="nav-link" @click.native="open_menu =! open_menu">Add offer</nuxt-link>
           <div class="login-nav row" v-if="!logged">
-            <nuxt-link :to="{name: 'login'}" class="nav-link">Login</nuxt-link>
-            <nuxt-link :to="{name: 'register'}" class="nav-link">Register</nuxt-link>
+            <nuxt-link :to="{name: 'login'}" class="nav-link" @click.native="open_menu =! open_menu">Login</nuxt-link>
+            <nuxt-link :to="{name: 'register'}" class="nav-link" @click.native="open_menu =! open_menu">Register</nuxt-link>
           </div>
           <div class="login-nav" v-else>
             <button class="hollow user-panel-btn" @click="activePanel =! activePanel">
@@ -54,13 +54,13 @@
             <div class="login-nav__panel" v-if="activePanel">
               <ul>
                 <li>
-                  <button @click="gotoUserPanel(logged)"><i class="fa fa-user"></i> {{logged.user}}</button>
+                  <button @click="{gotoUserPanel(logged), toggle_menu()}"><i class="fa fa-user"></i> {{logged.user}}</button>
                 </li>
                 <li>
-                  <button @click="gotoSettings"><i class="fas fa-cogs"></i>settings</button>
+                  <button @click="{gotoSettings(), toggle_menu()}"><i class="fas fa-cogs"></i>settings</button>
                 </li>
                 <li>
-                  <button @click="logout"><i class="fa fa-power-off"></i> logout</button>
+                  <button @click="{logout(), toggle_menu()}"><i class="fa fa-power-off"></i> logout</button>
                 </li>
               </ul>
             </div>
