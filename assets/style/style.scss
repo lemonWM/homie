@@ -991,7 +991,7 @@ sales
 
 /* MEDIA MENU */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 786px) {
   .main-nav{
     display: none;
   }
@@ -1037,5 +1037,11 @@ sales
         padding-bottom: 25px;
       }
     }
+  }
+}
+@media screen and (min-width: 787px) {
+
+  .mobile-menu{
+    display: none;
   }
 }
