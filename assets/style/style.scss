@@ -988,3 +988,36 @@ sales
 .img-preview-icon {
   width: 100px;
 }
+
+/* MEDIA MENU */
+
+@media screen and (max-width: 600px) {
+  .main-nav{
+    display: none;
+  }
+
+  .mobile-menu{
+    width: 100%;
+
+    .top-panel{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0px 15px;
+      height: 50px;
+
+      .burger-btn{
+        color: #af9668;
+        font-size: 24px;
+        padding-right: 15px;
+      }
+    }
+    .bottom-panel{
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background: #000000fa;
+    }
+  }
+}

@@ -41,9 +41,9 @@ export default {
     
     set_User_Full(user){
 
-		this.$store.commit('setUserDetails', {
-			user: user
-		})
+      this.$store.commit('setUserDetails', {
+        user: user
+      })
     } // set user details
   },
 };

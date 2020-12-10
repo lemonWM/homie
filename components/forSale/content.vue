@@ -200,12 +200,9 @@ export default {
         send_favourite(item){ 
 
             // push to favourite array in user profile
-
             this.$axios.put(`${this.$axios.defaults.baseURL}/add-to-favourite`, item)
 
             .then(({ data }) =>{
-
-                console.log(data)
 
                 this.update_User(data.value) 
 

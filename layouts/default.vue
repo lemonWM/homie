@@ -30,6 +30,43 @@
           </div>
         </div>
       </div>
+      <div class="mobile-menu burger-menu">
+        <div class="top-panel">
+          <nuxt-link :to="{name: 'index'}" class="nav-link nav-home">Homie</nuxt-link>
+          <button class="burger-btn" @click="toggle_menu">
+            <i class="fas fa-ellipsis-h" v-if="!open_menu"></i>
+            <i class="fas fa-ellipsis-v" v-else></i>
+          </button>
+        </div>
+        <div class="bottom-panel" v-if="open_menu">
+          <nuxt-link :to="{name: 'forSale'}" class="nav-link">Buy & Rents</nuxt-link>
+          <nuxt-link :to="{name: 'add-new'}" class="nav-link">Add offer</nuxt-link>
+          <div class="login-nav row" v-if="!logged">
+            <nuxt-link :to="{name: 'login'}" class="nav-link">Login</nuxt-link>
+            <nuxt-link :to="{name: 'register'}" class="nav-link">Register</nuxt-link>
+          </div>
+          <div class="login-nav" v-else>
+            <button class="hollow user-panel-btn" @click="activePanel =! activePanel">
+              <img v-if="logged.logo" :src="logged.logo" alt="" class="logo-user-nav">
+              <img v-else src="../../homie/static/user-logo.png" class="logo-user-nav">
+            </button>
+
+            <div class="login-nav__panel" v-if="activePanel">
+              <ul>
+                <li>
+                  <button @click="gotoUserPanel(logged)"><i class="fa fa-user"></i> {{logged.user}}</button>
+                </li>
+                <li>
+                  <button @click="gotoSettings"><i class="fas fa-cogs"></i>settings</button>
+                </li>
+                <li>
+                  <button @click="logout"><i class="fa fa-power-off"></i> logout</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
     
     <Nuxt class="main-wrapper"/> <!-- main content -->
@@ -49,7 +86,8 @@ export default {
     return {
       loggedUser: false,
       date: '',
-      activePanel: false
+      activePanel: false,
+      open_menu: false
     }
   },
   created() {
@@ -109,6 +147,11 @@ export default {
           
           this.$router.push({name: 'login'})
       }
+    },
+    toggle_menu(){
+
+        this.open_menu =! this.open_menu
+
     }
   }
 }
