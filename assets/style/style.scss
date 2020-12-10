@@ -1018,6 +1018,21 @@ sales
       flex-direction: column;
       height: 100vh;
       background: #000000fa;
+      padding-left: .8rem;
+      padding-top: 1rem;
+
+      .login-nav{
+        margin: 0px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__panel{
+          position: relative;
+          top: 0px;
+        }
+      }
     }
   }
 }
