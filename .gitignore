@@ -2,13 +2,11 @@
 ### Node template
 # Logs
 
-/logs/
-node_modules/
-/middleware/
-/plugins/
+logs
+node_modules
+middleware
+plugins
 .editorconfig
-Procfile
-content
 *.json
 *.log
 npm-debug.log*
