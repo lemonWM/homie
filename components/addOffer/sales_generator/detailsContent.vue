@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="item-new" v-if="!preview">
+        <div class="item-new-offer" v-if="!preview">
             <div class="col-wrap">
                 <label for="price">Price: </label>
                 <input type="numebr" id="price" class="input-sels" placeholder="Value of place in $" v-model="price">

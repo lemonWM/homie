@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="item-new" v-if="!preview">
+        <div class="item-new-offer" v-if="!preview">
             <div>
                 <label for="">Select address</label>
                 <vue-google-autocomplete
