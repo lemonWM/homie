@@ -38,7 +38,7 @@ to do:
 - module contact to offer author
 - reservation offer module
 - user info update (name, mail, change password ect.)
-
+- mobile style
 
 CSS Foundation freamwork Sass style
 
