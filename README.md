@@ -6,7 +6,10 @@ Application to publish home sells and rents offers.
 Based on Nuxt.js & Vue.js SSR App
 
 Client side main features:
-- user register & login panel
+- user register & login panel 
+
+ ![alt](https://res.cloudinary.com/donmoqxem/image/upload/v1608062002/github_markdown/Zrzut_ekranu_2020-12-15_o_8.23.02_PM_uwc9kb.png)
+
 - using google map api geolocalization
 - showing list of offerts on google maps markers
 - opening offers details from markers or list of offers
