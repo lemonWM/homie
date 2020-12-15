@@ -6,7 +6,7 @@
 /plugins
 .editorconfig
 Procfile
-/content
+content
 *.json
 *.log
 npm-debug.log*
