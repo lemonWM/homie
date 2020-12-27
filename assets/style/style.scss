@@ -830,6 +830,10 @@ sales
 
         .cell {
           width: 340px;
+          
+          @media (max-width:400px) {
+            width: 300px;
+          }
         }
 
         label {
@@ -854,6 +858,10 @@ sales
           height: auto;
           width: 340px;
           font-size: 22px;
+
+          @media (max-width:400px) {
+            width: 300px;
+          }
         }
 
         div>.column {
@@ -1263,26 +1271,36 @@ sales
   .pagination a:hover, .pagination button:hover {
     background: #fff0;}
   
-  .img-full-screen{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    min-height: 100%;
-    z-index: 9;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 99999;
-    padding: 20px;
-    overflow: hidden;
-    overflow-x: hidden; 
-    overflow-y: auto;
-    padding-top: 70px;
-  }
-
 }
+.close{
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  color: white;
+  z-index: 9999999;
+  font-size: 40px;
 
+  @media (max-width: 600px) {
+    top: 1%;
+  }
+}
+.img-full-screen{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  min-height: 100%;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 99999;
+  padding: 20px;
+  overflow: hidden;
+  overflow-x: hidden; 
+  overflow-y: auto;
+  padding-top: 70px;
+}
 
 // contact wrapper
 
