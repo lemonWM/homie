@@ -35,40 +35,5 @@ export default {
     max-height: 400px;
     background-position: center;
 }
-.header-content{
-    z-index: 999;
-    position: absolute;
-    width: 100%;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.dimmed{
-    position: absolute;
-    height: 400px;
-    width: 100%;
-    top: 0px; 
-    z-index: 1; 
-    background: rgba(255,255,255,0);
-    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(25%, rgba(206,208,211,0)), color-stop(100%, rgba(59,67,80,1)));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
-    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
-    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(206,208,211,0) 25%, rgba(59,67,80,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#3b4350', GradientType=0 );
-}
-.title{
-    color: #c2f9df;
-    font-weight: 500;
-    font-size: 56px;
-    text-shadow: 1px 1px 25px rgb(0, 0, 0);
-}
 
-.input-search-wrapper{
-    position: relative;
-    margin-top: 40px;
-}
 </style>

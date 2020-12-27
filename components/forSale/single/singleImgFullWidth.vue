@@ -1,6 +1,6 @@
 <template>
     <div class="full-width-slider">
-        <div>
+        <div class="full-width-slider__slider">
             <button @click="change(-1)" class="button hollow slider-btn-left" :disabled='id === 0'>
                 <i class="fas fa-chevron-circle-left arrow"></i>
             </button>
@@ -48,38 +48,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-
-.img-max-width{
-    max-width: 700px;
-}
-
-.bottom-prev{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.thumbnail{
-    width: 80px;
-    height: 60px;
-    margin: 5px 15px;
-}
-.close{
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    color: white;
-    z-index: 9999999;
-    font-size: 40px;
-}
-.arrow{
-    border: none;
-    color: white;
-    font-size: 30px;
-    padding: 10px;
-}
-.button.hollow, .button.hollow:focus, .button.hollow:hover {
-    border: none;
-}
-</style>
