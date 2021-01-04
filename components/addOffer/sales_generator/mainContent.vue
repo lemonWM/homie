@@ -35,20 +35,17 @@
 
     <div class="show-preview-buttons">
         <button class="hollow discard-change home-btn" @click="discard">Discard</button>
-        <button class="hollow accept-change home-btn" @click="createNew" :disabled='disabled'>Accept</button>
+        <button class="hollow accept-change home-btn" @click="createNew" :disabled='!active'>Accept</button>
     </div>
 
     <div class="is-logged-panel " v-if="!logged">
         <div class="preview-details">
             <div>
                 <h3>To continue on creator</h3>
-                <button class="hollow" @click="logged =!logged">
-                    <i class="far fa-times-circle"></i>
-                </button>
             </div>
             <div>
                 <button class="hollow accept-change home-btn" @click="redirectTo('register')">Register</button>
-                <button class="hollow discard-change home-btn" @click="redirectTo('login')">Login</button>
+                <button class="hollow accept-change home-btn" @click="redirectTo('login')">Login</button>
             </div>
         </div>
     </div>
@@ -94,7 +91,6 @@ export default {
                 details: false,
                 photo: false
             },
-            disabled: true,
             active: false
         }
     },
@@ -113,12 +109,6 @@ export default {
         user(){
 
             this.logged_user_id = this.$store.state.user._id
-        },
-        isDisabled(){
-
-            if(Object.entries(this.$store.state.user).length !== 0 && this.active !== false){
-                this.disabled = false
-            }
         }
     },
     methods: {
