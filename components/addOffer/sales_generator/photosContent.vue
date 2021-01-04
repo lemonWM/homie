@@ -78,6 +78,8 @@ export default {
                 this.imageData = []
 
                 this.setImgStore(this.uploadedURL) // commit uploaded img url
+
+                this.$emit('changePhotoStatus', true); 
             })
             .catch(({ err }) => {
                 

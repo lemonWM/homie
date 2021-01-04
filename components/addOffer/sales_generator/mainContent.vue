@@ -8,7 +8,7 @@
                 <i class="fas fa-chevron-up" v-else></i>
             </button>
         </div>
-        <adresContent v-show="openAddress" />
+        <adresContent v-show="openAddress" @changeAddresStatus='updateAddressStatus'/>
     </div>
 
     <div class="module">
@@ -19,7 +19,7 @@
                 <i class="fas fa-chevron-up" v-else></i>
             </button>
         </div>
-        <detailsContent v-show="openDetails" />
+        <detailsContent v-show="openDetails" @changeDetailsStatus='updateDetailsStatus'/>
     </div>
 
     <div class="module photo-module">
@@ -30,12 +30,12 @@
                 <i class="fas fa-chevron-up" v-else></i>
             </button>
         </div>
-        <photosContent v-show="openPhotos" />
+        <photosContent v-show="openPhotos" @changePhotoStatus='updatePhotoStatus'/>
     </div>
 
     <div class="show-preview-buttons">
         <button class="hollow discard-change home-btn" @click="discard">Discard</button>
-        <button class="hollow accept-change home-btn" @click="createNew" :disabled='!isUser'>Accept</button>
+        <button class="hollow accept-change home-btn" @click="createNew" :disabled='disabled'>Accept</button>
     </div>
 
     <div class="is-logged-panel " v-if="!logged">
@@ -88,7 +88,14 @@ export default {
             progressValue: 20,
             reciveObject: false,
             registered: {},
-            logged_user_id: ''
+            logged_user_id: '',
+            updated_values: {
+                localization: false,
+                details: false,
+                photo: false
+            },
+            disabled: true,
+            active: false
         }
     },
     created() {
@@ -106,6 +113,12 @@ export default {
         user(){
 
             this.logged_user_id = this.$store.state.user._id
+        },
+        isDisabled(){
+
+            if(Object.entries(this.$store.state.user).length !== 0 && this.active !== false){
+                this.disabled = false
+            }
         }
     },
     methods: {
@@ -197,8 +210,36 @@ export default {
             }
 
             this.$axios.put(`${this.$axios.defaults.baseURL}/user-add-created`, offer_to_user)
+        }, // add to user sels or rents new created offer 
 
-        } // add to user sels or rents new created offer 
+        // methods for update 
+        updateAddressStatus(payload){
+            if(payload == true){
+                this.updated_values.localization = true
+            }
+        },
+        updateDetailsStatus(payload){
+            if(payload == true){
+                this.updated_values.details = true
+            }
+        },
+        updatePhotoStatus(payload){
+            if(payload == true){
+                this.updated_values.photo = true
+            }
+        },
+    },
+    watch: {
+
+        updated_values: {
+            handler: function (val, oldVal) {
+
+                if(val.details == true && val.localization == true){
+                    this.active = true
+                }
+            },
+            deep: true
+        }
     },
     components: {
         VueGoogleAutocomplete,

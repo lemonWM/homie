@@ -22,7 +22,7 @@
                 <input type="text" id="street" placeholder="Write numer on street" class="input-sels" v-model="streetNumber">
             </div>
 
-            <button class=" hollow home-btn" @click="setInformation">Confirm all</button>
+            <button class=" hollow home-btn" @click="setInformation" :disabled='$v.$invalid'>Confirm all</button>
         </div> 
         <div v-if="preview">
             <div class="preview-details">
@@ -39,8 +39,12 @@
 
 import VueGoogleAutocomplete from '../../../node_modules/vue-google-autocomplete'
 
+import { validationMixin } from 'vuelidate';
+import { required,  minLength } from 'vuelidate/lib/validators';
+
 export default {
     name: 'address-content',
+    mixins: [validationMixin],
     data() {
         return {
             addresName:'',
@@ -79,7 +83,21 @@ export default {
                 address: this.street+' '+this.streetNumber
             })
             this.preview =! this.preview
+
+            this.$emit('changeAddresStatus', true); 
         }
+    },
+    validations: {
+        addresName: {
+            required
+        },
+        street: {
+            required
+        },
+        streetNumber: {
+            required
+        },
+
     },
     components: { VueGoogleAutocomplete }
 }

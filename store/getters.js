@@ -16,5 +16,13 @@ export default {
 
             return single_offer._id == id
         })
-    } // return single offer after add to observe button
+    }, // return single offer after add to observe button
+    get_NewOffer: (state) => {
+
+        if(state.newSale.localization.length && state.newSale.address.length && state.newSale.price != null){
+            return true
+        } else {
+            return false
+        }
+    }
 }

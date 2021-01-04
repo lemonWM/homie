@@ -29,7 +29,7 @@
                 <label for="garage">Describe: </label>
                 <textarea name="" id="garage" cols="30" rows="5" class="input-sels" placeholder="Tell the story of the place" v-model="description"></textarea> 
             </div>
-            <button class="hollow home-btn" @click="setInformation">Confirm all</button>
+            <button class="hollow home-btn" @click="setInformation" :disabled='$v.$invalid'>Confirm all</button>
         </div> 
 
         <div v-if="preview">
@@ -49,8 +49,13 @@
 </template>
 
 <script>
+
+import { validationMixin } from 'vuelidate';
+import { required,  minLength } from 'vuelidate/lib/validators';
+
 export default {
     name: 'details-content',
+    mixins: [validationMixin],
     data() {
         return {
             preview: false,
@@ -84,8 +89,33 @@ export default {
                 description: this.description
             })
 
-            this.preview =! this.preview
+            this.preview =! this.preview;
+
+            this.$emit('changeDetailsStatus', true); 
         }
+    },
+    validations: {
+        price: {
+            required
+        },
+        bedrooms: {
+            required
+        },
+        bathrooms: {
+            required
+        },
+        kitchen: {
+            required
+        },
+        garage: {
+            required
+        },
+        totalArea: {
+            required
+        },
+        description: {
+            required
+        },
     },
 }
 </script>
