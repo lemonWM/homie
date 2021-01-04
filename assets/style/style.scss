@@ -660,6 +660,15 @@ sales
   flex-direction: column;
   padding: 100px;
   position: relative;
+
+  @media (max-width: 530px) {
+    padding: 100px 7%;
+  }
+  .item-new-offer div input, .item-new-offer div textarea{
+    @media (max-width: 386px) {
+        width: 280px;
+    }
+  }
 }
 
 .col-wrap {
@@ -1422,6 +1431,4 @@ sales
     background-color: #86959c;
     border-radius: 10px;
   }
-
-
 }
