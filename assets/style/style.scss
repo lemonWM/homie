@@ -72,6 +72,7 @@
       }
       @media (max-width: 590px) {
         flex-direction: row;
+        flex-wrap: wrap;
       }
     }
   }
@@ -137,9 +138,17 @@
 
       .row {
         position: relative;
-
+       
         @media screen and (max-width: 785px) {
           flex-direction: column;
+        }
+        @media (max-width:590px) {
+          flex-direction: row;
+        }
+        div button img{
+          @media (max-width:590px) {
+            max-width: 140px;
+          }
         }
       }
 
@@ -150,13 +159,21 @@
 
       .details {
         padding-left: 30px;
-
+        p {
+          margin-bottom: 0.4rem;
+        }
         @media screen and (max-width: 785px) {
           padding: 20px 0px;
         }
+        @media (max-width: 590px) {
+          padding: 0px 0px 0px 20px;
 
-        p {
-          margin-bottom: 0.4rem;
+          h3{
+            font-size: 17px;
+          }
+          p{
+            font-size: 13px;
+          }
         }
 
         .owner-details {
@@ -165,7 +182,6 @@
             position: absolute;
             bottom: 0px;
           }
-
 
           .owner-logo {
             height: 50px;
@@ -181,6 +197,10 @@
             a {
               color: #c2f9df;
               font-size: 15px;
+
+              @media (max-width: 590px) {
+                font-size: 13px;
+              }
             }
 
             p {
@@ -201,6 +221,10 @@
 
   .section-content--offers {
     margin-left: 5%;
+
+    @media (max-width:590px) {
+      margin-left: 0px;
+    }
 
     .section-title {
       margin-top: 50px;
@@ -224,6 +248,14 @@
 
         @media screen and (max-width: 785px) {
           flex-direction: column;
+        }
+        @media (max-width:590px){
+          flex-direction: row;
+        }
+        div button img{
+          @media (max-width:590px) {
+            max-width: 140px;
+          }
         }
       }
 
@@ -255,13 +287,22 @@
         .item3 {
           color: #5e5e5e;
         }
-
+        p {
+          margin-bottom: 0.4rem;
+        }
         @media screen and (max-width: 785px) {
           padding: 20px 0px;
         }
+        @media (max-width:590px) {
+          padding: 0px 0px 0px 10px;
 
-        p {
-          margin-bottom: 0.4rem;
+          h3{
+            font-size: 16px;
+          }
+          p{
+            font-size: 12px;
+            margin-bottom: 0px;
+          }
         }
       }
     }
@@ -1302,6 +1343,10 @@ sales
     display: flex;
     justify-content: center;
     padding-right: 50px;
+
+    @media (max-width: 787px) {
+      padding-right: 0px
+    }
   }
   
   .pagination a:hover, .pagination button:hover {

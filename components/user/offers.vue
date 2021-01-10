@@ -1,6 +1,6 @@
 <template>
-    <div class="section-content--offers offers">
-        <h2>Sale & rents offers</h2>
+    <div class="section-content--offers offers section-content">
+        <h3>Sale & rents offers</h3>
         <div v-if="!user.sales.length & !user.rents.length">
             <p>{{user.user}} not published any offer yet</p>
         </div>   
