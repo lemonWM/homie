@@ -367,6 +367,9 @@ a,
   min-width: 200px;
   background: white;
   background: linear-gradient(14deg, rgba(255, 255, 255, 0) 43%, black 100%); }
+  @media (max-width: 787px) {
+    .login-nav__panel {
+      background: transparent !important; } }
   .login-nav__panel > ul {
     display: flex;
     flex-direction: column;
