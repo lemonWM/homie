@@ -80,10 +80,17 @@ export default {
   },
   /*
   ** Global CSS
+
+
+  for deploy on heroku:
+   - remove css line for style.scss
+   - change gitnore for json
+   - remove sass loader
+
   */
   css: [
     '@/assets/style/style.min.css',
-    //'@/assets/style/style.scss',
+    '@/assets/style/style.scss',
   ],
   /*
 
@@ -121,7 +128,7 @@ export default {
   */
   
   axios: {
-    baseURL: 'https://homie-backend.herokuapp.com',
+    baseURL: 'http://localhost:5000',
   },
   /* localhost: 'http://localhost:5000'
   /* prod: 'https://homie-backend.herokuapp.com'
