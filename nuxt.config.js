@@ -128,7 +128,7 @@ export default {
   */
   
   axios: {
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://homie-backend.herokuapp.com',
   },
   /* localhost: 'http://localhost:5000'
   /* prod: 'https://homie-backend.herokuapp.com'
