@@ -2,7 +2,30 @@
 ### Node template
 # Logs
 
+/logs/
+node_modules/
+/middleware/
+/plugins/
+.editorconfig
+/content/
+*.json
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
+
+/config/
+/public/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+temp.json*
+.postcssrc.js*
+.editorconfig*
+postcssrc *
+.babelrc*
+package-lock.json*
 
 # Runtime data
 pids
