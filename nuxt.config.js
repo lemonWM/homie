@@ -82,8 +82,8 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/style/style.css',
-    '@/assets/style/style.scss',
+    '@/assets/style/style.min.css',
+    //'@/assets/style/style.scss',
   ],
   /*
 
@@ -121,12 +121,12 @@ export default {
   */
   
   axios: {
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://homie-backend.herokuapp.com',
   },
   /* localhost: 'http://localhost:5000'
   /* prod: 'https://homie-backend.herokuapp.com'
 
-  /* turn off sass loader & 
+  /* turn off sass loader in package json for heroku deploy
 
   /*
   ** Content module configuration

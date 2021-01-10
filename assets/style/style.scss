@@ -228,6 +228,10 @@
 
     .section-title {
       margin-top: 50px;
+
+      @media (max-width: 500px) {
+        font-size: 28px;
+      }
     }
 
     .single {
@@ -1221,6 +1225,10 @@ sales
      padding-left: 20px;
      padding-right: 20px;
   }
+  @media (max-width: 360px) {
+    padding-left: 10px;
+    padding-right: 10px;
+ }
 }
 
 // img slider
@@ -1262,6 +1270,8 @@ sales
       display: flex;
       flex-direction: row;
       justify-content: center;
+      flex-wrap: wrap;
+      padding: 40px 10px;
   }
   .thumbnail{
       width: 80px;
@@ -1301,7 +1311,10 @@ sales
   @media (max-width: 787px) {
     padding-right: 0px;
   }  
-
+  @media (max-width:360px) {
+    display: flex;
+    justify-content: center;
+  }
   .img-element{
     width: 600px;
     border-radius: 20px;
@@ -1319,6 +1332,10 @@ sales
     position: relative;
     display: flex;
     justify-content: center;
+    
+    @media (max-width:360px) {
+      max-width: 300px;
+    }
   }
   .slider-btn-left{
     position: absolute;
@@ -1327,6 +1344,21 @@ sales
     width: 10%;
     margin: 0px;
     padding: 0px;
+
+    i{
+      transition: all ease-in .1s;
+      -webkit-transition: all ease-in .1s;
+      -moz-transition: all ease-in .1s;
+      -ms-transition: all ease-in .1s;
+      -o-transition: all ease-in .1s;
+    }
+
+    @media(max-width: 450px) {
+      left: 10px
+    }
+  }
+  .slider-btn-left i:hover{
+    color: #af9668;
   }
   .slider-btn-right{
     position: absolute;
@@ -1335,6 +1367,22 @@ sales
     width: 10%;
     margin: 0px;
     padding: 0px;
+
+    i{
+      transition: all ease-in .1s;
+      -webkit-transition: all ease-in .1s;
+      -moz-transition: all ease-in .1s;
+      -ms-transition: all ease-in .1s;
+      -o-transition: all ease-in .1s;
+    }
+
+
+    @media (max-width: 450px) {
+      right: 10px
+    }
+  }
+  .slider-btn-right i:hover{
+    color: #af9668;
   }
   .pagination{
     position: absolute;
@@ -1355,7 +1403,7 @@ sales
 }
 .close{
   position: absolute;
-  top: 5%;
+  top: 2% !important;
   right: 5%;
   color: white;
   z-index: 9999999;
@@ -1366,7 +1414,7 @@ sales
   }
 }
 .img-full-screen{
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   width: 100%;
@@ -1374,7 +1422,7 @@ sales
   z-index: 9;
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.98);
   z-index: 99999;
   padding: 20px;
   overflow: hidden;
@@ -1408,6 +1456,9 @@ sales
 
     @media (max-width:500px) {
       flex-direction: column;
+    }
+    @media (max-width:360px) {
+      padding: 20px 5px;
     }
   }
   .wrapper-contact{
@@ -1461,7 +1512,7 @@ sales
   .contact-details{
     position: absolute;
     top: 0px;
-    background: #353535e6;
+    background: rgba(36, 36, 36, 0.97);
     width: 100%;
     height: 100%;
     display: flex;
@@ -1469,6 +1520,14 @@ sales
     align-items: center;
     text-align: center;
     border-radius: 20px;
+    @media (max-width:415px) {
+      height: 90%;
+    }
+
+    .elements{
+      display: flex;
+      flex-direction: column;
+    }
   }
   .contact-bottom{
     margin-top: 25px;
@@ -1482,6 +1541,11 @@ sales
     @media (max-width:500px) {
       flex-wrap: wrap;
       padding: 0px;
+    }
+    @media (max-width:415px) {
+      justify-content: center;
+      padding-bottom: 35px;
+      padding-top: 25px;
     }
   }
   .contact-bottom button{
@@ -1499,8 +1563,14 @@ sales
   }
   .phone button, .email button{
     margin: 15px;
-    width: 250px;
+    width: 100%;
     background-color: #86959c;
     border-radius: 10px;
+    word-break: break-all;
+    max-width: 340px;
+
+    @media (max-width:415px) {
+      max-width: 240px;
+    }
   }
 }

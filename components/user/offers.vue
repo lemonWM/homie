@@ -6,7 +6,7 @@
         </div>   
         <div v-else>
             <div v-if="user.sales.length" class="content-offer--owner">
-                <h3 class="section-title">User sales offer</h3>
+                <h3 class="section-title">Sales offer</h3>
                 <div v-for="(single, index) in user.sales"  :key="index" class="single">
                     <div class="row">
                         <div class="thumb-element">
@@ -26,7 +26,7 @@
                 </div>  
             </div>
             <div v-if="user.rents.length" class="content-offer--owner">
-                <h3 class="section-title">User rents offer</h3>
+                <h3 class="section-title">Rents offer</h3>
                 <div v-for="(single, index) in user.rents"  :key="index" class="single">
                     <div class="row">
                         <div class="thumb-element">
