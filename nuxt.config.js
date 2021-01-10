@@ -126,7 +126,7 @@ export default {
   /* localhost: 'http://localhost:5000'
   /* prod: 'https://homie-backend.herokuapp.com'
 
-  /* turn off sass loader in package json for heroku deploy
+  /* turn off sass loader in package json for heroku deploy & gitnore 
 
   /*
   ** Content module configuration

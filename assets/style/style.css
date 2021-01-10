@@ -83,7 +83,11 @@
     .main-user-wrapper .section-content .user-information-wrapper .user-main .user-header--alternative {
       border-radius: 0px;
       width: 100px;
-      margin-right: 20px; }
+      margin-right: 20px;
+      background-image: url("../../static/user-logo.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat; }
   .main-user-wrapper .section-content .user-information-wrapper .user-main .contact-wrapper {
     display: flex;
     flex-direction: column; }
