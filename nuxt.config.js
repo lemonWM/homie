@@ -89,8 +89,8 @@ export default {
 
   */
   css: [
-    '@/assets/style/style.min.css',
-    '@/assets/style/style.scss',
+    '@/assets/style/style.min.css'
+    //'@/assets/style/style.scss',
   ],
   /*
 
