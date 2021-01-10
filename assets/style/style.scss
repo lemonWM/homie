@@ -1,3 +1,21 @@
+/* user details page */
+
+.main-user-wrapper {
+  min-height: 100vh;
+  background-color: #3b4350;
+}
+
+.main-user {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav_user_panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .main-user-wrapper {
 
   .main-user {
@@ -6,7 +24,9 @@
     @media screen and (max-width: 900px) {
       padding: 100px 15px;
     }
-
+    @media (max-width: 590px) {
+      flex-direction: column;
+    }
     .content {
       width: 100%;
       width: -moz-available;
@@ -21,22 +41,47 @@
         min-width: 160px;
         display: flex;
         color: inherit;
-
-        @media screen and (max-width: 900px) {
+        transition: all ease-in .2s;
+        -webkit-transition: all ease-in .2s;
+        -moz-transition: all ease-in .2s;
+        -ms-transition: all ease-in .2s;
+        -o-transition: all ease-in .2s;
+        
+        @media screen and(max-width: 900px){
           min-width: auto;
         }
-
+        @media screen and (max-width: 590px) {
+          margin-right: 20px;
+        }
         i {
           width: 20px;
           font-size: 30px;
           margin-right: 20px;
+          @media screen and (max-width: 590px) {
+            margin-right: 12px;
+          }
         }
+      }
+      @media(max-width: 590px) {
+        margin-right: 20px;
+        padding: .1rem 1rem;
+
+        button:hover{
+          color: wheat;
+        }
+      }
+      @media (max-width: 590px) {
+        flex-direction: row;
       }
     }
   }
 
   .section-content {
     padding-left: 45px;
+    @media (max-width: 590px) {
+      padding-left: 0px;
+      padding: 1rem;
+    }
 
     .user-information-wrapper {
 
@@ -523,24 +568,6 @@ span {
 
 
 
-
-/* user details page */
-
-.main-user-wrapper {
-  min-height: 100vh;
-  background-color: #3b4350;
-}
-
-.main-user {
-  display: flex;
-  flex-direction: row;
-}
-
-.nav_user_panel {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
 
 
 

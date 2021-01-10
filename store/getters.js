@@ -19,7 +19,7 @@ export default {
     }, // return single offer after add to observe button
     get_NewOffer: (state) => {
 
-        if(state.newSale.localization.length && state.newSale.address.length && state.newSale.price != null){
+        if(state.newSale.localization.length && state.newSale.address.length ){
             return true
         } else {
             return false
