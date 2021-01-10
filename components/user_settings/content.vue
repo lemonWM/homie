@@ -5,7 +5,7 @@
                 <div class="user-information-wrapper">
                     <div class="user-header">
                         <img :src="user.logo" alt="" v-if="user.logo" class="user-header--logo">
-                        <img src="../../static/user-logo.png" alt="" v-else class="user-header--logo">
+                        <img  v-else class="user-header--alternative user-header--logo">
                         <button class="button-generate">change logo</button>
                     </div>
                     <div class="user-header">

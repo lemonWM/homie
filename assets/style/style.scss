@@ -1578,3 +1578,12 @@ sales
     }
   }
 }
+.user-header--alternative {
+  border-radius: 0px;
+  width: 100px;
+  margin-right: 20px;
+  background-image: url('../../static/user-logo.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

@@ -23,7 +23,9 @@
                             <button @click="go_to_user(single.owner.first_name)">
                                 <img v-if="single.owner.photo" 
                                     class="owner-logo" :src="single.owner.photo">
-                                <img v-else src="../../static/user-logo.png">
+                                    
+                                <img  v-else class="user-header--alternative">
+
                             </button>
                             <div>
                                 <p>{{single.owner.first_name}} {{single.owner.last_name}}</p>

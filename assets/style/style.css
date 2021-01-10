@@ -1171,4 +1171,13 @@ sales
       .single-contact-wrapper .phone button, .single-contact-wrapper .email button {
         max-width: 240px; } }
 
+.user-header--alternative {
+  border-radius: 0px;
+  width: 100px;
+  margin-right: 20px;
+  background-image: url("../../static/user-logo.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat; }
+
 /*# sourceMappingURL=style.css.map */

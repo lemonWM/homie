@@ -12,7 +12,7 @@
         <div class="login-nav" v-else>
           <button class="hollow user-panel-btn" @click="activePanel =! activePanel">
             <img v-if="logged.logo" :src="logged.logo" alt="" class="logo-user-nav">
-            <img v-else src="../../homie/static/user-logo.png" class="logo-user-nav">
+            <img  v-else class="user-header--alternative logo-user-nav">
           </button>
 
           <div class="login-nav__panel" v-if="activePanel">
@@ -48,7 +48,8 @@
           <div class="login-nav" v-else>
             <button class="hollow user-panel-btn" @click="activePanel =! activePanel">
               <img v-if="logged.logo" :src="logged.logo" alt="" class="logo-user-nav">
-              <img v-else src="../../homie/static/user-logo.png" class="logo-user-nav">
+              <img  v-else class="user-header--alternative logo-user-nav">
+
             </button>
 
             <div class="login-nav__panel" v-if="activePanel">
