@@ -128,10 +128,10 @@ export default {
   */
   
   axios: {
-    baseURL: 'https://homie-backend.herokuapp.com',
+    baseURL: 'https://arturchochla.usermd.net',
   },
   /* localhost: 'http://localhost:5000'
-  /* prod: 'https://homie-backend.herokuapp.com'
+  /* prod: 'https://arturchochla.usermd.net'
 
   /* turn off sass loader in package json for heroku deploy & gitnore 
 
@@ -145,5 +145,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    
   }
+  
 }

@@ -1,6 +1,6 @@
 <template>
 <div class="g-maps" @click="hideShort">
-    <gmap-map :center="center" :zoom="9" style="width:100%;  height: 300px;">
+    <gmap-map :center="center" :zoom="9" style="width:100%;  height: 400px;">
         <gmap-marker :key="index" v-for="(m, index) in markers" :position="m.position" @click="show(m.position)">
         </gmap-marker>
     </gmap-map>
@@ -90,7 +90,7 @@ export default {
         }, // get single sels for preview on g-maps
         hideShort() {
 
-            this.visible = false
+            this.visible = false;
         },
         singleDetails() {
 
