@@ -136,9 +136,9 @@ export default {
             this.$axios.get(this.$axios.defaults.baseURL + '/sales')
                 .then(({ data }) => {
 
-                    this.allSels = data
+                    this.allSels = data;
 
-                    this.setSales(data)
+                    this.setSales(data);
                     this.select_all_ID(data)  // selecting _id of all single    
                 })
                 .catch(({ error }) => {
